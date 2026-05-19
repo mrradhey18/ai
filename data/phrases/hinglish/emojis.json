@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "purpose": "Emoji pools for Hinglish reviews. Indian patients writing in Hinglish tend to use emojis slightly more expressively than pure English writers. Same structure as english/emojis.json.",
+    "rules": [
+      "Hinglish writers use 🙏 very naturally — it's the most common",
+      "Heart emojis are common in Indian casual writing",
+      "Keep combinations feeling like real WhatsApp-style usage",
+      "Engine controls how many get used — not this file"
+    ]
+  },
+
+  "5star": [
+    "🙏", "😊", "💯", "❤️", "🌟", "✨", "👍", "😍", "🎉", "👏",
+    "💪", "🙌", "😁", "🌿", "💚", "✅", "🔥", "🤩", "😄", "❤️‍🩹"
+  ],
+
+  "4star": [
+    "🙏", "😊", "👍", "✅", "⭐", "💚", "👌", "😌", "💙", "🌿"
+  ],
+
+  "3star": [
+    "🙏", "👍", "✅", "⭐", "😐"
+  ],
+
+  "health_specific": [
+    "🌿", "💊", "💚", "🌱", "🩺", "❤️‍🩹", "🏥"
+  ],
+
+  "combinations": {
+    "_note": "Hinglish writers often use 🙏 in combinations — feels very natural for Indian context.",
+    "5star": [
+      ["🙏", "😊"],
+      ["❤️", "🙏"],
+      ["💯", "🙏"],
+      ["🌟", "😊"],
+      ["✨", "❤️"],
+      ["🙏", "💪", "✅"],
+      ["😍", "🌿"],
+      ["🙌", "💯"],
+      ["❤️", "✨", "🙏"],
+      ["😊", "👍"]
+    ],
+    "4star": [
+      ["🙏", "😊"],
+      ["👍", "✅"],
+      ["😌", "🙏"],
+      ["💚", "😊"],
+      ["⭐", "🙏"]
+    ],
+    "3star": [
+      ["🙏"],
+      ["👍"],
+      ["✅"],
+      ["🙏", "👍"]
+    ]
+  }
+}
