@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Review System — Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-deep:  #1a6b4a;
+      --green-mid:   #2d9b6f;
+      --green-light: #e8f5ef;
+      --green-pale:  #f4fbf7;
+      --gold:        #e8a030;
+      --sidebar-w:   260px;
+      --header-h:    56px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f0f4f2;
+      color: #1a2e24;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+    code, .code-tag { font-family: 'JetBrains Mono', monospace; }
+
+    /* ── TOP BAR ─────────────────────────────── */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: var(--green-deep);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar-title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .top-bar-badge {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.8);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Client switcher in top bar */
+    .client-select-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .client-select-wrap label {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+
+    #client-select {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 13px;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      outline: none;
+      min-width: 220px;
+    }
+
+    #client-select option { background: #1a6b4a; color: #fff; }
+
+    /* ── STATUS BAR ──────────────────────────── */
+    #status-bar {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0;
+      background: #eafaf1;
+      color: var(--green-deep);
+      border-bottom: 1px solid #a9dfbf;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 24px;
+      z-index: 99;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────── */
+    .sidebar {
+      position: fixed;
+      top: calc(var(--header-h) + 34px);
+      left: 0;
+      width: var(--sidebar-w);
+      bottom: 0;
+      background: #fff;
+      border-right: 1px solid #e0ede6;
+      padding: 20px 0;
+      overflow-y: auto;
+    }
+
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #7a9a87;
+      text-transform: uppercase;
+      padding: 14px 20px 6px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #3d5a4a;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      background: var(--green-pale);
+      color: var(--green-deep);
+      border-left-color: var(--green-mid);
+    }
+
+    .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+
+    /* ── MAIN CONTENT ────────────────────────── */
+    .main-content {
+      margin-left: var(--sidebar-w);
+      margin-top: calc(var(--header-h) + 34px);
+      padding: 28px 32px;
+      min-height: 100vh;
+    }
+
+    /* ── SECTIONS ────────────────────────────── */
+    .admin-section {
+      display: none;
+    }
+
+    .admin-section.active {
+      display: block;
+    }
+
+    .section-heading {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a2e24;
+      margin: 0 0 6px;
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: #7a9a87;
+      margin: 0 0 24px;
+    }
+
+    /* ── CARDS ───────────────────────────────── */
+    .admin-card {
+      background: #fff;
+      border: 1px solid #e0ede6;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(26,107,74,0.05);
+    }
+
+    .card-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── INFO ROWS ───────────────────────────── */
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f4f2;
+      font-size: 13px;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label {
+      color: #7a9a87;
+      font-weight: 600;
+      min-width: 130px;
+      flex-shrink: 0;
+    }
+
+    .info-val { color: #1a2e24; font-weight: 500; }
+
+    .code-tag {
+      background: #f0f4f2;
+      color: var(--green-deep);
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .link-tag {
+      color: #2980b9;
+      font-size: 12px;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    /* ── SERVICE ROWS ────────────────────────── */
+    .service-row {
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f2;
+    }
+
+    .service-row:last-child { border-bottom: none; }
+
+    .service-row-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .service-id-tag {
+      background: var(--green-light);
+      color: var(--green-deep);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 2px 8px;
+      border-radius: 5px;
+    }
+
+    .service-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a2e24;
+    }
+
+    .service-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* ── KEYWORD TAGS ────────────────────────── */
+    .kw-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #f0f4f2;
+      color: #3d5a4a;
+    }
+
+    .kw-local { background: #e8f5ef; color: var(--green-deep); }
+    .kw-trust { background: #fff8ee; color: #c07020; }
+
+    .kw-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+
+    .seo-group { margin-bottom: 14px; }
+    .seo-group-title { font-size: 12px; font-weight: 700; color: #7a9a87; margin-bottom: 4px; }
+    .seo-note { font-size: 12px; color: #7a9a87; margin-top: 8px; }
+
+    /* ── LANGUAGE SLIDERS ────────────────────── */
+    .slider-row { margin-bottom: 14px; }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .slider-label { font-size: 13px; font-weight: 700; }
+    .slider-val   { font-size: 13px; font-weight: 700; color: #1a2e24; }
+
+    .lang-slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .total-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #f0f4f2;
+      font-size: 13px;
+      font-weight: 600;
+      color: #3d5a4a;
+    }
+
+    .total-val { font-size: 16px; font-weight: 700; }
+    .total-warn { color: #e74c3c; font-size: 12px; }
+    .hidden { display: none !important; }
+
+    /* ── RATING PANEL ────────────────────────── */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f4f2;
+    }
+
+    .rating-row:last-child { border-bottom: none; }
+    .star-badge { font-size: 16px; min-width: 90px; }
+    .rating-tone { font-size: 13px; font-weight: 700; color: var(--green-deep); }
+    .rating-meta { font-size: 12px; color: #7a9a87; display: block; margin-top: 2px; }
+
+    /* ── PHRASE BROWSER ──────────────────────── */
+    .phrase-controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .admin-select {
+      background: #f4fbf7;
+      border: 1px solid #c5dfd0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: 'Nunito', sans-serif;
+      color: #1a2e24;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .admin-btn {
+      padding: 8px 18px;
+      background: var(--green-deep);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .admin-btn:hover { background: var(--green-mid); }
+
+    .admin-btn-outline {
+      padding: 8px 18px;
+      background: transparent;
+      color: var(--green-deep);
+      border: 1.5px solid var(--green-mid);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+    }
+
+    .admin-btn-outline:hover { background: var(--green-light); }
+
+    .admin-btn-red {
+      padding: 8px 18px;
+      background: #fdecea;
+      color: #c0392b;
+      border: 1.5px solid #f5c6cb;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+    }
+
+    .phrase-pool { margin-bottom: 18px; }
+
+    .pool-header {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-deep);
+      background: var(--green-light);
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pool-count {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7a9a87;
+    }
+
+    .phrase-item {
+      display: flex;
+      gap: 10px;
+      padding: 6px 4px;
+      border-bottom: 1px solid #f0f4f2;
+      font-size: 13px;
+    }
+
+    .phrase-num {
+      color: #b0c8b8;
+      font-size: 11px;
+      font-weight: 700;
+      min-width: 22px;
+      padding-top: 1px;
+    }
+
+    .phrase-text { color: #1a2e24; line-height: 1.5; }
+
+    .phrase-meta {
+      background: #fff8ee;
+      border-left: 3px solid var(--gold);
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #7a6020;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 14px;
+    }
+
+    .loading-phrase, .error-phrase, .empty-phrase {
+      text-align: center;
+      padding: 32px;
+      color: #7a9a87;
+      font-size: 14px;
+    }
+
+    .error-phrase { color: #c0392b; }
+
+    /* ── PREVIEW PANEL ───────────────────────── */
+    .preview-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .preview-meta {
+      font-size: 12px;
+      color: #7a9a87;
+      background: #f4fbf7;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .preview-card {
+      background: #f4fbf7;
+      border: 1px solid #c5dfd0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .preview-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .preview-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1a2e24;
+      margin: 0 0 10px;
+    }
+
+    .copy-preview-btn {
+      padding: 5px 14px;
+      background: var(--green-deep);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .preview-loading {
+      text-align: center;
+      padding: 32px;
+      color: #7a9a87;
+    }
+
+    .loading-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .loading-dots span {
+      width: 10px; height: 10px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      animation: dotBounce 1.2s infinite ease-in-out;
+    }
+
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+      40%            { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* ── QR PANEL ────────────────────────────── */
+    .qr-input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .admin-input {
+      flex: 1;
+      min-width: 260px;
+      background: #f4fbf7;
+      border: 1px solid #c5dfd0;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-family: 'Nunito', sans-serif;
+      color: #1a2e24;
+      outline: none;
+    }
+
+    #qr-url-output {
+      width: 100%;
+      background: #f0f4f2;
+      border: 1px solid #c5dfd0;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--green-deep);
+      margin-bottom: 14px;
+    }
+
+    #qr-preview-img {
+      display: block;
+      border: 4px solid #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      margin-top: 4px;
+    }
+
+    /* ── GRID LAYOUTS ────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── INSTRUCTIONS CARD ───────────────────── */
+    .instruction-step {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f2;
+      font-size: 13px;
+    }
+
+    .step-num {
+      width: 24px; height: 24px;
+      background: var(--green-deep);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-text { color: #3d5a4a; line-height: 1.5; }
+    .step-text strong { color: #1a2e24; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span style="font-size:20px;">🌿</span>
+      <span class="top-bar-title">Review System</span>
+      <span class="top-bar-badge">ADMIN</span>
+    </div>
+    <div class="client-select-wrap">
+      <label>Active client:</label>
+      <select id="client-select"></select>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span id="logged-in-user" style="color:rgba(255,255,255,0.7); font-size:13px;"></span>
+      <button
+        onclick="Auth.logout()"
+        style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.3); border-radius:8px; padding:5px 14px; font-size:13px; font-family:'Nunito',sans-serif; font-weight:600; cursor:pointer;"
+      >Logout</button>
+    </div>
+  </div>
+
+  <!-- ── STATUS BAR ── -->
+  <div id="status-bar">Loading...</div>
+
+  <!-- ── SIDEBAR NAV ── -->
+  <nav class="sidebar">
+    <div class="nav-section-title">Overview</div>
+    <a class="nav-item active" onclick="showSection('overview')">
+      <span class="nav-icon">📋</span> Client Profile
+    </a>
+    <a class="nav-item" onclick="showSection('services')">
+      <span class="nav-icon">🏥</span> Services
+    </a>
+    <a class="nav-item" onclick="showSection('seo')">
+      <span class="nav-icon">🔍</span> SEO Keywords
+    </a>
+
+    <div class="nav-section-title">Configuration</div>
+    <a class="nav-item" onclick="showSection('language')">
+      <span class="nav-icon">🌐</span> Language Settings
+    </a>
+    <a class="nav-item" onclick="showSection('rating')">
+      <span class="nav-icon">⭐</span> Rating Behavior
+    </a>
+
+    <div class="nav-section-title">Tools</div>
+    <a class="nav-item" onclick="showSection('preview')">
+      <span class="nav-icon">👁️</span> Live Preview
+    </a>
+    <a class="nav-item" onclick="showSection('phrases')">
+      <span class="nav-icon">📝</span> Phrase Browser
+    </a>
+    <a class="nav-item" onclick="showSection('qr')">
+      <span class="nav-icon">📱</span> QR Generator
+    </a>
+
+    <div class="nav-section-title">System</div>
+    <a class="nav-item" onclick="showSection('stats')">
+      <span class="nav-icon">📊</span> Session Stats
+    </a>
+    <a class="nav-item" onclick="showSection('guide')">
+      <span class="nav-icon">📖</span> How to Use
+    </a>
+  </nav>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main-content">
+
+    <!-- ══════════════════════════════════════
+         SECTION: Client Profile Overview
+    ══════════════════════════════════════ -->
+    <section class="admin-section active" id="section-overview">
+      <h1 class="section-heading">Client Profile</h1>
+      <p class="section-desc">Core settings for the currently loaded client.</p>
+      <div class="admin-card">
+        <div class="card-title">📋 Business Information</div>
+        <div id="profile-overview">Loading...</div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: Services
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-services">
+      <h1 class="section-heading">Services</h1>
+      <p class="section-desc">Services listed in the client profile. Patients select from these on Screen 1.</p>
+      <div class="admin-card">
+        <div class="card-title">🏥 Service List</div>
+        <div id="services-list">Loading...</div>
+      </div>
+      <div class="admin-card" style="background:#fff8ee; border-color:#f0d090;">
+        <div class="card-title" style="color:#c07020;">📌 How to edit services</div>
+        <p style="font-size:13px; color:#7a6020; margin:0;">
+          Open <code>data/clients/[slug]/profile.json</code> → edit the <code>"services"</code> array.
+          Each service needs: <code>id</code>, <code>label</code>, <code>keywords</code>.
+          Save the file and reload this page to see changes.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: SEO Keywords
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-seo">
+      <h1 class="section-heading">SEO Keywords</h1>
+      <p class="section-desc">Keywords injected into reviews for local SEO. Max 2 per review.</p>
+      <div class="admin-card">
+        <div class="card-title">🔍 Active Keyword Pools</div>
+        <div id="seo-panel">Loading...</div>
+      </div>
+      <div class="admin-card" style="background:#fff8ee; border-color:#f0d090;">
+        <div class="card-title" style="color:#c07020;">📌 How to edit keywords</div>
+        <p style="font-size:13px; color:#7a6020; margin:0;">
+          Edit <code>profile.json → seo.localKeywords</code> and <code>seo.trustKeywords</code>.
+          Also edit <code>data/phrases/[language]/seo.json</code> to add new SEO sentences.
+          The engine picks full sentences — not raw keywords — so phrasing matters.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: Language Settings
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-language">
+      <h1 class="section-heading">Language Settings</h1>
+      <p class="section-desc">Control how often each language appears in generated reviews. Must total 100.</p>
+      <div class="two-col">
+        <div class="admin-card">
+          <div class="card-title">🌐 Probability Sliders</div>
+          <div id="lang-sliders">Loading...</div>
+          <p style="font-size:12px; color:#7a9a87; margin-top:12px;">
+            ⚠ These sliders only affect <strong>Live Preview</strong> above.<br>
+            To save permanently, copy values into <code>profile.json → language.probabilities</code>.
+          </p>
+        </div>
+        <div class="admin-card">
+          <div class="card-title">💡 Language Guide</div>
+          <div class="info-row"><span class="info-label" style="color:#2d9b6f">English</span><span class="info-val">Formal / semi-formal reviews. Best for educated patients.</span></div>
+          <div class="info-row"><span class="info-label" style="color:#e8a030">Hinglish</span><span class="info-val">Most natural for Indian patients. Roman script Hindi-English mix.</span></div>
+          <div class="info-row"><span class="info-label" style="color:#c0392b">Hindi</span><span class="info-val">Pure Devanagari. Great for traditional patient demographics.</span></div>
+          <div class="info-row"><span class="info-label" style="color:#8e44ad">Mixed</span><span class="info-val">Mid-sentence language switching. Educated urban patients.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: Rating Behavior
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-rating">
+      <h1 class="section-heading">Rating Behavior</h1>
+      <p class="section-desc">How review tone, length, and emoji change per star rating.</p>
+      <div class="admin-card">
+        <div class="card-title">⭐ Rating Configuration</div>
+        <div id="rating-panel">Loading...</div>
+      </div>
+      <div class="admin-card">
+        <div class="card-title">📊 Humanizer Profiles</div>
+        <div style="font-size:13px; color:#3d5a4a; line-height:1.8;">
+          <div style="margin-bottom:8px;"><strong>5⭐ Profile:</strong> 20% lowercase start · 25% exclamation · 15% double !! · 10% elongation · 8% typo</div>
+          <div style="margin-bottom:8px;"><strong>4⭐ Profile:</strong> 15% lowercase · 10% exclamation · 5% elongation · 5% typo</div>
+          <div><strong>3⭐ Profile:</strong> 10% lowercase · 0% exclamation · 0% elongation · 3% typo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: Live Preview
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-preview">
+      <h1 class="section-heading">Live Preview</h1>
+      <p class="section-desc">Generate sample reviews exactly as patients would see them. Uses current slider settings.</p>
+
+      <div class="admin-card">
+        <div class="card-title">⚙️ Preview Settings</div>
+        <div class="preview-controls">
+          <select class="admin-select" id="preview-service">
+            <option value="">Loading services...</option>
+          </select>
+          <select class="admin-select" id="preview-stars">
+            <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+            <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+            <option value="3">⭐⭐⭐ 3 Stars</option>
+          </select>
+          <button class="admin-btn" id="generate-preview-btn">Generate Reviews</button>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">👁️ Generated Output</div>
+        <div id="preview-output">
+          <p style="color:#7a9a87; font-size:14px; text-align:center; padding:24px 0;">
+            Select a service and stars, then click Generate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: Phrase Browser
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-phrases">
+      <h1 class="section-heading">Phrase Browser</h1>
+      <p class="section-desc">View all phrases in any language/category. Edit the JSON files directly to add or change phrases.</p>
+
+      <div class="admin-card">
+        <div class="card-title">🔎 Browse Phrases</div>
+        <div class="phrase-controls">
+          <select class="admin-select" id="phrase-lang-select">
+            <option value="english">English</option>
+            <option value="hinglish">Hinglish</option>
+            <option value="hindi">Hindi</option>
+            <option value="mixed">Mixed</option>
+          </select>
+          <select class="admin-select" id="phrase-type-select">
+            <option value="intros">Intros</option>
+            <option value="trust">Trust</option>
+            <option value="service">Service</option>
+            <option value="emotional">Emotional</option>
+            <option value="seo">SEO</option>
+            <option value="outros">Outros</option>
+            <option value="emojis">Emojis</option>
+          </select>
+          <button class="admin-btn" id="load-phrases-btn">Load Phrases</button>
+        </div>
+        <div id="phrase-browser-content">
+          <p style="color:#7a9a87; font-size:14px; text-align:center; padding:24px 0;">
+            Select language and type, then click Load.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: QR Generator
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-qr">
+      <h1 class="section-heading">QR Generator</h1>
+      <p class="section-desc">Generate the patient QR code URL for the currently loaded client.</p>
+
+      <div class="two-col">
+        <div class="admin-card">
+          <div class="card-title">🔗 Generate URL</div>
+          <div class="qr-input-row">
+            <input
+              type="text"
+              class="admin-input"
+              id="qr-base-url"
+              placeholder="https://yourdomain.com/review-system/public"
+            />
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="admin-btn" id="generate-qr-btn">Generate QR</button>
+            <button class="admin-btn-outline" id="copy-qr-url-btn">Copy URL</button>
+          </div>
+          <div style="margin-top:14px;">
+            <input type="text" id="qr-url-output" class="hidden" readonly />
+          </div>
+        </div>
+        <div class="admin-card" style="text-align:center;">
+          <div class="card-title" style="justify-content:center;">📱 QR Preview</div>
+          <img id="qr-preview-img" class="hidden" width="200" height="200" alt="QR Code" style="margin:0 auto;" />
+          <p style="font-size:12px; color:#7a9a87; margin-top:12px;">
+            Download and print this QR code to place in the clinic.
+          </p>
+        </div>
+      </div>
+
+      <div class="admin-card" style="background:#fff8ee; border-color:#f0d090;">
+        <div class="card-title" style="color:#c07020;">📌 QR Deployment Notes</div>
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Deploy the <strong>full review-system folder</strong> to Vercel, Netlify, or GitHub Pages.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Enter your <strong>public base URL</strong> above (e.g. <code>https://reviews.nexaflow.bar/public</code>).</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Click Generate — QR code is created via free QR API. Download and print.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Each clinic gets its own QR code. The <code>?clinic=</code> param identifies which profile to load.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: Session Stats
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-stats">
+      <h1 class="section-heading">Session Stats</h1>
+      <p class="section-desc">Anti-spam and SEO tracker status for the current browser session.</p>
+      <div class="two-col">
+        <div class="admin-card">
+          <div class="card-title">📊 Current Stats</div>
+          <div id="stats-panel">Loading...</div>
+          <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+            <button class="admin-btn-outline" id="refresh-stats-btn">Refresh Stats</button>
+            <button class="admin-btn-red" id="clear-session-btn">Clear Session</button>
+          </div>
+        </div>
+        <div class="admin-card">
+          <div class="card-title">💡 What these mean</div>
+          <div class="info-row"><span class="info-label">Session reviews</span><span class="info-val">Reviews generated this browser session. Anti-spam compares new reviews against these.</span></div>
+          <div class="info-row"><span class="info-label">Phrase tracker</span><span class="info-val">Phrases marked as used in the current generation batch. Resets between batches.</span></div>
+          <div class="info-row"><span class="info-label">Similarity threshold</span><span class="info-val">Reviews more similar than this value (0–1) are rejected and regenerated.</span></div>
+          <div class="info-row"><span class="info-label">SEO phrases</span><span class="info-val">Recently injected SEO phrases. Tracked to avoid repeating same location sentence.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION: How to Use Guide
+    ══════════════════════════════════════ -->
+    <section class="admin-section" id="section-guide">
+      <h1 class="section-heading">How to Use</h1>
+      <p class="section-desc">Step-by-step guide for agency operators.</p>
+
+      <div class="admin-card">
+        <div class="card-title">🚀 Adding a New Client</div>
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Duplicate the folder <code>data/clients/dr-sharma-homeo/</code> → rename to the new client's slug (e.g. <code>city-homeo-clinic</code>).</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Open <code>profile.json</code> → change <strong>name, slug, googleReviewUrl, city, area, services, keywords</strong>.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Add the new slug + name to the <code>knownClients</code> array inside <code>admin/js/admin.js</code>.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Use QR Generator tab to create the patient URL and print the QR code.</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">✏️ Editing Phrases</div>
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Open <code>data/phrases/[language]/[type].json</code> in any text editor.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Add new phrases to the correct star pool (<code>5star</code>, <code>4star</code>, <code>3star</code>). Keep the JSON format valid.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Use <code>{{service}}</code>, <code>{{city}}</code>, <code>{{area}}</code> as placeholders — the engine replaces these automatically.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Use Phrase Browser tab to verify changes after saving.</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">🌐 Deployment Checklist</div>
+        <div class="instruction-step">
+          <div class="step-num">✓</div>
+          <div class="step-text">Deploy via <strong>Vercel</strong> (drag and drop the folder) or <strong>GitHub Pages</strong> (push to repo).</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">✓</div>
+          <div class="step-text">Patient URL format: <code>https://yourdomain.com/public/index.html?clinic=SLUG</code></div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">✓</div>
+          <div class="step-text">Admin URL: <code>https://yourdomain.com/admin/index.html</code> — not linked anywhere public.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">✓</div>
+          <div class="step-text">Replace all <code>REPLACE_WITH_REAL_PLACE_ID</code> values in profile JSONs with actual Google Place IDs.</div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /.main-content -->
+
+  <!-- ── LOGIN OVERLAY ── -->
+  <div id="login-overlay" style="display:none; position:fixed; inset:0; background:#f0f4f2; z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:16px; padding:40px 36px; width:360px; box-shadow:0 8px 40px rgba(0,0,0,0.13); border:1px solid #e0ede6;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+        <span style="font-size:26px;">🌿</span>
+        <h2 style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#1a6b4a; margin:0;">Review System</h2>
+      </div>
+      <p style="color:#7a9a87; font-size:13px; margin:0 0 24px; padding-left:36px;">Clinic Admin Panel</p>
+      <div style="margin-bottom:12px;">
+        <label style="display:block; font-size:12px; font-weight:700; color:#7a9a87; margin-bottom:5px; letter-spacing:0.05em; text-transform:uppercase;">Username</label>
+        <input
+          id="login-user"
+          type="text"
+          placeholder="Enter username"
+          autocomplete="username"
+          style="width:100%; padding:10px 14px; border:1.5px solid #e0ede6; border-radius:8px; font-size:14px; font-family:'Nunito',sans-serif; color:#1a2e24; outline:none; box-sizing:border-box;"
+        />
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-size:12px; font-weight:700; color:#7a9a87; margin-bottom:5px; letter-spacing:0.05em; text-transform:uppercase;">Password</label>
+        <input
+          id="login-pass"
+          type="password"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          style="width:100%; padding:10px 14px; border:1.5px solid #e0ede6; border-radius:8px; font-size:14px; font-family:'Nunito',sans-serif; color:#1a2e24; outline:none; box-sizing:border-box;"
+        />
+      </div>
+      <div id="login-error" style="display:none; color:#c0392b; font-size:13px; font-weight:600; margin-bottom:12px; padding:8px 12px; background:#fdecea; border-radius:7px;"></div>
+      <button
+        onclick="Auth.attemptLogin()"
+        style="width:100%; background:#1a6b4a; color:#fff; border:none; border-radius:8px; padding:12px; font-size:15px; font-weight:700; font-family:'Sora',sans-serif; cursor:pointer; letter-spacing:0.02em;"
+      >Sign In →</button>
+      <p style="text-align:center; font-size:11px; color:#b0c8b8; margin:18px 0 0;">NexaFlow AI · nexaflow.bar</p>
+    </div>
+  </div>
+  
+  <!-- ── SECTION NAVIGATION ── -->
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+      const section = document.getElementById('section-' + id);
+      if (section) section.classList.add('active');
+
+      // Highlight nav item
+      document.querySelectorAll('.nav-item').forEach(n => {
+        if (n.getAttribute('onclick')?.includes(`'${id}'`)) {
+          n.classList.add('active');
+        }
+      });
+
+      // Populate preview service dropdown when preview opens
+      if (id === 'preview' && Admin?.state?.currentProfile) {
+        const sel = document.getElementById('preview-service');
+        if (sel && Admin.state.currentProfile.services) {
+          sel.innerHTML = Admin.state.currentProfile.services.map(s =>
+            `<option value="${s.id}">${s.label}</option>`
+          ).join('');
+        }
+      }
+    }
+  </script>
+
+  <!-- ── ENGINE SCRIPTS (same as patient, different relative path) ── -->
+  <script src="../public/js/utils.js"></script>
+  <script src="../public/js/languageEngine.js"></script>
+  <script src="../public/js/antiSpam.js"></script>
+  <script src="../public/js/humanizer.js"></script>
+  <script src="../public/js/seoInjector.js"></script>
+  <script src="../public/js/reviewEngine.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+</html>
