@@ -1,0 +1,250 @@
+/**
+ * auth.js
+ * -------
+ * Frontend-only clinic login system for Review System Admin.
+ * No backend needed. Credentials stored here. Session in sessionStorage.
+ *
+ * ROLES:
+ *   superadmin → sees all clinics, can switch between them
+ *   clinic     → sees only their own clinic, no switcher
+ *
+ * TO ADD A NEW CLINIC USER:
+ *   1. Add entry to USERS below
+ *   2. Set slug to match their folder name in data/clients/
+ *   3. Share username + password with the clinic
+ *
+ * TO CHANGE A PASSWORD:
+ *   Just edit the password value below and redeploy.
+ */
+
+const Auth = (() => {
+
+  // ─────────────────────────────────────────────
+  // USER CONFIG — edit this to add/remove users
+  // ─────────────────────────────────────────────
+
+  const USERS = {
+
+    // ── SUPER ADMIN ──────────────────────────────
+    // Can see all clinics. Can switch between them.
+    'nexaflow': {
+      password:  'nexaflow@2026',
+      role:      'superadmin',
+      name:      'NexaFlow Admin',
+      slug:      null,
+    },
+
+    // ── CLINIC USERS ─────────────────────────────
+    // Each clinic can only see their own data.
+    // slug must match the folder name in data/clients/
+
+    'drverma': {
+      password:  'verma@clinic',
+      role:      'clinic',
+      name:      "Dr. Verma's Multispeciality Homeopathy",
+      slug:      'dr-jay-verma-homeo',
+    },
+
+    'drsharma': {
+      password:  'sharma@clinic',
+      role:      'clinic',
+      name:      'Dr. Sharma Homeopathic Clinic',
+      slug:      'dr-sharma-homeo',
+    },
+
+    'greenwellness': {
+      password:  'green@clinic',
+      role:      'clinic',
+      name:      'Green Wellness Clinic',
+      slug:      'green-wellness-clinic',
+    },
+
+    // ── ADD MORE CLINICS BELOW ───────────────────
+    // Copy this block and fill in the details:
+    //
+    // 'username': {
+    //   password: 'their-password',
+    //   role:     'clinic',
+    //   name:     'Clinic Display Name',
+    //   slug:     'their-folder-slug',
+    // },
+
+  };
+
+  // ─────────────────────────────────────────────
+  // SESSION KEY
+  // ─────────────────────────────────────────────
+
+  const SESSION_KEY = 'review_admin_session';
+
+  // ─────────────────────────────────────────────
+  // LOGIN
+  // ─────────────────────────────────────────────
+
+  /**
+   * Called by the login button in index.html.
+   * Reads username + password from the login overlay inputs.
+   * On success: saves session, hides overlay, shows logged-in user.
+   * On failure: shows error message.
+   */
+  function attemptLogin() {
+    const username = document.getElementById('login-user')?.value?.trim().toLowerCase();
+    const password = document.getElementById('login-pass')?.value;
+    const errorEl  = document.getElementById('login-error');
+
+    if (!username || !password) {
+      _showLoginError('Please enter username and password.');
+      return;
+    }
+
+    const user = USERS[username];
+
+    if (!user || user.password !== password) {
+      _showLoginError('Incorrect username or password.');
+      // Clear password field on failure
+      const passEl = document.getElementById('login-pass');
+      if (passEl) passEl.value = '';
+      return;
+    }
+
+    // Save session
+    const session = {
+      username: username,
+      role:     user.role,
+      name:     user.name,
+      slug:     user.slug,
+    };
+
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+
+    // Hide login overlay
+    const overlay = document.getElementById('login-overlay');
+    if (overlay) overlay.style.display = 'none';
+
+    // Show logged-in user name in top bar
+    const userLabel = document.getElementById('logged-in-user');
+    if (userLabel) {
+      userLabel.textContent = `👤 ${user.name}${user.role === 'superadmin' ? '  ·  Super Admin' : ''}`;
+    }
+
+    // Boot the admin panel now that login is confirmed
+    Admin.init();
+  }
+
+  // ─────────────────────────────────────────────
+  // LOGOUT
+  // ─────────────────────────────────────────────
+
+  /**
+   * Called by the Logout button in the top bar.
+   * Clears session and reloads the page (shows login overlay again).
+   */
+  function logout() {
+    sessionStorage.removeItem(SESSION_KEY);
+    location.reload();
+  }
+
+  // ─────────────────────────────────────────────
+  // GUARD — call this at the start of Admin.init()
+  // ─────────────────────────────────────────────
+
+  /**
+   * Checks if a valid session exists.
+   * If NOT logged in: shows the login overlay, stops page load.
+   * If logged in: updates top bar with user name, returns true.
+   *
+   * Usage in admin.js:
+   *   async function init() {
+   *     if (!Auth.guard()) return;
+   *     ... rest of init ...
+   *   }
+   */
+  function guard() {
+    const session = _getSession();
+
+    if (!session) {
+      // Not logged in — show login overlay
+      const overlay = document.getElementById('login-overlay');
+      if (overlay) overlay.style.display = 'flex';
+      // Listen for Enter key on login form
+      _bindLoginEnterKey();
+      return false; // stop admin from booting
+    }
+
+    // Logged in — update top bar label
+    const userLabel = document.getElementById('logged-in-user');
+    if (userLabel) {
+      userLabel.textContent = `👤 ${session.name}${session.role === 'superadmin' ? '  ·  Super Admin' : ''}`;
+    }
+
+    return true; // allow admin to boot
+  }
+
+  // ─────────────────────────────────────────────
+  // GET SESSION — use this in admin.js to filter
+  // ─────────────────────────────────────────────
+
+  /**
+   * Returns the current session object or null.
+   * Shape: { username, role, name, slug }
+   *
+   * Usage in admin.js:
+   *   const session = Auth.getSession();
+   *   if (session.role === 'clinic') {
+   *     state.knownClients = state.knownClients.filter(c => c.slug === session.slug);
+   *   }
+   */
+  function getSession() {
+    return _getSession();
+  }
+
+  // ─────────────────────────────────────────────
+  // PRIVATE HELPERS
+  // ─────────────────────────────────────────────
+
+  function _getSession() {
+    try {
+      const raw = sessionStorage.getItem(SESSION_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function _showLoginError(msg) {
+    const errorEl = document.getElementById('login-error');
+    if (!errorEl) return;
+    errorEl.textContent = msg;
+    errorEl.style.display = 'block';
+  }
+
+  function _bindLoginEnterKey() {
+    // Allow pressing Enter in password field to submit
+    const passEl = document.getElementById('login-pass');
+    if (passEl) {
+      passEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') attemptLogin();
+      });
+    }
+    const userEl = document.getElementById('login-user');
+    if (userEl) {
+      userEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          document.getElementById('login-pass')?.focus();
+        }
+      });
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  // PUBLIC API
+  // ─────────────────────────────────────────────
+
+  return {
+    guard,
+    getSession,
+    attemptLogin,
+    logout,
+  };
+
+})();
