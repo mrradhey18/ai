@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "purpose": "Emotional warmth sentences in Hinglish. Used selectively — engine skips these sometimes. Real patient feelings about health improvement.",
+    "rules": [
+      "Reference family, health journey, relief in Indian context",
+      "Mention ghar waale, maa, wife — very natural in Indian reviews",
+      "Short punchy sentences work better than long emotional paragraphs",
+      "3-star pool is intentionally tiny — almost never fires"
+    ]
+  },
+  "5star": [
+    "Sach mein bahut relief feel ho raha hai ab.",
+    "Ghar waale bhi bol rahe hain ki fark dikh raha hai.",
+    "Mahino ki problem thi, ab bahut better feel ho raha hoon.",
+    "Maa ne yahan aane ke liye bola tha, sahi kaha unhone.",
+    "Itne time baad health ke mamle mein hopeful feel kar raha hoon.",
+    "Chota chota improvement har hafte — yahi toh chahiye tha.",
+    "Saalon se itna accha feel nahi kiya tha.",
+    "Treatment pe trust banta ja raha hai dheere dheere.",
+    "Family ko bhi iska fark dikh raha hai jo mujhe bahut accha laga.",
+    "Jo peace of mind mili hai wo sabse zyada valuable hai.",
+    "Haat nahi maana is treatment se aur sahi kiya.",
+    "Puri zindagi badal gayi jaisi lag rahi hai — thoda dramatic lagega but sach hai.",
+    "Khud pe phir se confidence aa raha hai.",
+    "Bahut struggle kiya is problem ke saath, ab finally light dikh rahi hai.",
+    "Jab stone apne aap nikal gaya bina operation ke, aankhon mein aansu aa gaye.",
+    "Mahino ki takleef ke baad itni jaldi relief — describe karna mushkil hai.",
+    "Poora parivaar pareshan tha meri wajah se. Ab sab Dr. Verma ko dua dete hain.",
+    "Main sochta tha operation toh hoga hi. Dr. Verma ne sab galat sabit kar diya.",
+    "Itne doctors ke baad finally koi mila jisne actually problem solve ki.",
+    "Jis din stone nikla, maine sabse pehle Dr. Verma ko call kiya. Itna grateful hoon.",
+    "Zindagi mein pehli baar laga ki homeopathy sach mein kaam karti hai — woh bhi itni jaldi."
+  ],
+  "4star": [
+    "Pehle se better feel ho raha hoon, yahi kaafi hai abhi.",
+    "Khush hoon ki yahan treatment lene ka decision liya.",
+    "Improvement dikh raha hai, dheera sahi par ho raha hai.",
+    "Thoda hopeful feel ho raha hai ab treatment ke baad.",
+    "Overall positive direction mein ja raha hai sab."
+  ],
+  "3star": [
+    "Dekhte hain aage kya result aata hai.",
+    "Umeed hai ki better hoga."
+  ]
+}

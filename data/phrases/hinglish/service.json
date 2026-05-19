@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "purpose": "Service-specific sentences in Hinglish. {{service}} placeholder replaced dynamically by engine with actual service name.",
+    "rules": [
+      "{{service}} is the only placeholder — engine replaces it",
+      "Mention outcomes, duration, improvement naturally",
+      "Mix 'meri problem' style with 'treatment chal raha' style",
+      "Keep it conversational like telling a friend"
+    ]
+  },
+
+  "5star": [
+    "{{service}} ke liye aaya tha aur results sach mein bahut acche rhe.",
+    "Meri {{service}} ki problem bahut purani thi, yahan se finally kuch fark pada.",
+    "{{service}} treatment yahan bahut carefully kiya jaata hai.",
+    "Pehle allopathy se {{service}} try kiya tha, koi faida nahi hua — yahan homeopathy se kaam bana.",
+    "{{service}} ke liye itna accha doctor dhundna mushkil tha, yahan mil gaya.",
+    "Sirf kuch hafte mein hi {{service}} mein improvement dikhne lagi.",
+    "{{service}} treatment ka approach yahan different hai — holistic lagta hai.",
+    "{{service}} ki wajah se bahut pareshan tha, ab kaafi better feel ho raha hai.",
+    "{{service}} treatment plan unhone jo diya wo actually logical tha.",
+    "Specifically {{service}} ke liye aaya tha aur bahut khush hoon result se."
+  ],
+
+  "4star": [
+    "{{service}} ke liye aaya tha, treatment theek chal raha hai.",
+    "Meri {{service}} ki problem dheere dheere improve ho rahi hai.",
+    "{{service}} treatment explain kiya gaya properly.",
+    "{{service}} ke results aa rahe hain, time lag raha hai par progress hai.",
+    "{{service}} consultation acchi rahi aur informative bhi."
+  ],
+
+  "3star": [
+    "{{service}} ke liye visit kiya tha.",
+    "{{service}} ki consultation li yahan se.",
+    "{{service}} ki dawai shuru ki hai.",
+    "{{service}} treatment chal raha hai abhi."
+  ]
+}
