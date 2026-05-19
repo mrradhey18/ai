@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "purpose": "SEO-carrying sentences with natural code-switching. Engine picks MAX 1 per review. {{city}} and {{area}} replaced dynamically.",
+    "rules": [
+      "Location mention must feel completely natural in code-switched sentence",
+      "Split into location and credibility pools",
+      "{{city}} and {{area}} are the only placeholders"
+    ]
+  },
+
+  "location": [
+    "{{city}} में homeopathy ढूँढ रहे हो तो honestly यहीं आओ।",
+    "{{area}} के लोगों के लिए this clinic is genuinely a great option।",
+    "{{city}} में itna accha homeopathic doctor मिलना मुश्किल है।",
+    "हमने {{city}} में काफी जगह try की — here the results were best।",
+    "{{area}} में रहने वाले लोगों को यह clinic ज़रूर try करनी चाहिए।",
+    "{{city}} में is clinic की reputation बहुत अच्छी है and rightly so।",
+    "Itna dhundhne ke baad {{city}} में यही जगह genuinely अच्छी लगी।",
+    "Even if you're not from {{area}} — worth the visit, seriously।",
+    "मेरी पूरी family {{city}} में अब यहीं आती है।",
+    "If you're in {{city}} looking for homeopathy — stop searching, आ जाओ।"
+  ],
+
+  "credibility": [
+    "Doctor का experience बहुत है — feel होता है बात करते वक्त।",
+    "Years of experience show करता है उनके treatment में।",
+    "Clinic की reputation अच्छी है and it's well deserved।",
+    "Itne patients आते हैं यहाँ — there must be a reason।",
+    "Systematic treatment होती है यहाँ — random नहीं लगता कुछ भी।",
+    "डॉक्टर साहब को सालों का experience है — pata chalta hai।",
+    "Bahut families आती हैं यहाँ — word of mouth से itna naam हो गया।"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "purpose": "Closing sentences with natural code-switching. Natural wrap-up in mixed language style.",
+    "rules": [
+      "End should feel like closing a WhatsApp message to a friend",
+      "Recommendation style mixes Hindi warmth with English confidence words",
+      "Some endings are just one short mixed sentence — very real",
+      "3-star outros are brief and non-committal"
+    ]
+  },
+
+  "5star": [
+    "Highly recommend करता हूँ — एक बार ज़रूर try करो।",
+    "अपने दोस्तों और family को already बता दिया है यहाँ के बारे में।",
+    "Wapas ज़रूर आऊँगा — treatment continue करूँगा।",
+    "Without hesitation किसी को भी recommend करूँगा।",
+    "Ek baar aao बस — खुद feel करोगे difference।",
+    "Next appointment already ले ली है।",
+    "Jo bhi homeopathy ढूँढ रहा है — यहाँ आए बिल्कुल।",
+    "पूरी family को अब यहीं लाता हूँ — no second thoughts।",
+    "Trust the process here — it genuinely works।",
+    "Shukriya डॉक्टर साहब — bahut help हुई।",
+    "So satisfied हूँ कि bina kisi doubt के recommend करूँगा।",
+    "10 out of 10 — और कुछ नहीं कहना।",
+    "Bas ek baar aao — आगे खुद समझ जाओगे।",
+    "Bahut खुश हूँ is decision से — fully recommend।"
+  ],
+
+  "4star": [
+    "Homeopathy try करने वालों को recommend करूँगा।",
+    "Treatment यहीं से continue करूँगा।",
+    "Future visits के लिए wapas aaunga।",
+    "Overall इस clinic को suggest करूँगा।",
+    "Acchi जगह है — visit karke dekho।",
+    "Friends को भी बताऊँगा इस जगह के बारे में।",
+    "Worth trying — ek baar aao।"
+  ],
+
+  "3star": [
+    "Dekhte hain आगे क्या होता है।",
+    "Will update करूँगा baad mein।",
+    "Treatment chal रहा है अभी।",
+    "Hoping नतीजे आएंगे।"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "purpose": "Service-specific sentences with natural code-switching. {{service}} placeholder replaced dynamically by engine.",
+    "rules": [
+      "{{service}} is the only placeholder",
+      "Mix Hindi sentence structure with English outcome words naturally",
+      "Sound like a real patient telling a friend about their treatment"
+    ]
+  },
+
+  "5star": [
+    "{{service}} के लिए आया था और results सच में बहुत अच्छे रहे।",
+    "मेरी {{service}} की problem बहुत पुरानी थी — यहाँ finally कुछ difference पड़ा।",
+    "{{service}} treatment यहाँ बहुत carefully और systematically होता है।",
+    "Allopathy से {{service}} try किया था, कोई फायदा नहीं — homeopathy से यहाँ काम बना।",
+    "{{service}} के लिए इतना good doctor ढूँढना mushkil था, यहाँ मिल गया।",
+    "Sirf कुछ weeks में ही {{service}} में visible improvement आई।",
+    "{{service}} का treatment approach यहाँ different है — holistic feel होता है।",
+    "{{service}} की वजह से बहुत परेशान था, अब काफी better feel हो रहा है।",
+    "{{service}} के लिए जो treatment plan दिया वो logical और समझ में आया।",
+    "Specifically {{service}} के लिए आया था और result से बहुत खुश हूँ।"
+  ],
+
+  "4star": [
+    "{{service}} के लिए आया था, treatment ठीक चल रहा है।",
+    "{{service}} की problem slowly improve हो रही है।",
+    "{{service}} treatment properly explain किया गया।",
+    "{{service}} के results आ रहे हैं — time लग रहा है पर progress है।",
+    "{{service}} consultation good और informative रही।"
+  ],
+
+  "3star": [
+    "{{service}} के लिए visit किया था।",
+    "{{service}} की consultation ली यहाँ।",
+    "{{service}} की medicines शुरू की हैं।",
+    "{{service}} treatment chal raha hai अभी।"
+  ]
+}
