@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "purpose": "Closing sentences. The last thing the reader sees. Should feel like a natural ending — recommendation, plan to return, or simple sign-off.",
+    "rules": [
+      "Must feel like the person is wrapping up naturally",
+      "Recommendations should feel organic not salesy",
+      "Some outros are just one short sentence — that's fine",
+      "Don't end every review with a recommendation — mix it up"
+    ]
+  },
+  "5star": [
+    "Highly recommend to anyone looking for genuine homeopathic treatment.",
+    "Would definitely recommend to family and friends.",
+    "Will keep coming back for sure.",
+    "10 out of 10 would recommend.",
+    "Already recommended to two of my colleagues.",
+    "Don't waste time searching, just visit once.",
+    "One of the few places I would actually recommend without hesitation.",
+    "Booking my next appointment already.",
+    "My whole family will be coming here going forward.",
+    "Trust the process here — it works.",
+    "If you're on the fence, just go once and you'll understand.",
+    "Very happy and will continue the treatment.",
+    "A genuine recommendation from a satisfied patient.",
+    "Glad I found this place and will keep coming back.",
+    "If you have been told surgery is your only option — visit Dr. Verma first.",
+    "Anyone suffering from stones must visit Dr. Verma before agreeing to surgery.",
+    "Do not waste time going from doctor to doctor. Come here first.",
+    "I am sending everyone I know who has a stone problem directly to Dr. Verma.",
+    "Best decision of my life was coming to Dr. Verma instead of going for surgery.",
+    "If you think homeopathy is slow — Dr. Verma will completely change that belief.",
+    "Stop searching. If you are in pain and haven t found answers — this is the place."
+  ],
+  "4star": [
+    "Would recommend to others looking for homeopathic care.",
+    "Will continue the treatment here.",
+    "Happy to visit again for future consultations.",
+    "Overall would suggest trying this clinic.",
+    "Good clinic, worth visiting.",
+    "Will recommend to friends and family.",
+    "Planning to continue treatment here."
+  ],
+  "3star": [
+    "Let's see how things progress.",
+    "Will update after more visits.",
+    "Treatment is ongoing.",
+    "Hoping for better results ahead."
+  ]
+}
