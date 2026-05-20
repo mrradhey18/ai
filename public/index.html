@@ -374,38 +374,38 @@ border: 2px solid #334155;
       margin-top: 2px;
     }
 
-.emoji-opt.active[data-value="1"] { animation: shake 1.5s infinite; }
-.emoji-opt.active[data-value="2"] { animation: wobble 2s infinite; }
-.emoji-opt.active[data-value="3"] { animation: bob 2s infinite; }
-.emoji-opt.active[data-value="4"] { animation: bounce 1.2s infinite; }
-.emoji-opt.active[data-value="5"] { animation: spin-pop 1.8s infinite; }
+.emoji-opt.active[data-value="1"] { animation: shake 1.5s infinite; transform-origin: center; }
+.emoji-opt.active[data-value="2"] { animation: wobble 2s infinite; transform-origin: center; }
+.emoji-opt.active[data-value="3"] { animation: bob 2s infinite; transform-origin: center; }
+.emoji-opt.active[data-value="4"] { animation: bounce-em 1.2s infinite; transform-origin: center; }
+.emoji-opt.active[data-value="5"] { animation: spin-pop 1.8s infinite; transform-origin: center; }
 
 @keyframes shake {
-  0%,100% { transform: rotate(0deg); }
-  25% { transform: rotate(-12deg); }
-  75% { transform: rotate(12deg); }
+  0%,100% { transform: scale(1.4) rotate(0deg); }
+  25%      { transform: scale(1.4) rotate(-15deg); }
+  75%      { transform: scale(1.4) rotate(15deg); }
 }
 
 @keyframes wobble {
-  0%,100% { transform: translateX(0); }
-  30% { transform: translateX(-5px) rotate(-5deg); }
-  70% { transform: translateX(5px) rotate(5deg); }
+  0%,100% { transform: scale(1.4) translateX(0); }
+  30%      { transform: scale(1.4) translateX(-8px) rotate(-8deg); }
+  70%      { transform: scale(1.4) translateX(8px) rotate(8deg); }
 }
 
 @keyframes bob {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%,100% { transform: scale(1.4) translateY(0); }
+  50%      { transform: scale(1.4) translateY(-8px); }
 }
 
-@keyframes bounce {
-  0%,100% { transform: translateY(0) scale(1); }
-  40% { transform: translateY(-10px) scale(1.1); }
+@keyframes bounce-em {
+  0%,100% { transform: scale(1.4) translateY(0); }
+  40%      { transform: scale(1.55) translateY(-12px); }
 }
 
 @keyframes spin-pop {
-  0%,100% { transform: scale(1) rotate(0deg); }
-  30% { transform: scale(1.2) rotate(-10deg); }
-  60% { transform: scale(1.2) rotate(10deg); }
+  0%,100% { transform: scale(1.4) rotate(0deg); }
+  25%      { transform: scale(1.55) rotate(-12deg); }
+  75%      { transform: scale(1.55) rotate(12deg); }
 }
 
 .emoji-opt { animation: none !important; }
@@ -868,7 +868,7 @@ document.querySelectorAll('.emoji-opt').forEach(e => {
     // trigger the actual star click to move forward
   setTimeout(() => {
   if (parseInt(val) <= 2) {
-    UI._showPrivateFeedback();
+  UI._showSorryToast();
   } else {
     document.querySelector(`.star-btn[data-value="${val}"]`).click();
   }
