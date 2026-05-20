@@ -1,0 +1,123 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2025-01-01",
+    "notes": "Duplicate this file to add a new client. Change slug, name, googleReviewUrl, services, and keywords. Everything else can stay as default."
+  },
+
+  "business": {
+    "name": "Dr. Sharma Homeopathic Clinic",
+    "slug": "dr-sharma-homeo",
+    "tagline": "Trusted Homeopathic Care in Lucknow",
+    "city": "Lucknow",
+    "area": "Hazratganj",
+    "state": "Uttar Pradesh",
+    "googleReviewUrl": "https://g.page/r/REPLACE_WITH_REAL_PLACE_ID/review",
+    "phone": "+91-XXXXXXXXXX"
+  },
+
+  "services": [
+    {
+      "id": "skin",
+      "label": "Skin Treatment",
+      "keywords": ["skin treatment", "homeopathic skin care", "acne treatment Lucknow"]
+    },
+    {
+      "id": "hair",
+      "label": "Hair & Scalp",
+      "keywords": ["hair loss treatment", "homeopathy for hair fall", "scalp treatment Lucknow"]
+    },
+    {
+      "id": "general",
+      "label": "General Consultation",
+      "keywords": ["homeopathic consultation", "best homeopathic doctor Lucknow", "general wellness"]
+    },
+    {
+      "id": "child",
+      "label": "Child Health",
+      "keywords": ["child homeopathy", "kids health Lucknow", "pediatric homeopathic treatment"]
+    },
+    {
+      "id": "chronic",
+      "label": "Chronic Disease",
+      "keywords": ["chronic disease treatment", "long term homeopathy", "homeopathic cure Lucknow"]
+    },
+    {
+      "id": "stress",
+      "label": "Stress & Anxiety",
+      "keywords": ["stress relief homeopathy", "anxiety treatment Lucknow", "mental wellness homeopathy"]
+    }
+    
+  ],
+
+  "seo": {
+    "localKeywords": [
+      "best homeopathic doctor in Lucknow",
+      "homeopathic clinic Hazratganj",
+      "top homeopath Lucknow",
+      "homeopathy Lucknow",
+      "Dr Sharma Lucknow"
+    ],
+    "trustKeywords": [
+      "experienced doctor",
+      "genuine treatment",
+      "affordable homeopathy",
+      "trusted clinic",
+      "years of experience"
+    ],
+    "maxKeywordsPerReview": 2
+  },
+
+  "language": {
+    "probabilities": {
+      "english": 25,
+      "hinglish": 40,
+      "hindi": 25,
+      "mixed": 10
+    },
+    "_note": "Values must add up to 100. Hinglish is highest because Indian patients naturally write this way."
+  },
+
+  "tone": {
+    "formality": "casual",
+    "warmth": "high",
+    "doctorReferenceStyle": "respectful",
+    "_note": "formality: casual | semi-formal | formal. warmth: high | medium | low."
+  },
+
+  "emoji": {
+    "enabled": true,
+    "probability": 60,
+    "_note": "60 means 60% chance of including emojis in a review. Set 0 to disable."
+  },
+
+  "reviewStyle": {
+    "minSentences": 2,
+    "maxSentences": 5,
+    "allowImperfectGrammar": true,
+    "allowLowercase": true,
+    "allowShortReviews": true,
+    "_note": "Short reviews (2-3 sentences) feel more real. Long reviews (4-5) are used less often."
+  },
+
+  "rating": {
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
+      "allowNegative": false
+    },
+    "4": {
+      "tone": "positive",
+      "emojiBoost": false,
+      "sentenceLengthBias": "medium",
+      "allowNegative": false
+    },
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
+      "allowNegative": false
+    }
+  }
+}
