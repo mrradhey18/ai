@@ -303,6 +303,26 @@ border: 2px solid #334155;
     /* ══════════════════════════════════════════════
        SCREEN 2 — STAR RATING
     ══════════════════════════════════════════════ */
+
+.emoji-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px 0 4px;
+}
+
+.emoji-opt {
+  font-size: 28px;
+  opacity: 0.3;
+  transition: opacity 0.15s, transform 0.15s;
+  cursor: pointer;
+}
+
+.emoji-opt.active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
     .star-container {
       display: flex;
       justify-content: center;
@@ -700,6 +720,14 @@ border: 2px solid #334155;
         For <strong id="star-service-label">your visit</strong>
       </p>
 
+      <!-- Emoji row -->
+<div class="emoji-row">
+  <span class="emoji-opt" data-value="1">😞</span>
+  <span class="emoji-opt" data-value="2">😐</span>
+  <span class="emoji-opt" data-value="3">🙂</span>
+  <span class="emoji-opt" data-value="4">😊</span>
+  <span class="emoji-opt" data-value="5">🤩</span>
+</div>
       <!-- Stars -->
       <div class="star-container" role="group" aria-label="Rate your experience">
         <button class="star-btn" data-value="1" aria-label="1 star">
@@ -765,19 +793,40 @@ border: 2px solid #334155;
     // Update label on hover/click
     document.addEventListener('DOMContentLoaded', () => {
       const labelEl = document.getElementById('star-label-text');
-      document.querySelectorAll('.star-btn').forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-          if (labelEl) labelEl.textContent = starLabels[btn.dataset.value] || '';
-        });
-        btn.addEventListener('mouseleave', () => {
-          // Keep selected label if a star was clicked
-          const selected = document.querySelector('.star-btn.selected');
-          if (labelEl) labelEl.textContent = selected ? starLabels[selected.dataset.value] : '';
-        });
-        btn.addEventListener('click', () => {
-          if (labelEl) labelEl.textContent = starLabels[btn.dataset.value] || '';
-        });
-      });
+   function syncEmojis(value) {
+  document.querySelectorAll('.emoji-opt').forEach(e => {
+    e.classList.toggle('active', parseInt(e.dataset.value) <= parseInt(value));
+  });
+}
+
+document.querySelectorAll('.star-btn').forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    if (labelEl) labelEl.textContent = starLabels[btn.dataset.value] || '';
+    syncEmojis(btn.dataset.value);
+  });
+  btn.addEventListener('mouseleave', () => {
+    const selected = document.querySelector('.star-btn.selected');
+    if (labelEl) labelEl.textContent = selected ? starLabels[selected.dataset.value] : '';
+    syncEmojis(selected ? selected.dataset.value : 0);
+  });
+  btn.addEventListener('click', () => {
+    if (labelEl) labelEl.textContent = starLabels[btn.dataset.value] || '';
+    syncEmojis(btn.dataset.value);
+  });
+});
+
+// Emoji clicks also trigger star selection
+document.querySelectorAll('.emoji-opt').forEach(e => {
+  e.addEventListener('click', () => {
+    const val = e.dataset.value;
+    document.querySelectorAll('.star-btn').forEach(s => {
+      s.classList.toggle('hovered', parseInt(s.dataset.value) <= parseInt(val));
+      s.classList.toggle('selected', parseInt(s.dataset.value) <= parseInt(val));
+    });
+    if (labelEl) labelEl.textContent = starLabels[val] || '';
+    syncEmojis(val);
+  });
+});
 
       // Progress dot updater
       const screenObserver = new MutationObserver(() => {
