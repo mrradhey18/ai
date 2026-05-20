@@ -8,6 +8,7 @@
   "business": {
     "name": "Dr. Verma's Multispeciality Homeopathy Clinic",
     "slug": "dr-jay-verma-homeo",
+    "logoUrl": "jai-verma-logo.png"
     "tagline": "Fast Homeopathy — Real Results, No Side Effects",
     "city": "Lucknow",
     "area": "Aliganj",
@@ -22,11 +23,22 @@
   "services": [
     {
       "id": "stones",
-      "label": "Kidney / Gallbladder Stone",
+      "label": "Kidney Stones",
       "keywords": [
         "kidney stone treatment without surgery Lucknow",
         "homeopathy for kidney stone Lucknow",
         "best doctor for kidney stone in Lucknow",
+        "gallbladder stone homeopathy Lucknow",
+        "stone treatment fast homeopathy"
+      ]
+    },
+     {
+      "id": "stones",
+      "label": "gallbladder Stones",
+      "keywords": [
+        "Gallbladder stone treatment without surgery Lucknow",
+        "homeopathy for gallbladder stone Lucknow",
+        "best doctor for gallbladder stone in Lucknow",
         "gallbladder stone homeopathy Lucknow",
         "stone treatment fast homeopathy"
       ]
