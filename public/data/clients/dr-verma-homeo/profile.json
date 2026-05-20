@@ -4,7 +4,6 @@
     "created": "2026-05-09",
     "notes": "Dr. Jay Verma - Dr. Verma's Multispeciality Homeopathy Clinic, Aliganj, Lucknow. USP: Fast Homeopathy, Stones (kidney/gallbladder/ovarian), 16+ years experience. Push: best homeopathic doctor in Lucknow/India, fast results, pain relief from day 1."
   },
-
   "business": {
     "name": "Dr. Verma's Multispeciality Homeopathy Clinic",
     "slug": "dr-jay-verma-homeo",
@@ -19,7 +18,6 @@
     "experience": "16+ years",
     "qualifications": "BHMS, PG Hom (London), F.H.C.H.-UK, MD"
   },
-
   "services": [
     {
       "id": "stones",
@@ -96,7 +94,6 @@
       ]
     }
   ],
-
   "seo": {
     "localKeywords": [
       "best homeopathic doctor in Lucknow",
@@ -120,17 +117,15 @@
     ],
     "maxKeywordsPerReview": 2
   },
-
   "language": {
     "probabilities": {
-      "english": 20,
-      "hinglish": 45,
-      "hindi": 25,
-      "mixed": 10
+      "english": 0,
+      "hinglish": 0,
+      "hindi": 100,
+      "mixed": 0
     },
     "_note": "Hinglish highest — Lucknow patients write this naturally. Hindi second for traditional patient base."
   },
-
   "tone": {
     "formality": "casual",
     "warmth": "high",
@@ -138,12 +133,10 @@
     "emotionalIntensity": "high",
     "_note": "High emotional intensity — patients suffered a lot before finding Dr Verma. Reviews should reflect that relief."
   },
-
   "emoji": {
     "enabled": true,
     "probability": 65
   },
-
   "reviewStyle": {
     "minSentences": 3,
     "maxSentences": 6,
@@ -152,12 +145,11 @@
     "allowShortReviews": false,
     "_note": "Short reviews OFF — Dr Verma's patients have a story to tell. Min 3 sentences forces the pain journey narrative."
   },
-
   "rating": {
-    "5": {
-      "tone": "emotional",
-      "emojiBoost": true,
-      "sentenceLengthBias": "longer",
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
       "allowNegative": false
     },
     "4": {
@@ -166,14 +158,13 @@
       "sentenceLengthBias": "medium",
       "allowNegative": false
     },
-    "3": {
-      "tone": "neutral",
-      "emojiBoost": false,
-      "sentenceLengthBias": "shorter",
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
       "allowNegative": false
     }
   },
-
   "reviewNarrative": {
     "_note": "These guide the phrase bank tone. Not used by engine directly — for reference when writing/editing phrases.",
     "corePainPoints": [
