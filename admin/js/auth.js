@@ -42,7 +42,7 @@ const Auth = (() => {
       password:  'verma@clinic',
       role:      'clinic',
       name:      "Dr. Verma's Multispeciality Homeopathy",
-      slug:      'dr-jay-verma-homeo',
+      slug:      'dr-verma-homeo',
     },
 
     'drsharma': {
