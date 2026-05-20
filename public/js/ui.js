@@ -250,6 +250,7 @@ function renderServiceScreen(services, onSelect) {
     if (!list) return;
 
     list.innerHTML = '';
+  list.dataset.googleUrl = googleUrl;
 
     reviews.forEach((text, index) => {
       const card = _buildReviewCard(text, index, googleUrl, onRegenerate);
@@ -338,12 +339,17 @@ function renderServiceScreen(services, onSelect) {
     }
 
     // Visual confirm
+ // Visual confirm
     const confirm = card.querySelector('.copy-confirm');
     const copyBtn = card.querySelector('.copy-btn');
 
     card.classList.add('copied');
     if (confirm) confirm.classList.remove('hidden');
     if (copyBtn) copyBtn.textContent = '✓ Copied';
+
+    setTimeout(() => {
+      window.open(card.closest('#review-list').dataset.googleUrl, '_blank');
+    }, 600);
 
     setTimeout(() => {
       card.classList.remove('copied');
