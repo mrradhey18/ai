@@ -840,9 +840,21 @@ border: 2px solid #334155;
     document.addEventListener('DOMContentLoaded', () => {
       const labelEl = document.getElementById('star-label-text');
 function syncEmojis(value) {
+  const animations = {
+    '1': 'em-shake 1.5s infinite',
+    '2': 'em-wobble 2s infinite',
+    '3': 'em-bob 2s infinite',
+    '4': 'em-bounce 1.2s infinite',
+    '5': 'em-pop 1.8s infinite'
+  };
   document.querySelectorAll('.emoji-opt').forEach(e => {
     const isActive = parseInt(e.dataset.value) === parseInt(value);
     e.classList.toggle('active', isActive);
+    e.style.opacity = isActive ? '1' : '0.25';
+    e.style.filter = isActive ? 'grayscale(0)' : 'grayscale(1)';
+    e.style.animation = 'none';
+    void e.offsetWidth;
+    if (isActive) e.style.animation = animations[String(value)];
   });
 }
 
