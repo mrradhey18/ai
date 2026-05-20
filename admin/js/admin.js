@@ -235,6 +235,76 @@ function _renderPreviewServiceDropdown(profile) {
     return result;
   }
 
+  async function saveLanguageProbabilities() {
+  const sliders = _getLangProbabilitiesFromSliders();
+  const total   = Object.values(sliders).reduce((a, b) => a + b, 0);
+
+  if (total !== 100) {
+    _setStatus('❌ Total must equal 100% before saving.', true);
+    return;
+  }
+
+  const session = Auth.getSession();
+  if (!session?.githubToken) {
+    _setStatus('❌ No GitHub token found. Contact admin.', true);
+    return;
+  }
+
+  // Update in-memory profile
+  state.currentProfile.language.probabilities = sliders;
+
+  const slug        = state.currentSlug;
+  const repo        = 'mrradhey18/Smart-Review-System';
+  const filePath    = `public/data/clients/${slug}/profile.json`;
+  const apiUrl      = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+  const token       = session.githubToken;
+
+  _setStatus('Saving...');
+
+  try {
+    // Step 1: Get current file SHA (required by GitHub API to update a file)
+    const getRes  = await fetch(apiUrl, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+      }
+    });
+
+    if (!getRes.ok) throw new Error(`Could not fetch file: ${getRes.status}`);
+    const fileData = await getRes.json();
+    const sha      = fileData.sha;
+
+    // Step 2: Encode updated profile as base64
+    const updated     = JSON.stringify(state.currentProfile, null, 2);
+    const encoded     = btoa(unescape(encodeURIComponent(updated)));
+
+    // Step 3: Commit the update
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: `Update language probabilities for ${slug}`,
+        content:  encoded,
+        sha:      sha,
+      })
+    });
+
+    if (!putRes.ok) {
+      const err = await putRes.json();
+      throw new Error(err.message || putRes.status);
+    }
+
+    _setStatus('✅ Saved! Language probabilities updated permanently.');
+
+  } catch (err) {
+    console.error('[Admin] Save failed:', err);
+    _setStatus(`❌ Save failed: ${err.message}`, true);
+  }
+}
   // ─────────────────────────────────────────────
   // 6. SEO KEYWORDS PANEL
   // ─────────────────────────────────────────────
@@ -583,6 +653,7 @@ return {
   cycleReview,   
   generateQrUrl,
   loadPhraseBank,
+  saveLanguageProbabilities,
 };
 
 })();
