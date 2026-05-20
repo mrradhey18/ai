@@ -845,9 +845,13 @@
         <div class="admin-card">
           <div class="card-title">🌐 Probability Sliders</div>
           <div id="lang-sliders">Loading...</div>
-          <p style="font-size:12px; color:#7a9a87; margin-top:12px;">
-            ⚠ These sliders only affect <strong>Live Preview</strong> above.<br>
-            To save permanently, copy values into <code>profile.json → language.probabilities</code>.
+        <button
+            onclick="Admin.saveLanguageProbabilities()"
+            class="admin-btn"
+            style="margin-top:14px; width:100%;"
+          >💾 Save Permanently</button>
+          <p style="font-size:12px; color:#7a9a87; margin-top:10px;">
+            ⚠ Total must equal 100% before saving.
           </p>
         </div>
         <div class="admin-card">
