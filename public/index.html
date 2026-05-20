@@ -327,7 +327,14 @@ border: 2px solid #334155;
   transition: opacity 0.2s, filter 0.2s;
 }
 
-.emoji-opt.active { opacity: 1; filter: grayscale(0); }
+.emoji-opt.active,
+.emoji-opt:hover { opacity: 1; filter: grayscale(0); }
+
+.emoji-opt:hover[data-value="1"] { animation: em-shake 1.5s infinite; }
+.emoji-opt:hover[data-value="2"] { animation: em-wobble 2s infinite; }
+.emoji-opt:hover[data-value="3"] { animation: em-bob 2s infinite; }
+.emoji-opt:hover[data-value="4"] { animation: em-bounce 1.2s infinite; }
+.emoji-opt:hover[data-value="5"] { animation: em-pop 1.8s infinite; }
 
 .emoji-opt.active[data-value="1"] { animation: em-shake 1.5s infinite; }
 .emoji-opt.active[data-value="2"] { animation: em-wobble 2s infinite; }
