@@ -312,7 +312,7 @@ border: 2px solid #334155;
 }
 
 .emoji-opt {
-  font-size: 28px;
+  font-size: 50px;
   opacity: 0.3;
   transition: opacity 0.15s, transform 0.15s;
   cursor: pointer;
@@ -339,8 +339,8 @@ border: 2px solid #334155;
     }
 
     .star-btn svg {
-      width: 48px;
-      height: 48px;
+      width: 32px;
+      height: 32px;
       fill: #dde8e2;
       stroke: #dde8e2;
       transition: fill 0.12s ease, stroke 0.12s ease, transform 0.12s ease;
@@ -370,6 +370,43 @@ border: 2px solid #334155;
       padding: 0 8px;
       margin-top: 2px;
     }
+
+.emoji-opt.active[data-value="1"] { animation: shake 1.5s infinite; }
+.emoji-opt.active[data-value="2"] { animation: wobble 2s infinite; }
+.emoji-opt.active[data-value="3"] { animation: bob 2s infinite; }
+.emoji-opt.active[data-value="4"] { animation: bounce 1.2s infinite; }
+.emoji-opt.active[data-value="5"] { animation: spin-pop 1.8s infinite; }
+
+@keyframes shake {
+  0%,100% { transform: rotate(0deg); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
+}
+
+@keyframes wobble {
+  0%,100% { transform: translateX(0); }
+  30% { transform: translateX(-5px) rotate(-5deg); }
+  70% { transform: translateX(5px) rotate(5deg); }
+}
+
+@keyframes bob {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-10px) scale(1.1); }
+}
+
+@keyframes spin-pop {
+  0%,100% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(1.2) rotate(-10deg); }
+  60% { transform: scale(1.2) rotate(10deg); }
+}
+
+.emoji-opt { animation: none !important; }
+.emoji-opt.active { animation: unset !important; }
 
     /* ══════════════════════════════════════════════
        SCREEN 3 — REVIEW OPTIONS
