@@ -96,10 +96,12 @@ const LanguageEngine = (() => {
    * @param {string} language
    * @returns {Array<{type: string, path: string}>}
    */
-  function _buildPaths(language) {
+function _buildPaths(language) {
+    const isAdmin = window.location.pathname.includes('/admin/');
+    const base = isAdmin ? '../public/data/phrases' : 'data/phrases';
     return PHRASE_FILES.map(file => ({
       type: file,
-      path: `data/phrases/${language}/${file}.json`,
+      path: `${base}/${language}/${file}.json`,
     }));
   }
 
