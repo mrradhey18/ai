@@ -403,22 +403,19 @@ function _renderPreviewServiceDropdown(profile) {
 
       state.previewReviews = result.reviews;
 
-      if (el) {
-        el.innerHTML = `
-          <div class="preview-meta">
-            Language: <strong>${result.language}</strong> ·
-            Stars: <strong>${result.stars}⭐</strong> ·
-            Service: <strong>${result.service?.label}</strong>
-          </div>
-          ${result.reviews.map((rev, i) => `
-            <div class="preview-card">
-              <div class="preview-num">Review ${i + 1}</div>
-              <p class="preview-text">${_escHtml(rev)}</p>
-              <button class="copy-preview-btn" onclick="Admin.copyPreview(${i})">Copy</button>
-            </div>
-          `).join('')}
-        `;
-      }
+    state.previewReviews = result.reviews;
+_previewIndex = 0;
+
+const metaBar = document.getElementById('preview-meta-bar');
+if (metaBar) {
+  metaBar.style.display = 'block';
+  metaBar.innerHTML = `Language: <strong>${result.language}</strong> · Stars: <strong>${result.stars}⭐</strong> · Service: <strong>${result.service?.label}</strong>`;
+}
+
+const nav = document.getElementById('review-nav');
+if (nav) nav.style.display = 'flex';
+
+_showReviewAtIndex(0);
 
       _setStatus(`✅ Generated ${result.reviews.length} preview reviews in ${result.language}`);
 
@@ -428,6 +425,29 @@ function _renderPreviewServiceDropdown(profile) {
       _setStatus('❌ Preview generation failed', true);
     }
   }
+
+let _previewIndex = 0;
+
+function cycleReview(dir) {
+  const reviews = state.previewReviews;
+  if (!reviews.length) return;
+  _previewIndex = (_previewIndex + dir + reviews.length) % reviews.length;
+  _showReviewAtIndex(_previewIndex);
+}
+
+function _showReviewAtIndex(i) {
+  const reviews = state.previewReviews;
+  const el = document.getElementById('preview-output');
+  const counter = document.getElementById('review-counter');
+  if (counter) counter.textContent = `${i + 1} / ${reviews.length}`;
+  if (el) el.innerHTML = `
+    <div class="preview-card">
+      <div class="preview-num">Review ${i + 1}</div>
+      <p class="preview-text">${_escHtml(reviews[i])}</p>
+      <button class="copy-preview-btn" onclick="Admin.copyPreview(${i})">Copy</button>
+    </div>
+  `;
+}
 
   function copyPreview(index) {
     const text = state.previewReviews[index];
@@ -555,14 +575,15 @@ function _renderPreviewServiceDropdown(profile) {
   // PUBLIC API
   // ─────────────────────────────────────────────
 
-  return {
-    init,
-    loadClient,
-    generatePreview,
-    copyPreview,
-    generateQrUrl,
-    loadPhraseBank,
-  };
+return {
+  init,
+  loadClient,
+  generatePreview,
+  copyPreview,
+  cycleReview,   
+  generateQrUrl,
+  loadPhraseBank,
+};
 
 })();
 
