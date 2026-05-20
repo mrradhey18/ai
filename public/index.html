@@ -848,11 +848,31 @@ function syncEmojis(value) {
 
 // Touch support for emojis
 document.querySelectorAll('.emoji-opt').forEach(e => {
-  e.addEventListener('touchstart', () => {
-    syncEmojis(e.dataset.value);
-  }, { passive: true });
-});
+  const activate = () => {
+    document.querySelectorAll('.emoji-opt').forEach(x => {
+      x.classList.remove('active');
+      x.style.animation = 'none';
+      x.style.opacity = '0.25';
+      x.style.filter = 'grayscale(1)';
+    });
+    e.classList.add('active');
+    e.style.opacity = '1';
+    e.style.filter = 'grayscale(0)';
+    const animations = {
+      '1': 'em-shake 1.5s infinite',
+      '2': 'em-wobble 2s infinite',
+      '3': 'em-bob 2s infinite',
+      '4': 'em-bounce 1.2s infinite',
+      '5': 'em-pop 1.8s infinite'
+    };
+    // Force reflow to restart animation
+    void e.offsetWidth;
+    e.style.animation = animations[e.dataset.value];
+  };
 
+  e.addEventListener('touchstart', activate, { passive: true });
+  e.addEventListener('mouseenter', activate);
+});
 document.querySelectorAll('.star-btn').forEach(btn => {
   btn.addEventListener('mouseenter', () => {
     if (labelEl) labelEl.textContent = starLabels[btn.dataset.value] || '';
