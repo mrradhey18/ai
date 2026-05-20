@@ -309,9 +309,9 @@ function renderServiceScreen(services, onSelect) {
       <div class="copy-confirm hidden">✓ Copied!</div>
     `;
 
-    // Copy button
-    card.querySelector('.copy-btn').addEventListener('click', () => {
-      _copyText(text, card);
+  // Tap anywhere on card OR copy button
+    card.addEventListener('click', () => {
+      _copyText(text, card, googleUrl);
     });
 
     // Refresh button
@@ -327,7 +327,7 @@ function renderServiceScreen(services, onSelect) {
    * @param {string}      text
    * @param {HTMLElement} card
    */
-  async function _copyText(text, card) {
+  async function _copyText(text, card, googleUrl) {
     try {
       await navigator.clipboard.writeText(text);
     } catch {
@@ -352,7 +352,7 @@ function renderServiceScreen(services, onSelect) {
     if (copyBtn) copyBtn.textContent = '✓ Copied';
 
     setTimeout(() => {
-      window.open(card.closest('#review-list').dataset.googleUrl, '_blank');
+      window.open(googleUrl || card.closest('#review-list').dataset.googleUrl, '_blank');
     }, 600);
 
     setTimeout(() => {
