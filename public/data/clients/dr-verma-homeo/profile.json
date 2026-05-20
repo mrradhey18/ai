@@ -1,0 +1,196 @@
+
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-05-09",
+    "notes": "Dr. Jay Verma - Dr. Verma's Multispeciality Homeopathy Clinic, Aliganj, Lucknow. USP: Fast Homeopathy, Stones (kidney/gallbladder/ovarian), 16+ years experience. Push: best homeopathic doctor in Lucknow/India, fast results, pain relief from day 1."
+  },
+
+  "business": {
+    "name": "Dr. Verma's Multispeciality Homeopathy Clinic",
+    "slug": "dr-jay-verma-homeo",
+    "tagline": "Fast Homeopathy — Real Results, No Side Effects",
+    "city": "Lucknow",
+    "area": "Aliganj",
+    "state": "Uttar Pradesh",
+    "googleReviewUrl": "https://maps.app.goo.gl/Y5iVYpcWGzYp21CG6",
+    "phone": "+91-XXXXXXXXXX",
+    "doctor": "Dr. Jay Verma",
+    "experience": "16+ years",
+    "qualifications": "BHMS, PG Hom (London), F.H.C.H.-UK, MD"
+  },
+
+  "services": [
+    {
+      "id": "stones",
+      "label": "Kidney / Gallbladder Stone",
+      "keywords": [
+        "kidney stone treatment without surgery Lucknow",
+        "homeopathy for kidney stone Lucknow",
+        "best doctor for kidney stone in Lucknow",
+        "gallbladder stone homeopathy Lucknow",
+        "stone treatment fast homeopathy"
+      ]
+    },
+    {
+      "id": "ovarian_cyst",
+      "label": "Ovarian Cyst",
+      "keywords": [
+        "ovarian cyst treatment without surgery Lucknow",
+        "homeopathy for ovarian cyst Lucknow",
+        "best homeopathic doctor for ovarian cyst"
+      ]
+    },
+    {
+      "id": "pcos",
+      "label": "PCOS / PCOD",
+      "keywords": [
+        "PCOS treatment homeopathy Lucknow",
+        "PCOD homeopathic doctor Lucknow",
+        "best doctor for PCOS in Lucknow"
+      ]
+    },
+    {
+      "id": "thyroid",
+      "label": "Thyroid Disorder",
+      "keywords": [
+        "thyroid treatment homeopathy Lucknow",
+        "homeopathy for hypothyroid Lucknow",
+        "thyroid cure without lifelong medicine Lucknow"
+      ]
+    },
+    {
+      "id": "skin",
+      "label": "Skin Diseases",
+      "keywords": [
+        "skin disease homeopathy Lucknow",
+        "psoriasis homeopathic treatment Lucknow",
+        "homeopathy for skin Aliganj Lucknow"
+      ]
+    },
+    {
+      "id": "uterine",
+      "label": "Uterine Fibroid",
+      "keywords": [
+        "uterine fibroid treatment without surgery Lucknow",
+        "homeopathy for uterine fibroid Lucknow",
+        "fibroid cure homeopathy Aliganj"
+      ]
+    },
+    {
+      "id": "gastro",
+      "label": "Gastro / Digestive Issues",
+      "keywords": [
+        "gastro treatment homeopathy Lucknow",
+        "acidity piles fissure homeopathy Lucknow",
+        "digestive problem homeopathic doctor Lucknow"
+      ]
+    },
+    {
+      "id": "cancer",
+      "label": "Cancer Palliative Care",
+      "keywords": [
+        "cancer palliative homeopathy Lucknow",
+        "homeopathy for cancer management Lucknow",
+        "advanced cancer pain relief homeopathy"
+      ]
+    }
+  ],
+
+  "seo": {
+    "localKeywords": [
+      "best homeopathic doctor in Lucknow",
+      "best homeopathic doctor in India",
+      "Dr Jay Verma Lucknow",
+      "fast homeopathy Lucknow",
+      "Dr Verma Aliganj Lucknow",
+      "multispeciality homeopathy Lucknow",
+      "homeopathic doctor Aliganj Lucknow",
+      "stone specialist homeopathy Lucknow"
+    ],
+    "trustKeywords": [
+      "16 years experience",
+      "results from first day",
+      "no surgery needed",
+      "permanent cure",
+      "fast homeopathy",
+      "cases from all over India",
+      "without side effects",
+      "qualified from London"
+    ],
+    "maxKeywordsPerReview": 2
+  },
+
+  "language": {
+    "probabilities": {
+      "english": 20,
+      "hinglish": 45,
+      "hindi": 25,
+      "mixed": 10
+    },
+    "_note": "Hinglish highest — Lucknow patients write this naturally. Hindi second for traditional patient base."
+  },
+
+  "tone": {
+    "formality": "casual",
+    "warmth": "high",
+    "doctorReferenceStyle": "respectful",
+    "emotionalIntensity": "high",
+    "_note": "High emotional intensity — patients suffered a lot before finding Dr Verma. Reviews should reflect that relief."
+  },
+
+  "emoji": {
+    "enabled": true,
+    "probability": 65
+  },
+
+  "reviewStyle": {
+    "minSentences": 3,
+    "maxSentences": 6,
+    "allowImperfectGrammar": true,
+    "allowLowercase": true,
+    "allowShortReviews": false,
+    "_note": "Short reviews OFF — Dr Verma's patients have a story to tell. Min 3 sentences forces the pain journey narrative."
+  },
+
+  "rating": {
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
+      "allowNegative": false
+    },
+    "4": {
+      "tone": "positive",
+      "emojiBoost": false,
+      "sentenceLengthBias": "medium",
+      "allowNegative": false
+    },
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
+      "allowNegative": false
+    }
+  },
+
+  "reviewNarrative": {
+    "_note": "These guide the phrase bank tone. Not used by engine directly — for reference when writing/editing phrases.",
+    "corePainPoints": [
+      "Tried many doctors before, nothing worked",
+      "Was in severe pain for months/years",
+      "Was told surgery was the only option",
+      "Didn't believe homeopathy could work this fast",
+      "Came from other cities after hearing about Dr Verma"
+    ],
+    "coreUSPs": [
+      "Relief from very first day of medicine",
+      "Stone passed without surgery",
+      "Fast results unlike normal homeopathy",
+      "Dr Verma explains everything clearly",
+      "Permanent cure not temporary relief",
+      "No side effects at all",
+      "Cases handled from all over India"
+    ]
+  }
+}
