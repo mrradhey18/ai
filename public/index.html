@@ -312,8 +312,8 @@ border: 2px solid #334155;
 }
 
 .emoji-opt {
-  font-size: 50px;
-  opacity: 0.3;
+  font-size: 48px;
+  opacity: 1;
   transition: opacity 0.15s, transform 0.15s;
   cursor: pointer;
 }
@@ -862,6 +862,10 @@ document.querySelectorAll('.emoji-opt').forEach(e => {
     });
     if (labelEl) labelEl.textContent = starLabels[val] || '';
     syncEmojis(val);
+    // trigger the actual star click to move forward
+    setTimeout(() => {
+      document.querySelector(`.star-btn[data-value="${val}"]`).click();
+    }, 250);
   });
 });
 
