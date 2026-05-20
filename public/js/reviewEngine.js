@@ -427,25 +427,18 @@ const reviews = await _generateBatch({
   count,
 });
 
+// ── Fallback: if generation produced nothing ─
+if (reviews.length === 0) {
+  Utils.warn('ReviewEngine: generation produced 0 reviews — using emergency fallback');
+  reviews.push(_getFallbackReview(stars, 'english'));
+}
+
 return {
   reviews,
   language: 'multi',
   stars,
   service: serviceData,
 };
-
-    // ── Fallback: if generation produced nothing ─
-    if (reviews.length === 0) {
-      Utils.warn('ReviewEngine: generation produced 0 reviews — using emergency fallback');
-      reviews.push(_getFallbackReview(stars, language));
-    }
-
-    return {
-      reviews,
-      language,
-      stars,
-      service: serviceData,
-    };
   }
 
   // ─────────────────────────────────────────────
