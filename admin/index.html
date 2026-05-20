@@ -805,14 +805,10 @@
         <div class="card-title">🏥 Service List</div>
         <div id="services-list">Loading...</div>
       </div>
-      <div class="admin-card" style="background:#fff8ee; border-color:#f0d090;">
-        <div class="card-title" style="color:#c07020;">📌 How to edit services</div>
-        <p style="font-size:13px; color:#7a6020; margin:0;">
-          Open <code>data/clients/[slug]/profile.json</code> → edit the <code>"services"</code> array.
-          Each service needs: <code>id</code>, <code>label</code>, <code>keywords</code>.
-          Save the file and reload this page to see changes.
-        </p>
-      </div>
+    <div class="admin-card" style="display:flex; gap:10px; flex-wrap:wrap;">
+  <button class="admin-btn" onclick="Admin.addService()">+ Add Service</button>
+  <button class="admin-btn" onclick="Admin.saveServices()" style="background:#1a6b4a">💾 Save Services</button>
+</div>
     </section>
 
     <!-- ══════════════════════════════════════
