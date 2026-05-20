@@ -191,11 +191,13 @@ function renderServiceScreen(services, onSelect) {
       star.addEventListener('click', () => {
       const value = parseInt(star.dataset.value);
         _highlightStars(value, true);
-       if (value <= 2) {
-  setTimeout(() => _showSorryToast(), 250);
-} else {
-  setTimeout(() => onRate(value), 250);
-}
+  const toast = document.getElementById('sorry-toast');
+        if (toast) toast.remove();
+        if (value <= 2) {
+          setTimeout(() => _showSorryToast(), 250);
+        } else {
+          setTimeout(() => onRate(value), 250);
+        }
       });
     });
   }
