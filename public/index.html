@@ -856,6 +856,11 @@ function syncEmojis(value) {
     void e.offsetWidth;
     if (isActive) e.style.animation = animations[String(value)];
   });
+  // close sorry toast if 3+
+  if (parseInt(value) >= 3) {
+    const toast = document.getElementById('sorry-toast');
+    if (toast) toast.remove();
+  }
 }
 
 // Touch support for emojis
@@ -879,7 +884,12 @@ document.querySelectorAll('.emoji-opt').forEach(e => {
     };
     // Force reflow to restart animation
     void e.offsetWidth;
-    e.style.animation = animations[e.dataset.value];
+   e.style.animation = animations[e.dataset.value];
+    // sync stars
+    document.querySelectorAll('.star-btn').forEach(s => {
+      const active = parseInt(s.dataset.value) <= parseInt(e.dataset.value);
+      s.classList.toggle('hovered', active);
+    });
   };
 
   e.addEventListener('touchstart', activate, { passive: true });
