@@ -32,6 +32,7 @@ const Auth = (() => {
       role:      'superadmin',
       name:      'NexaFlow Admin',
       slug:      null,
+      githubToken: 'github_pat_XXXXXXXXXXXX'
     },
 
     // ── CLINIC USERS ─────────────────────────────
@@ -87,49 +88,76 @@ const Auth = (() => {
    * On success: saves session, hides overlay, shows logged-in user.
    * On failure: shows error message.
    */
-  function attemptLogin() {
-    const username = document.getElementById('login-user')?.value?.trim().toLowerCase();
-    const password = document.getElementById('login-pass')?.value;
-    const errorEl  = document.getElementById('login-error');
+const SUPABASE_URL = 'https://xpebzkecofenaygukhsh.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwZWJ6a2Vjb2ZlbmF5Z3VraHNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyOTE2MDMsImV4cCI6MjA5NDg2NzYwM30.r-GSpPhRrIUTosBRZ0gQF0TtYPl5Uu93A7QPogiQbEA';
 
-    if (!username || !password) {
-      _showLoginError('Please enter username and password.');
-      return;
-    }
-
-    const user = USERS[username];
-
-    if (!user || user.password !== password) {
-      _showLoginError('Incorrect username or password.');
-      // Clear password field on failure
-      const passEl = document.getElementById('login-pass');
-      if (passEl) passEl.value = '';
-      return;
-    }
-
-    // Save session
-    const session = {
-      username: username,
-      role:     user.role,
-      name:     user.name,
-      slug:     user.slug,
-    };
-
-    sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-
-    // Hide login overlay
-    const overlay = document.getElementById('login-overlay');
-    if (overlay) overlay.style.display = 'none';
-
-    // Show logged-in user name in top bar
-    const userLabel = document.getElementById('logged-in-user');
-    if (userLabel) {
-      userLabel.textContent = `👤 ${user.name}${user.role === 'superadmin' ? '  ·  Super Admin' : ''}`;
-    }
-
-    // Boot the admin panel now that login is confirmed
-    Admin.init();
+async function _fetchGithubToken() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/clinic_config?slug=eq._global&select=github_token`,
+      {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+        }
+      }
+    );
+    const data = await res.json();
+    return data?.[0]?.github_token || null;
+  } catch (e) {
+    return null;
   }
+}
+
+async function attemptLogin() {
+  const username = document.getElementById('login-user')?.value?.trim().toLowerCase();
+  const password = document.getElementById('login-pass')?.value;
+
+  if (!username || !password) {
+    _showLoginError('Please enter username and password.');
+    return;
+  }
+
+  const user = USERS[username];
+
+  if (!user || user.password !== password) {
+    _showLoginError('Incorrect username or password.');
+    const passEl = document.getElementById('login-pass');
+    if (passEl) passEl.value = '';
+    return;
+  }
+
+  // Show loading state
+  const btnEl = document.querySelector('#login-overlay button');
+  if (btnEl) btnEl.textContent = 'Signing in...';
+
+  // Fetch token from Supabase
+  const githubToken = await _fetchGithubToken();
+
+  // Save session
+  const session = {
+    username:    username,
+    role:        user.role,
+    name:        user.name,
+    slug:        user.slug,
+    githubToken: githubToken,
+  };
+
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+
+  // Hide login overlay
+  const overlay = document.getElementById('login-overlay');
+  if (overlay) overlay.style.display = 'none';
+
+  // Show logged-in user name in top bar
+  const userLabel = document.getElementById('logged-in-user');
+  if (userLabel) {
+    userLabel.textContent = `👤 ${user.name}${user.role === 'superadmin' ? '  ·  Super Admin' : ''}`;
+  }
+
+  // Boot the admin panel
+  Admin.init();
+}
 
   // ─────────────────────────────────────────────
   // LOGOUT
