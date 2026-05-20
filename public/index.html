@@ -320,11 +320,17 @@ border: 2px solid #334155;
   cursor: pointer;
 }
 
-.emoji-opt.active {
+.emoji-opt.active,
+.emoji-opt:hover {
   opacity: 1;
   filter: grayscale(0);
-  transform: scale(1.4);
 }
+
+.emoji-opt:hover[data-value="1"] { animation: shake 1.5s infinite; }
+.emoji-opt:hover[data-value="2"] { animation: wobble 2s infinite; }
+.emoji-opt:hover[data-value="3"] { animation: bob 2s infinite; }
+.emoji-opt:hover[data-value="4"] { animation: bounce-em 1.2s infinite; }
+.emoji-opt:hover[data-value="5"] { animation: spin-pop 1.8s infinite; }
 
     .star-container {
       display: flex;
