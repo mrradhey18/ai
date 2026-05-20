@@ -191,11 +191,11 @@ function renderServiceScreen(services, onSelect) {
       star.addEventListener('click', () => {
       const value = parseInt(star.dataset.value);
         _highlightStars(value, true);
-        if (value <= 2) {
-          setTimeout(() => _showPrivateFeedback(), 250);
-        } else {
-          setTimeout(() => onRate(value), 250);
-        }
+       if (value <= 2) {
+  setTimeout(() => _showSorryToast(), 250);
+} else {
+  setTimeout(() => onRate(value), 250);
+}
       });
     });
   }
@@ -495,6 +495,51 @@ function _showPrivateFeedback() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function _showSorryToast() {
+  // Remove existing toast if any
+  const existing = document.getElementById('sorry-toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.id = 'sorry-toast';
+  toast.innerHTML = `
+    <p style="margin:0 0 12px;font-size:14px;font-weight:600;color:#f1f5f9;line-height:1.5;">
+      😔 We're sorry our services didn't meet your expectations.
+    </p>
+    <button id="share-private-btn" style="
+      width:100%;padding:13px;
+      background:linear-gradient(135deg,#6366f1,#8b5cf6);
+      color:#fff;border:none;border-radius:12px;
+      font-size:14px;font-weight:700;
+      font-family:'Sora',sans-serif;cursor:pointer;
+    ">Share Privately</button>
+  `;
+  toast.style.cssText = `
+    position:fixed;bottom:0;left:50%;
+    transform:translateX(-50%) translateY(100%);
+    width:100%;max-width:480px;
+    background:#1e293b;
+    border-top:2px solid #6366f1;
+    border-radius:20px 20px 0 0;
+    padding:20px 20px 32px;
+    box-shadow:0 -8px 32px rgba(99,102,241,0.25);
+    z-index:999;
+    transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  `;
+
+  document.body.appendChild(toast);
+
+  // Slide up
+  setTimeout(() => {
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+  }, 10);
+
+  document.getElementById('share-private-btn').addEventListener('click', () => {
+    toast.remove();
+    _showPrivateFeedback();
+  });
+}
+
   return {
     showScreen,
     renderClinicHeader,
@@ -507,6 +552,7 @@ function _showPrivateFeedback() {
     showClinicNotFound,
     wireBackButtons,
     _showPrivateFeedback,
+    _showSorryToast,
   };
 
 })();
