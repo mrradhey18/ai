@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "purpose": "Mid-review sentences that mention the service/treatment. The review engine picks from this pool AND injects the patient's selected service name dynamically using the {{service}} placeholder.",
+    "rules": [
+      "Use {{service}} as placeholder — engine replaces it with actual service name",
+      "Keep it natural, not clinical",
+      "Mention outcomes where possible",
+      "Vary between 'I came for...' and 'My ... treatment was...'"
+    ]
+  },
+
+  "5star": [
+    "Came here for {{service}} and the results have been really good.",
+    "My {{service}} treatment has shown great improvement in just a few weeks.",
+    "The {{service}} treatment here is done very carefully and methodically.",
+    "After trying allopathy for {{service}}, finally switched to homeopathy here and no regrets.",
+    "The approach to {{service}} was different from what I expected — much more holistic.",
+    "Got {{service}} done here and honestly the improvement is visible.",
+    "Was struggling with my issue for months before starting {{service}} here.",
+    "The {{service}} treatment plan they gave me actually made sense.",
+    "Specifically came for {{service}} and I'm very happy with how it's progressing.",
+    "{{service}} treatment was handled very professionally here."
+  ],
+
+  "4star": [
+    "Came for {{service}} and the treatment is going well.",
+    "My {{service}} issue is slowly improving with their treatment.",
+    "The {{service}} treatment approach was explained properly.",
+    "Getting {{service}} done here, results are gradual but visible.",
+    "{{service}} consultation was good and informative."
+  ],
+
+  "3star": [
+    "Visited for {{service}}.",
+    "Got {{service}} consultation here.",
+    "Took medicines for {{service}}.",
+    "Treatment for {{service}} is ongoing."
+  ]
+}
