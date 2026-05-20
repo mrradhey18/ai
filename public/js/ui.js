@@ -53,27 +53,29 @@ const UI = (() => {
    * Render clinic identity into all header slots.
    * @param {Object} profile  client profile.json
    */
-  function renderClinicHeader(profile) {
-    const name     = profile?.business?.name     || 'Our Clinic';
-    const tagline  = profile?.business?.tagline  || 'Thank you for visiting';
-    const area     = profile?.business?.area     || '';
-    const city     = profile?.business?.city     || '';
-    const location = [area, city].filter(Boolean).join(', ');
+function renderClinicHeader(profile) {
+  const name     = profile?.business?.name     || 'Our Clinic';
+  const tagline  = profile?.business?.tagline  || 'Thank you for visiting';
+  const area     = profile?.business?.area     || '';
+  const city     = profile?.business?.city     || '';
+  const location = [area, city].filter(Boolean).join(', ');
+  const logoUrl  = profile?.business?.logoUrl  || '';
 
-    // Update all clinic name slots
-    document.querySelectorAll('.clinic-name').forEach(el => {
-      el.textContent = name;
-    });
-    document.querySelectorAll('.clinic-tagline').forEach(el => {
-      el.textContent = tagline;
-    });
-    document.querySelectorAll('.clinic-location').forEach(el => {
-      el.textContent = location;
-    });
+  document.querySelectorAll('.clinic-name').forEach(el => { el.textContent = name; });
+  document.querySelectorAll('.clinic-tagline').forEach(el => { el.textContent = tagline; });
+  document.querySelectorAll('.clinic-location').forEach(el => { el.textContent = location; });
 
-    // Update page title
-    document.title = `Review ${name}`;
+  const leafEl = document.querySelector('.header-leaf');
+  if (leafEl) {
+    if (logoUrl) {
+      leafEl.innerHTML = `<img src="${logoUrl}" alt="logo" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.4);">`;
+    } else {
+      leafEl.textContent = '🌿';
+    }
   }
+
+  document.title = `Review ${name}`;
+}
 
   // ─────────────────────────────────────────────
   // 3. SCREEN 1 — SERVICE SELECTION
