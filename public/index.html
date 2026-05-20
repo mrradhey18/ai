@@ -311,107 +311,100 @@ border: 2px solid #334155;
   padding: 16px 0 4px;
 }
 
+.emoji-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px 0 4px;
+}
+
 .emoji-opt {
   font-size: 48px;
   opacity: 0.25;
   filter: grayscale(1);
-  transform: scale(0.85);
-  transition: opacity 0.2s, transform 0.2s, filter 0.2s;
   cursor: pointer;
+  display: inline-block;
+  transition: opacity 0.2s, filter 0.2s;
 }
 
-.emoji-opt.active,
-.emoji-opt:hover {
-  opacity: 1;
-  filter: grayscale(0);
+.emoji-opt.active { opacity: 1; filter: grayscale(0); }
+
+.emoji-opt.active[data-value="1"] { animation: em-shake 1.5s infinite; }
+.emoji-opt.active[data-value="2"] { animation: em-wobble 2s infinite; }
+.emoji-opt.active[data-value="3"] { animation: em-bob 2s infinite; }
+.emoji-opt.active[data-value="4"] { animation: em-bounce 1.2s infinite; }
+.emoji-opt.active[data-value="5"] { animation: em-pop 1.8s infinite; }
+
+@keyframes em-shake {
+  0%,100% { transform: rotate(0deg) scale(1.4); }
+  25%      { transform: rotate(-15deg) scale(1.4); }
+  75%      { transform: rotate(15deg) scale(1.4); }
 }
-
-.emoji-opt:hover[data-value="1"] { animation: shake 1.5s infinite; }
-.emoji-opt:hover[data-value="2"] { animation: wobble 2s infinite; }
-.emoji-opt:hover[data-value="3"] { animation: bob 2s infinite; }
-.emoji-opt:hover[data-value="4"] { animation: bounce-em 1.2s infinite; }
-.emoji-opt:hover[data-value="5"] { animation: spin-pop 1.8s infinite; }
-
-    .star-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 28px 0 16px;
-    }
-
-    .star-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      transition: transform 0.15s ease;
-    }
-
-    .star-btn svg {
-      width: 32px;
-      height: 32px;
-      fill: #dde8e2;
-      stroke: #dde8e2;
-      transition: fill 0.12s ease, stroke 0.12s ease, transform 0.12s ease;
-    }
-
-    .star-btn.hovered svg,
-    .star-btn.selected svg {
-      fill: var(--gold);
-      stroke: var(--gold);
-      transform: scale(1.12);
-    }
-
-    .star-label {
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-soft);
-      margin-top: 4px;
-      min-height: 22px;
-      transition: color 0.15s;
-    }
-
-    .star-hint {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--text-soft);
-      padding: 0 8px;
-      margin-top: 2px;
-    }
-
-.emoji-opt.active[data-value="1"] { animation: shake 1.5s infinite; transform-origin: center; }
-.emoji-opt.active[data-value="2"] { animation: wobble 2s infinite; transform-origin: center; }
-.emoji-opt.active[data-value="3"] { animation: bob 2s infinite; transform-origin: center; }
-.emoji-opt.active[data-value="4"] { animation: bounce-em 1.2s infinite; transform-origin: center; }
-.emoji-opt.active[data-value="5"] { animation: spin-pop 1.8s infinite; transform-origin: center; }
-
-@keyframes shake {
+@keyframes em-wobble {
+  0%,100% { transform: translateX(0) scale(1.4); }
+  30%      { transform: translateX(-8px) rotate(-8deg) scale(1.4); }
+  70%      { transform: translateX(8px) rotate(8deg) scale(1.4); }
+}
+@keyframes em-bob {
+  0%,100% { transform: translateY(0) scale(1.4); }
+  50%      { transform: translateY(-10px) scale(1.4); }
+}
+@keyframes em-bounce {
+  0%,100% { transform: translateY(0) scale(1.4); }
+  40%      { transform: translateY(-14px) scale(1.55); }
+}
+@keyframes em-pop {
   0%,100% { transform: scale(1.4) rotate(0deg); }
-  25%      { transform: scale(1.4) rotate(-15deg); }
-  75%      { transform: scale(1.4) rotate(15deg); }
+  25%      { transform: scale(1.6) rotate(-10deg); }
+  75%      { transform: scale(1.6) rotate(10deg); }
 }
 
-@keyframes wobble {
-  0%,100% { transform: scale(1.4) translateX(0); }
-  30%      { transform: scale(1.4) translateX(-8px) rotate(-8deg); }
-  70%      { transform: scale(1.4) translateX(8px) rotate(8deg); }
+.star-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 0 16px;
 }
 
-@keyframes bob {
-  0%,100% { transform: scale(1.4) translateY(0); }
-  50%      { transform: scale(1.4) translateY(-8px); }
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: transform 0.15s ease;
 }
 
-@keyframes bounce-em {
-  0%,100% { transform: scale(1.4) translateY(0); }
-  40%      { transform: scale(1.55) translateY(-12px); }
+.star-btn svg {
+  width: 32px;
+  height: 32px;
+  fill: #dde8e2;
+  stroke: #dde8e2;
+  transition: fill 0.12s ease, stroke 0.12s ease, transform 0.12s ease;
 }
 
-@keyframes spin-pop {
-  0%,100% { transform: scale(1.4) rotate(0deg); }
-  25%      { transform: scale(1.55) rotate(-12deg); }
-  75%      { transform: scale(1.55) rotate(12deg); }
+.star-btn.hovered svg,
+.star-btn.selected svg {
+  fill: var(--gold);
+  stroke: var(--gold);
+  transform: scale(1.12);
+}
+
+.star-label {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-top: 4px;
+  min-height: 22px;
+  transition: color 0.15s;
+}
+
+.star-hint {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-soft);
+  padding: 0 8px;
+  margin-top: 2px;
 }
 
 .emoji-opt { animation: none !important; }
@@ -841,9 +834,17 @@ border: 2px solid #334155;
       const labelEl = document.getElementById('star-label-text');
 function syncEmojis(value) {
   document.querySelectorAll('.emoji-opt').forEach(e => {
-    e.classList.toggle('active', parseInt(e.dataset.value) === parseInt(value));
+    const isActive = parseInt(e.dataset.value) === parseInt(value);
+    e.classList.toggle('active', isActive);
   });
 }
+
+// Touch support for emojis
+document.querySelectorAll('.emoji-opt').forEach(e => {
+  e.addEventListener('touchstart', () => {
+    syncEmojis(e.dataset.value);
+  }, { passive: true });
+});
 
 document.querySelectorAll('.star-btn').forEach(btn => {
   btn.addEventListener('mouseenter', () => {
