@@ -189,9 +189,13 @@ function renderServiceScreen(services, onSelect) {
       star.addEventListener('mouseenter', () => _highlightStars(star.dataset.value));
       star.addEventListener('mouseleave', () => _clearStarHighlight());
       star.addEventListener('click', () => {
-        const value = parseInt(star.dataset.value);
-        _highlightStars(value, true); // Lock highlight
-        setTimeout(() => onRate(value), 250);
+      const value = parseInt(star.dataset.value);
+        _highlightStars(value, true);
+        if (value <= 2) {
+          setTimeout(() => _showPrivateFeedback(), 250);
+        } else {
+          setTimeout(() => onRate(value), 250);
+        }
       });
     });
   }
@@ -447,6 +451,49 @@ function renderServiceScreen(services, onSelect) {
   // ─────────────────────────────────────────────
   // PUBLIC API
   // ─────────────────────────────────────────────
+function _showPrivateFeedback() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  
+  let feedbackScreen = document.getElementById('screen-feedback');
+  if (!feedbackScreen) {
+    feedbackScreen = document.createElement('section');
+    feedbackScreen.id = 'screen-feedback';
+    feedbackScreen.className = 'screen';
+    feedbackScreen.innerHTML = `
+      <h2 class="section-title">We're sorry to hear that 😔</h2>
+      <p class="section-sub">Your feedback helps us improve. Please share what went wrong — we'll look into it personally.</p>
+      <textarea id="private-feedback-text" placeholder="Tell us what could have been better..." style="
+        width:100%; min-height:140px; padding:14px;
+        background:#1e293b; color:#f1f5f9;
+        border:2px solid #334155; border-radius:14px;
+        font-size:14px; font-family:'Nunito',sans-serif;
+        outline:none; resize:none; line-height:1.6;
+      "></textarea>
+      <button id="send-feedback-btn" style="
+        margin-top:16px; width:100%; padding:14px;
+        background:linear-gradient(135deg,#6366f1,#8b5cf6);
+        color:#fff; border:none; border-radius:12px;
+        font-size:15px; font-weight:700;
+        font-family:'Sora',sans-serif; cursor:pointer;
+      ">Send Private Feedback</button>
+      <p id="feedback-sent-msg" style="
+        display:none; text-align:center; margin-top:16px;
+        color:#6366f1; font-weight:700; font-size:15px;
+      ">✓ Thank you! We'll work on it.</p>
+    `;
+    document.querySelector('.app-shell').appendChild(feedbackScreen);
+
+    document.getElementById('send-feedback-btn').addEventListener('click', () => {
+      const txt = document.getElementById('private-feedback-text').value.trim();
+      if (!txt) return;
+      document.getElementById('send-feedback-btn').style.display = 'none';
+      document.getElementById('feedback-sent-msg').style.display = 'block';
+    });
+  }
+
+  feedbackScreen.classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
   return {
     showScreen,
@@ -459,6 +506,9 @@ function renderServiceScreen(services, onSelect) {
     showError,
     showClinicNotFound,
     wireBackButtons,
+    _showPrivateFeedback,
   };
 
 })();
+
+
