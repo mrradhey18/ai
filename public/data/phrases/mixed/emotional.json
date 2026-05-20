@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "purpose": "Emotional warmth sentences with natural code-switching. Used selectively — engine skips these sometimes intentionally.",
+    "rules": [
+      "Mix emotional Hindi words with English filler words naturally",
+      "Reference परिवार, family, ghar waale — all valid in mixed",
+      "Short sentences feel more genuine than long emotional ones",
+      "3-star pool intentionally tiny"
+    ]
+  },
+
+  "5star": [
+    "Sach mein बहुत relief feel हो रहा है अब।",
+    "घर वाले भी bol rahe hain कि difference दिख रहा है।",
+    "Months की problem थी, अब बहुत better हूँ।",
+    "माँ ने यहाँ आने को कहा था — she was absolutely right।",
+    "इतने time बाद health के मामले में finally hopeful feel हो रहा है।",
+    "Har week थोड़ा improvement — यही तो chahiye था।",
+    "Saalon बाद इतना good feel किया है honestly।",
+    "Treatment पर trust बनता जा रहा है dheere dheere।",
+    "Family को भी difference दिख रहा है — that means a lot।",
+    "जो peace of mind मिली है — that's the most valuable thing।",
+    "इस treatment से haar नहीं माना and glad I didn't।",
+    "Slowly ज़िंदगी back on track आ रही है।",
+    "खुद पर फिर से confidence आ रहा है।",
+    "Bahut struggle किया इस problem के साथ — ab finally light दिख रही है।"
+  ],
+
+  "4star": [
+    "पहले से better feel हो रहा हूँ — that's what matters।",
+    "Glad हूँ कि यहाँ treatment लेने का decision किया।",
+    "Improvement हो रहा है, slow सही पर visible है।",
+    "Thoda hopeful feel हो रहा है ab।",
+    "Overall positive direction में जा रहा है सब।"
+  ],
+
+  "3star": [
+    "देखते हैं आगे what happens।",
+    "Hoping for better results आगे।"
+  ]
+}

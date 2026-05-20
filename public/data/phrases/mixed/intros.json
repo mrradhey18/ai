@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "purpose": "Opening sentences that genuinely switch between Hindi/Hinglish and English mid-thought. This is how educated Indian patients naturally write — not a mistake, not translation, actual code-switching.",
+    "rules": [
+      "Switch must feel natural — not forced",
+      "English words that Indians commonly use: experience, result, treatment, clinic, doctor, honestly, overall, recommend, satisfied",
+      "Hindi/Devanagari anchors the sentence, English fills in modern words",
+      "Or reverse — English sentence with Hindi words dropped in naturally",
+      "Read it out loud — if it sounds weird, it's wrong"
+    ]
+  },
+
+  "5star": [
+    "Honestly कहूँ तो यह clinic बेस्ट है इस area में।",
+    "Really impressed हूँ — नहीं सोचा था itna अच्छा experience होगा।",
+    "बहुत दिनों से problem थी, finally यहाँ आकर कुछ result दिखा।",
+    "इस clinic के बारे में सुना था, came here and totally worth it रहा।",
+    "Honestly बोलूँ तो best decision था यहाँ आना।",
+    "इतने doctors try करने के बाद finally यहाँ कुछ difference पड़ा।",
+    "पहले homeopathy पर trust नहीं था but इस जगह ने mindset change कर दिया।",
+    "मेरी family ने recommend किया था — bilkul sahi decision था।",
+    "Visited after a friend's suggestion और honestly बहुत अच्छा लगा।",
+    "Results खुद बोल रहे हैं — कुछ और explain करने की ज़रूरत नहीं।",
+    "बहुत दिनों बाद किसी doctor से इतना satisfied feel किया।",
+    "Genuinely surprised था how good the experience was यहाँ।",
+    "Itne sare clinics try karne ke baad यहाँ असली फर्क पड़ा।",
+    "Can't recommend enough — एक बार ज़रूर आइए।",
+    "यहाँ आना था कब से, आज आया तो लगा पहले क्यों नहीं आया।"
+  ],
+
+  "4star": [
+    "Overall अच्छा experience रहा इस clinic में।",
+    "Pretty satisfied हूँ treatment से अभी तक।",
+    "Visited last week और अच्छा लगा overall।",
+    "Good experience रही — doctor helpful थे।",
+    "Decent clinic है, staff भी cooperative है।",
+    "Treatment ठीक चल रहा है, results आ रहे हैं slowly।",
+    "Overall positive रहा मेरा visit।",
+    "Kaafi accha laga — would visit again definitely।",
+    "Nice clinic है, professional feel है।",
+    "Doctor ने properly सुना और guide किया।"
+  ],
+
+  "3star": [
+    "Visited this clinic recently इलाज के लिए।",
+    "Consultation के लिए यहाँ आया था।",
+    "Treatment chal raha hai अभी।",
+    "देखते हैं what happens आगे।",
+    "Okay experience रहा overall।"
+  ]
+}
