@@ -32,6 +32,7 @@ const Admin = (() => {
     knownClients: [
       { slug: 'dr-sharma-homeo',       name: 'Dr. Sharma Homeopathic Clinic' },
       { slug: 'green-wellness-clinic', name: 'Green Wellness Clinic' },
+      { slug: 'dr-verma-homeo', name: 'Dr. Verma Homeopathic Clinic' }
       // Add new clients here when you create their profile.json
     ],
   };
