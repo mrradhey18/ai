@@ -95,6 +95,7 @@ const Admin = (() => {
 
     _renderProfileOverview(profile);
     _renderServices(profile);
+    _renderPreviewServiceDropdown(profile); 
     _renderLanguageSliders(profile);
     _renderSeoKeywords(profile);
     _renderRatingConfig(profile);
@@ -146,6 +147,15 @@ const Admin = (() => {
       </div>
     `).join('');
   }
+
+function _renderPreviewServiceDropdown(profile) {
+  const sel = document.getElementById('preview-service');
+  if (!sel) return;
+
+  sel.innerHTML = (profile.services || []).map(s =>
+    `<option value="${s.id}">${s.label}</option>`
+  ).join('');
+}
 
   // ─────────────────────────────────────────────
   // 5. LANGUAGE PROBABILITY PANEL
