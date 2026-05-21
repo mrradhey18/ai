@@ -213,7 +213,7 @@ const Utils = (() => {
    */
   async function loadJSON(path) {
     try {
-      const res = await fetch(url + '?v=' + Date.now());
+      const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
       return await res.json();
     } catch (err) {
