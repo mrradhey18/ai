@@ -30,7 +30,7 @@
         "stone treatment fast homeopathy"
       ]
     },
-      {
+    {
       "id": "stones",
       "label": "Gallbladder Stone",
       "keywords": [
@@ -128,10 +128,10 @@
   },
   "language": {
     "probabilities": {
-      "english": 45,
-      "hinglish": 35,
-      "hindi": 5,
-      "mixed": 15
+      "english": 0,
+      "hinglish": 0,
+      "hindi": 100,
+      "mixed": 0
     },
     "_note": "Hinglish highest — Lucknow patients write this naturally. Hindi second for traditional patient base."
   },
