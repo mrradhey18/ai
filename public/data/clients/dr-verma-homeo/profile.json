@@ -21,13 +21,22 @@
   "services": [
     {
       "id": "stones",
-      "label": "Kidney / Gallbladder Stone",
+      "label": "Kidney",
       "keywords": [
         "kidney stone treatment without surgery Lucknow",
         "homeopathy for kidney stone Lucknow",
         "best doctor for kidney stone in Lucknow",
         "gallbladder stone homeopathy Lucknow",
         "stone treatment fast homeopathy"
+      ]
+    },
+      {
+      "id": "stones",
+      "label": "Gallbladder Stone",
+      "keywords": [
+        "stones treatment without surgery Lucknow",
+        "homeopathy for Gallbladder Stone Lucknow",
+        "best homeopathic doctor for Gallbladder Stone"
       ]
     },
     {
