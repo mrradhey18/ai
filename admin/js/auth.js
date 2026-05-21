@@ -39,8 +39,8 @@ const Auth = (() => {
     // Each clinic can only see their own data.
     // slug must match the folder name in data/clients/
 
-    'drverma': {
-      password:  'verma@clinic',
+    'drvermaclinic': {
+      password:  'homeo@clinic',
       role:      'clinic',
       name:      "Dr. Verma's Multispeciality Homeopathy",
       slug:      'dr-verma-homeo',
