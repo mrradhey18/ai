@@ -20,7 +20,7 @@
   --glass:       rgba(255,255,255,0.04);
   --glass-border: rgba(255,255,255,0.08);
   --text-primary: #f0f7f3;
-  --text-muted:  rgba(255,255,255,0.45);
+  --text-muted: rgba(255,255,255,0.65);
 }
 
     * { box-sizing: border-box; }
@@ -189,12 +189,14 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     }
 
     .section-heading {
-      font-family: 'Sora', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #1a2e24;
-      margin: 0 0 6px;
-    }
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #6ee7a0;
+  margin: 0 0 6px;
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 40px rgba(110,231,160,0.3);
+}
 
     .section-desc {
       font-size: 14px;
@@ -253,7 +255,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       flex-shrink: 0;
     }
 
-    .info-val { color: #1a2e24; font-weight: 500; }
+    .info-val { color: #ffffff; font-weight: 700; font-size: 14px; }
 
     .code-tag {
   background: rgba(26,122,80,0.2);
@@ -264,12 +266,13 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   border: 1px solid rgba(26,122,80,0.3);
 }
 
-    .link-tag {
-      color: #2980b9;
-      font-size: 12px;
-      text-decoration: underline;
-      word-break: break-all;
-    }
+   .link-tag {
+  color: #5bc8f5;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  word-break: break-all;
+}
 
     /* ── SERVICE ROWS ────────────────────────── */
     .service-row {
@@ -721,18 +724,20 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   min-height: 100vh;
 }
 
-  .section-heading {
+ .section-heading {
   font-family: 'Sora', sans-serif;
   font-size: 28px;
   font-weight: 800;
-  color: #fff;
+  color: #6ee7a0;
   margin: 0 0 6px;
   letter-spacing: -0.03em;
+  text-shadow: 0 0 40px rgba(110,231,160,0.3);
 }
-  .section-desc {
+ 
+.section-desc {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #6ee7a0;
   margin: 0 0 28px;
 }
 
@@ -743,7 +748,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   align-items: flex-start;
   gap: 12px;
   padding: 9px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   font-size: 13px;
 }
   .info-label {
