@@ -111,12 +111,11 @@ const App = (() => {
 function _onServiceSelected(serviceId) {
     let serviceName;
 
-    if (serviceId.startsWith('custom_')) {
-      // Custom typed service
-      serviceName = serviceId.replace('custom_', '');
-      state.serviceId = 'general'; // fallback to general for phrase matching
-      state.serviceName = serviceName;
-    } else {
+   if (serviceId.startsWith('custom_')) {
+  serviceName = serviceId.replace('custom_', '');
+  state.serviceId = 'general';
+  state.serviceName = serviceName;
+} else {
       const service = state.profile.services.find(s => s.id === serviceId);
       state.serviceId   = serviceId;
       state.serviceName = service?.label || serviceId;
@@ -158,10 +157,11 @@ function _onServiceSelected(serviceId) {
   async function _generateAndRenderReviews() {
     try {
       const result = await ReviewEngine.generate({
-        clientProfile: state.profile,
-        serviceId:     state.serviceId,
-        stars:         state.stars,
-      });
+  clientProfile: state.profile,
+  serviceId:     state.serviceId,
+  stars:         state.stars,
+  customServiceName: state.serviceName,  // ← add this
+});
 
       state.reviews  = result.reviews;
       state.language = result.language;
