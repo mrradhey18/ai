@@ -96,12 +96,17 @@ const LanguageEngine = (() => {
    * @param {string} language
    * @returns {Array<{type: string, path: string}>}
    */
-function _buildPaths(language) {
+function _buildPaths(language, clientSlug) {
     const isAdmin = window.location.pathname.includes('/admin/');
     const base = isAdmin ? '../public/data/phrases' : 'data/phrases';
+    const clientBase = isAdmin
+      ? `../public/data/clients/${clientSlug}/phrases`
+      : `data/clients/${clientSlug}/phrases`;
+
     return PHRASE_FILES.map(file => ({
       type: file,
-      path: `${base}/${language}/${file}.json`,
+      globalPath: `${base}/${language}/${file}.json`,
+      clientPath: `${clientBase}/${language}/${file}.json`,
     }));
   }
 
@@ -112,35 +117,44 @@ function _buildPaths(language) {
    * @param {string} language
    * @returns {Promise<Object>}  phrase bank map
    */
-  async function loadPhraseBank(language) {
-    // Return from cache if already loaded
-    if (_cache[language]) {
-      Utils.log(`LanguageEngine: cache hit for "${language}"`);
-      return _cache[language];
+async function loadPhraseBank(language, clientSlug) {
+    const cacheKey = `${clientSlug || 'global'}_${language}`;
+    if (_cache[cacheKey]) {
+      Utils.log(`LanguageEngine: cache hit for "${cacheKey}"`);
+      return _cache[cacheKey];
     }
 
-    const fileDefs = _buildPaths(language);
-    const paths = fileDefs.map(f => f.path);
+    const fileDefs = _buildPaths(language, clientSlug);
 
-    Utils.log(`LanguageEngine: loading ${paths.length} files for "${language}"...`);
+    // Load global phrases
+    const globalPaths = fileDefs.map(f => f.globalPath);
+    const globalResults = await Utils.loadJSONAll(globalPaths);
 
-    const results = await Utils.loadJSONAll(paths);
+    // Load client-specific phrases
+    const clientPaths = fileDefs.map(f => f.clientPath);
+    const clientResults = await Utils.loadJSONAll(clientPaths);
 
-    // Build map: { intros: data, trust: data, ... }
+    // Merge — client phrases get added ON TOP of global phrases
     const bank = {};
     fileDefs.forEach(({ type }, i) => {
-      if (results[i]) {
-        bank[type] = results[i];
-      } else {
-        Utils.warn(`LanguageEngine: failed to load "${type}" for language "${language}"`);
-        bank[type] = {}; // Empty fallback — won't crash engine
+      const global = globalResults[i] || {};
+      const client = clientResults[i] || {};
+
+      // Merge each star pool — client phrases added to global pool
+      const merged = { ...global };
+      for (const key of Object.keys(client)) {
+        if (Array.isArray(client[key]) && Array.isArray(merged[key])) {
+          merged[key] = [...merged[key], ...client[key]]; // append
+        } else {
+          merged[key] = client[key]; // override non-array keys
+        }
       }
+
+      bank[type] = merged;
     });
 
-    // Store in cache
-    _cache[language] = bank;
-    Utils.log(`LanguageEngine: phrase bank for "${language}" ready and cached`);
-
+    _cache[cacheKey] = bank;
+    Utils.log(`LanguageEngine: phrase bank "${cacheKey}" ready`);
     return bank;
   }
 
@@ -169,11 +183,11 @@ function _buildPaths(language) {
    *   }
    * }
    */
-  async function resolve(clientProfile) {
+async function resolve(clientProfile) {
     const probabilities = clientProfile?.language?.probabilities;
+    const slug = clientProfile?.business?.slug;
     const language = selectLanguage(probabilities);
-    const phrases = await loadPhraseBank(language);
-
+    const phrases = await loadPhraseBank(language, slug);
     return { language, phrases };
   }
 
@@ -209,9 +223,9 @@ function _buildPaths(language) {
    * Call this on app init (optional) to avoid loading delay on first generation.
    * @returns {Promise<void>}
    */
-  async function preloadAll() {
+async function preloadAll(clientSlug) {
     Utils.log('LanguageEngine: preloading all language banks...');
-    await Promise.all(LANGUAGES.map(lang => loadPhraseBank(lang)));
+    await Promise.all(LANGUAGES.map(lang => loadPhraseBank(lang, clientSlug)));
     Utils.log('LanguageEngine: all language banks loaded');
   }
 
