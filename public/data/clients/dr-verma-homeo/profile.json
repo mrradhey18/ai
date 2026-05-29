@@ -8,7 +8,7 @@
   "business": {
     "name": "Dr. Verma's Multispeciality Homeopathy Clinic",
     "slug": "dr-jay-verma-homeo",
-    "logoUrl": "jai-verma-logo.png",
+    "logoUrl": "../public/data/clients/dr-verma-homeo/jai-verma-logo.png",
     "tagline": "Fast Homeopathy — Real Results, No Side Effects",
     "city": "Lucknow",
     "area": "Aliganj",
