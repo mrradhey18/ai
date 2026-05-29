@@ -59,7 +59,7 @@ const App = (() => {
     }
 
     // Load client profile
-    const profile = await Utils.loadJSON(`../public/data/clients/${slug}/profile.json?v=${Date.now()}`);
+    const profile = await Utils.loadJSON(`data/clients/${slug}/profile.json?v=${Date.now()}`);
 
     if (!profile) {
       Utils.warn(`App: profile not found for slug "${slug}"`);
@@ -82,7 +82,7 @@ const App = (() => {
 
     // Pre-warm language phrase cache in background
     // (patient is reading service buttons while this loads)
-    LanguageEngine.preloadAll().catch(() => {
+    LanguageEngine.preloadAll(profile.business.slug).catch(() => {
       Utils.warn('App: preload failed — will load on demand');
     });
 
