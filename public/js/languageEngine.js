@@ -99,6 +99,13 @@ const LanguageEngine = (() => {
 function _buildPaths(language, clientSlug) {
     const isAdmin = window.location.pathname.includes('/admin/');
     const base = isAdmin ? '../public/data/phrases' : 'data/phrases';
+
+    if (!clientSlug) return PHRASE_FILES.map(file => ({
+      type: file,
+      globalPath: `${base}/${language}/${file}.json`,
+      clientPath: null,
+    }));
+
     const clientBase = isAdmin
       ? `../public/data/clients/${clientSlug}/phrases`
       : `data/clients/${clientSlug}/phrases`;
@@ -130,32 +137,23 @@ async function loadPhraseBank(language, clientSlug) {
     const globalPaths = fileDefs.map(f => f.globalPath);
     const globalResults = await Utils.loadJSONAll(globalPaths);
 
-    // Load client-specific phrases
-    const clientPaths = fileDefs.map(f => f.clientPath);
-    const clientResults = await Utils.loadJSONAll(clientPaths);
+    // Load client-specific phrases (only if slug exists)
+    const clientResults = clientSlug
+      ? await Utils.loadJSONAll(fileDefs.map(f => f.clientPath))
+      : [];
 
-    // Merge — client phrases get added ON TOP of global phrases
+    // Merge
     const bank = {};
     fileDefs.forEach(({ type }, i) => {
-      const global = globalResults[i] || {};
-      const client = clientResults[i] || {};
+      const global = (globalResults && globalResults[i]) || {};
+      const client = (clientResults && clientResults[i]) || {};
 
-      // Merge each star pool — client phrases added to global pool
-fileDefs.forEach(({ type }, i) => {
-  const global = globalResults[i] || {};
-  const client = clientResults[i] || {};
+      if (Object.keys(client).length === 0) {
+        bank[type] = global;
+        return;
+      }
 
-  // If no client file exists, just use global as-is
-  if (Object.keys(client).length === 0) {
-    bank[type] = global;
-    return;
-  }
-
-  // Client file exists — it fully overrides global
-  bank[type] = { ...global, ...client };
-});
-
-      bank[type] = merged;
+      bank[type] = { ...global, ...client };
     });
 
     _cache[cacheKey] = bank;
