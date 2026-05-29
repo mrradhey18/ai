@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "purpose": "Trust-building sentences. Used in middle of review. Makes the reader believe the experience was real.",
+    "rules": [
+      "Reference the doctor or staff naturally",
+      "Mention listening, patience, explanation — real patient concerns",
+      "No exaggeration",
+      "Vary between staff praise and process praise"
+    ]
+  },
+  "5star": [
+    "The doctor actually listens to what you say instead of rushing you out.",
+    "He explained everything so clearly, didn't make me feel confused at all.",
+    "The staff is very polite and never made me feel rushed.",
+    "Doctor sahab takes time with each patient which is rare these days.",
+    "You can tell the doctor genuinely cares about getting you better.",
+    "The consultation was thorough and he asked the right questions.",
+    "Unlike other places, they don't just hand you medicines without explanation.",
+    "The doctor remembered my case even on my second visit which was impressive.",
+    "Very patient with all my questions, never felt like a burden.",
+    "The medicines were explained properly — what to take, when, and why.",
+    "Felt like the doctor was treating me as a person not just a patient number.",
+    "Even my follow up questions over phone were answered properly.",
+    "The clinic has a very calm and clean environment which helps.",
+    "The reception staff is also very helpful and cooperative.",
+    "Treatment plan was explained clearly without any confusion.",
+    "Dr. Verma was the first doctor who gave me relief from the very first dose.",
+    "He didn t just give medicines — he explained exactly what was happening and why it would work.",
+    "What surprised me most was that he was confident from day one. No ifs or buts.",
+    "I had visited doctors in Delhi, Mumbai, and even abroad. Dr. Verma solved it right here in Lucknow.",
+    "He has seen thousands of stone cases. That experience shows immediately when he speaks.",
+    "Dr. Verma told me the stone would pass within weeks without surgery. It did.",
+    "The confidence and knowledge Dr. Verma has about difficult cases is on another level.",
+    "Unlike other doctors who were vague, Dr. Verma told me exactly what to expect and when."
+  ],
+  "4star": [
+    "The doctor is knowledgeable and the consultation was good.",
+    "Staff is cooperative and the clinic is well maintained.",
+    "The doctor explained the treatment plan properly.",
+    "Good listening from the doctor side.",
+    "Clinic environment is clean and comfortable.",
+    "The consultation was detailed enough.",
+    "Staff was polite throughout my visit.",
+    "Doctor gave proper time during consultation.",
+    "The treatment approach seems systematic.",
+    "Reasonable explanation given for the medicines prescribed."
+  ],
+  "3star": [
+    "The doctor listened to my problem.",
+    "Medicines were given after consultation.",
+    "The clinic was okay in terms of cleanliness.",
+    "Staff was decent.",
+    "Consultation happened on time."
+  ]
+}
