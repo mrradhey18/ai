@@ -141,14 +141,19 @@ async function loadPhraseBank(language, clientSlug) {
       const client = clientResults[i] || {};
 
       // Merge each star pool — client phrases added to global pool
-      const merged = { ...global };
-      for (const key of Object.keys(client)) {
-        if (Array.isArray(client[key]) && Array.isArray(merged[key])) {
-          merged[key] = [...merged[key], ...client[key]]; // append
-        } else {
-          merged[key] = client[key]; // override non-array keys
-        }
-      }
+fileDefs.forEach(({ type }, i) => {
+  const global = globalResults[i] || {};
+  const client = clientResults[i] || {};
+
+  // If no client file exists, just use global as-is
+  if (Object.keys(client).length === 0) {
+    bank[type] = global;
+    return;
+  }
+
+  // Client file exists — it fully overrides global
+  bank[type] = { ...global, ...client };
+});
 
       bank[type] = merged;
     });
