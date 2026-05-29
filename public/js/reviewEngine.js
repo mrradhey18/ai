@@ -39,43 +39,43 @@ const ReviewEngine = (() => {
   const TEMPLATES = [
     // Template A: Classic full review
     [
-      { type: 'intro',     required: true  },
+      { type: 'intros',     required: true  },
       { type: 'service',   required: true  },
       { type: 'trust',     required: false },
       { type: 'emotional', required: false },
-      { type: 'outro',     required: true  },
+      { type: 'outros',     required: true  },
     ],
 
     // Template B: Trust-forward
     [
-      { type: 'intro',     required: true  },
+      { type: 'intros',     required: true  },
       { type: 'trust',     required: true  },
       { type: 'service',   required: false },
       { type: 'emotional', required: false },
-      { type: 'outro',     required: true  },
+      { type: 'outros',     required: true  },
     ],
 
     // Template C: Short and punchy (2–3 sentences)
     [
-      { type: 'intro',     required: true  },
+      { type: 'intros',     required: true  },
       { type: 'service',   required: true  },
-      { type: 'outro',     required: true  },
+      { type: 'outros',     required: true  },
     ],
 
     // Template D: Emotional journey
     [
-      { type: 'intro',     required: true  },
+      { type: 'intros',     required: true  },
       { type: 'emotional', required: true  },
       { type: 'trust',     required: false },
       { type: 'service',   required: false },
-      { type: 'outro',     required: true  },
+      { type: 'outros',     required: true  },
     ],
 
     // Template E: Trust + outro only (very short)
     [
-      { type: 'intro',     required: true  },
+      { type: 'intros',     required: true  },
       { type: 'trust',     required: true  },
-      { type: 'outro',     required: true  },
+      { type: 'outros',     required: true  },
     ],
 
     // Template F: Service-focused
@@ -83,7 +83,7 @@ const ReviewEngine = (() => {
       { type: 'service',   required: true  },
       { type: 'trust',     required: false },
       { type: 'emotional', required: false },
-      { type: 'outro',     required: true  },
+      { type: 'outros',     required: true  },
     ],
   ];
 
@@ -245,7 +245,7 @@ const ReviewEngine = (() => {
 
     // Ensure minimum length — add outro if too short
     if (sentences.length < 2) {
-      const outro = _buildPhrase('outro', phrases, stars, language, templateValues);
+      const outro = _buildPhrase('outros', phrases, stars, language, templateValues);
       if (outro && !sentences.includes(outro)) sentences.push(outro);
     }
 
@@ -314,8 +314,8 @@ async function _generateBatch({ stars, clientProfile, serviceData, count }) {
     const maxRetries = AntiSpam.CONFIG.maxRetries;
 
     for (const language of slots) {
-      // Load phrase bank for this specific language
-      const phrases = await LanguageEngine.loadPhraseBank(language);
+  const slug = clientProfile?.business?.slug;  // ← add this
+  const phrases = await LanguageEngine.loadPhraseBank(language, slug);
 
       let accepted = false;
       for (let attempt = 0; attempt < maxRetries; attempt++) {
@@ -407,14 +407,14 @@ async function _generateBatch({ stars, clientProfile, serviceData, count }) {
    *   });
    *   // result.reviews = ['Review 1...', 'Review 2...', ...]
    */
-  async function generate({ clientProfile, serviceId, stars }) {
+ async function generate({ clientProfile, serviceId, stars, customServiceName }) {
     Utils.log(`ReviewEngine: generating reviews — service: ${serviceId}, stars: ${stars}`);
 
     // ── Find service data ───────────────────────
     const services = clientProfile?.services || [];
     const serviceData = services.find(s => s.id === serviceId) || {
       id: serviceId,
-      label: serviceId,
+      label: customServiceName || serviceId,
       keywords: [],
     };
 
