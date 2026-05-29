@@ -211,16 +211,15 @@ const Utils = (() => {
    *
    * Usage: const data = await Utils.loadJSON('/data/phrases/english/intros.json');
    */
-  async function loadJSON(path) {
-    try {
-      const res = await fetch(path);
-      if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
-      return await res.json();
-    } catch (err) {
-      console.error(`[Utils.loadJSON] Failed to load: ${path}`, err);
-      return null;
-    }
+ async function loadJSON(path) {
+  try {
+    const res = await fetch(path);
+    if (!res.ok) return null; // 404 or any error → return null silently
+    return await res.json();
+  } catch (e) {
+    return null; // network error → return null silently
   }
+}
 
   /**
    * Load multiple JSON files in parallel.
@@ -231,8 +230,8 @@ const Utils = (() => {
    * Usage: const [intros, trust] = await Utils.loadJSONAll([path1, path2]);
    */
   async function loadJSONAll(paths) {
-    return Promise.all(paths.map(p => loadJSON(p)));
-  }
+  return Promise.all(paths.map(p => p ? loadJSON(p) : Promise.resolve(null)));
+}
 
   // ─────────────────────────────────────────────
   // 7. URL PARAMETER READER
