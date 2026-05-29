@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "purpose": "Opening sentences in Hinglish — the way Indian patients naturally start typing a review. Mix of Roman Hindi and English words. NO formal translation.",
+    "rules": [
+      "Must feel like WhatsApp-style casual writing",
+      "Avoid over-mixing — real Hinglish has natural flow not forced mixing",
+      "Some sentences are mostly Hindi words in Roman script",
+      "Some are mostly English with Hindi words dropped in",
+      "Spelling can be phonetic — 'bahut' not 'bahoot', 'accha' not 'acha'"
+    ]
+  },
+  "5star": [
+    "Bahut accha experience raha yahan pe.",
+    "Sach mein bahut khush hoon is clinic se.",
+    "Pehle visit mein hi impression ban gaya.",
+    "Bohot dino se problem thi, yahan aake finally relief mili.",
+    "Is clinic ke baare mein sunke aaya tha, expectation se zyada nikla.",
+    "Honestly bolunga toh best decision tha yahan aana.",
+    "Itne sare doctors try karne ke baad finally yahan result mila.",
+    "Meri family ne recommend kiya tha, bilkul sahi kiya.",
+    "Pehli baar homeopathy try ki aur is jagah ne soch badal di.",
+    "Yaar seriously ek baar zaroor aao is clinic mein.",
+    "Bahut dino baad kisi doctor se itna satisfied feel kiya.",
+    "Doctors ke paas time hi nahi hota aajkal — yahan alag baat hai.",
+    "Ek friend ne bataya tha, ekdum sahi information di usne.",
+    "Pehle doubt tha homeopathy pe but ab nahi.",
+    "Result khud bol rahe hain, kuch kehne ki zaroorat nahi.",
+    "Itna dard tha ki soch liya tha operation karwa lena padega.",
+    "Kaafi doctors dikha chuka tha, koi fark nahi pad raha tha, tab ek dost ne Dr. Verma ka naam bataya.",
+    "Honestly bolun toh mujhe lagta nahi tha ki homeopathy itni jaldi kaam kar sakti hai.",
+    "Almost ek saal se problem thi, tab jaake Dr. Verma ke paas aaya aur finally kuch hua.",
+    "Sabne operation bolne ka pressure de rahe the, tabhi kisi ne Dr. Verma ke baare mein bataya.",
+    "Delhi, Mumbai — kaafi jagah gaya. Lucknow mein hi mila jo chahiye tha.",
+    "Pehli dawa ke din hi fark feel hua — yeh main jhooth nahi bol raha.",
+    "Mujhe homeopathy pe bilkul vishwas nahi tha. Ab hai. Dr. Verma ki wajah se.",
+    "Mahino se painkiller kha raha tha. Dr. Verma ne asli masla solve kar diya.",
+    "Yaqeen nahi hota abhi bhi ki bina operation ke stone nikal gaya."
+  ],
+  "4star": [
+    "Accha experience raha overall.",
+    "Theek-thaak visit rahi, satisfied hoon.",
+    "Ek friend ke kehne pe aaya tha, accha laga.",
+    "Overall positive raha mera experience yahan.",
+    "Clinic acha hai aur doctor bhi helpful hain.",
+    "Kaafi satisfied hoon treatment se abhi tak.",
+    "Visit achi rahi, doctor ne dhyan se suna.",
+    "Decent clinic hai, recommend kar sakta hoon.",
+    "Treatment chal raha hai aur results aa rahe hain.",
+    "Positive experience raha, wapas aaunga."
+  ],
+  "3star": [
+    "Clinic visit ki thi recently.",
+    "Yahan consultation ke liye aaya tha.",
+    "Treatment ke liye visit kiya.",
+    "Ek baar aaya hoon abhi tak.",
+    "Dekhte hain aage kya hota hai."
+  ]
+}

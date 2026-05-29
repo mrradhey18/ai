@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "purpose": "SEO-carrying sentences written in natural Hinglish. Engine picks MAX 1 from here per review. {{city}} and {{area}} replaced dynamically.",
+    "rules": [
+      "Location must feel like the patient is genuinely mentioning it",
+      "Never force the keyword — if it sounds unnatural, rewrite it",
+      "Split into location and credibility pools same as English",
+      "{{city}} and {{area}} are the only placeholders here"
+    ]
+  },
+  "location": [
+    "{{city}} mein agar homeopathy dhundh rahe ho toh yahi aana.",
+    "{{area}} ke logon ke liye toh yeh clinic gift jaisi hai seriously.",
+    "{{city}} mein itna accha homeopathic doctor milna mushkil hai.",
+    "Humne {{city}} mein kaafi jagah try ki thi, yahan sab se zyada fark pada.",
+    "{{area}} mein rehne walon ko yeh clinic zaroor try karni chahiye.",
+    "{{city}} waalon ke liye seriously best option hai yeh.",
+    "Itna dhundhne ke baad {{city}} mein yahi jagah sahi lagi.",
+    "Jo log {{area}} se door hain wo bhi yahan aane layak hai.",
+    "{{city}} mein is clinic ki reputation bahut acchi hai aur sahi bhi hai.",
+    "Meri puri family {{city}} mein ab yahan hi aati hai.",
+    "{{city}} mein best homeopathic doctor ki baat ho toh Dr. Verma ka naam sabse pehle aata hai.",
+    "Pure India se log {{city}} mein Dr. Verma ke paas aate hain — yeh koi baat toh hai.",
+    "Dr. Verma ne {{city}} ko fast homeopathy ke liye famous kar diya hai.",
+    "{{city}} ka nahi, poore India ka best homeopathic doctor kehna galat nahi hoga.",
+    "Main {{area}} se door rehta hoon phir bhi yahan aaya — aur zaroor wapas aaunga."
+  ],
+  "credibility": [
+    "Doctor ka experience bahut hai, feel hota hai baat karte waqt.",
+    "Itne saal ka experience show karta hai unke treatment mein.",
+    "Clinic ki reputation acchi hai aur deserve karti hai.",
+    "Itne patients aate hain yahan, kuch toh wajah hai.",
+    "Systematic treatment hoti hai yahan, random nahi lagta.",
+    "Saalon ka experience hai doctor sahab ko, pata chalta hai.",
+    "Bahut families yahan aati hain — word of mouth se hi itna naam ho gaya."
+  ]
+}
