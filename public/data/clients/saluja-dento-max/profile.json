@@ -193,9 +193,9 @@
   },
   "language": {
     "probabilities": {
-      "english": 60,
-      "hinglish": 25,
-      "hindi": 5,
+      "english": 20,
+      "hinglish": 45,
+      "hindi": 25,
       "mixed": 10
     },
     "_note": "Kanpur patient base similar to Lucknow — Hinglish dominant. Hindi second for older patients."
