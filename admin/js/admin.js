@@ -337,7 +337,9 @@ function _renderPreviewServiceDropdown(profile) {
   }
 
   // Update in-memory profile
-  state.currentProfile.language.probabilities = sliders;
+  // Update in-memory profile
+if (!state.currentProfile.language) state.currentProfile.language = {};
+state.currentProfile.language.probabilities = sliders;
 
   const slug        = state.currentSlug;
   const repo        = 'mrradhey18/Smart-Review-System';
@@ -359,12 +361,14 @@ let sha = null;
 if (getRes.ok) {
   const fileData = await getRes.json();
   sha = fileData.sha;
+  // Use GitHub version as base, apply our slider changes on top
+const githubProfile = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+githubProfile.language.probabilities = sliders;
+const updated = JSON.stringify(githubProfile, null, 2);
+const encoded = btoa(unescape(encodeURIComponent(updated)));
 } else if (getRes.status !== 404) {
   throw new Error(`Fetch failed: ${getRes.status}`);
 }
-
-const updated = JSON.stringify(state.currentProfile, null, 2);
-const encoded = btoa(unescape(encodeURIComponent(updated)));
 
 const body = {
   message: `Update services for ${slug}`,
@@ -388,6 +392,7 @@ const putRes = await fetch(apiUrl, {
     }
 
    if (btn) btn.innerHTML = '✅ Saved!';
+   LanguageEngine.clearCache();
 setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
 
   } catch (err) {
