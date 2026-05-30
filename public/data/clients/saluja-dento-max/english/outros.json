@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "purpose": "Closing sentences in English for Saluja Dento Max. Natural wrap-up — recommendation, return plan, or simple sign-off.",
+    "rules": [
+      "Mix short sign-offs with fuller recommendations",
+      "Recommendations should sound like telling a friend, not writing an ad",
+      "Some endings mention family — fits multi-dentist clinic",
+      "Don't end every review with a recommendation — mix it up",
+      "3-star endings are non-committal"
+    ]
+  },
+  "5star": [
+    "Highly recommend to anyone looking for a good dentist in Kanpur.",
+    "Would recommend without hesitation.",
+    "Already booked my next appointment.",
+    "Will definitely be coming back.",
+    "10 out of 10 — nothing more to say.",
+    "Don't waste time searching, just visit once.",
+    "My whole family will be coming here going forward.",
+    "One of the few places I'd recommend without thinking twice.",
+    "Very happy with this decision.",
+    "If you're scared of dentists, this is exactly where you should go.",
+    "Already sent two friends here.",
+    "Genuinely glad I came here.",
+    "If you've been putting off a dental visit — stop delaying and come here.",
+    "Trust the team here, they know what they're doing.",
+    "A genuine recommendation from someone who was genuinely scared walking in.",
+    "Best dental clinic I've been to in Kanpur, no contest.",
+    "Go once and you'll understand why people keep coming back.",
+    "Whole family's dental work will be handled here from now on.",
+    "Stop overthinking and just book an appointment.",
+    "The fear is in your head — this clinic will prove that."
+  ],
+  "4star": [
+    "Would recommend to others looking for dental care in Kanpur.",
+    "Will continue my treatment here.",
+    "Happy to visit again for future consultations.",
+    "Overall would suggest trying this clinic.",
+    "Good clinic, worth visiting.",
+    "Will recommend to friends and family.",
+    "Planning to continue treatment here."
+  ],
+  "3star": [
+    "Let's see how things progress.",
+    "Will update after more visits.",
+    "Treatment is ongoing.",
+    "Hoping for better results ahead."
+  ]
+}
