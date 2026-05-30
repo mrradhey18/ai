@@ -32,15 +32,14 @@ const Auth = (() => {
       role:      'superadmin',
       name:      'NexaFlow Admin',
       slug:      null,
-      githubToken: 'github_pat_XXXXXXXXXXXX'
     },
 
     // ── CLINIC USERS ─────────────────────────────
     // Each clinic can only see their own data.
     // slug must match the folder name in data/clients/
 
-    'drvermaclinic': {
-      password:  'homeo@clinic',
+    'drverma': {
+      password:  'verma@clinic',
       role:      'clinic',
       name:      "Dr. Verma's Multispeciality Homeopathy",
       slug:      'dr-verma-homeo',
