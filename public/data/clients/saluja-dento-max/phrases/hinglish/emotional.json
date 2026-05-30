@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "purpose": "Emotional sentences for Saluja Dento Max in Hinglish. Adds warmth and human feel. Used selectively — not every review needs one. Dental anxiety → relief is the core emotion here.",
+    "rules": [
+      "Dental-specific emotions: fear before, relief after, confidence about smile",
+      "Family angle works well — brought kids, came with spouse, referred relatives",
+      "Short punchy sentences work better than long emotional speeches",
+      "Must feel genuine — not dramatic or exaggerated",
+      "3-star gets almost none — neutral patients don't feel this strongly"
+    ]
+  },
+  "5star": [
+    "Saalon se dentist se darta tha — ab woh darr nahi raha.",
+    "Bachpan se hi dental anxiety thi, yahan pehli baar comfortable feel kiya.",
+    "Dard se raat ko neend nahi aa rahi thi — ab chain se so raha hoon.",
+    "Smile mein jo confidence aaya hai na — woh paise se nahi milta.",
+    "Maa bahut nervous thi apne treatment ke liye — yahan doctor ne itna calm kiya unhe.",
+    "Bete ka pehla dental experience positive raha — bahut khush hoon iske liye.",
+    "Itne saalon baad dant ke dard se mukti mili — relief ka matlab ab samajh aaya.",
+    "Honestly feel ho raha hai ki pehle kyun nahi aaya yahan.",
+    "Smile se sharmata tha pehle — ab nahi.",
+    "Chhote se procedure ne kitna fark daal diya life mein.",
+    "Teen hafte ka dard, ek session mein khatam — yaqeen nahi hua pehle.",
+    "Family sab dekh rahi thi kitna pareshan tha — ab sab bol rahe hain kitna change aaya.",
+    "Woh darr jo dentist ke naam se hota tha — is clinic ne hata diya.",
+    "Implant ke baad pehli baar khana khaya properly — woh feeling describe nahi kar sakta.",
+    "Ek mahine ki problem, ek visit mein solve — aisa bhi hota hai yahan."
+  ],
+  "4star": [
+    "Pehle se better feel ho raha hoon — yahi main cheez hai.",
+    "Accha laga ki homeopathy try ki yahan.",
+    "Improvement ho rahi hai, dheere dheere sahi.",
+    "Treatment ke baad kaafi relieved feel kar raha hoon.",
+    "Overall positive hoon treatment direction se."
+  ],
+  "3star": [
+    "Umeed hai aage better results aayenge.",
+    "Dekhte hain treatment kaise proceed karta hai."
+  ]
+}

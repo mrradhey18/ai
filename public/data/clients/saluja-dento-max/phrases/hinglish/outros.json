@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "purpose": "Closing sentences in Hinglish for Saluja Dento Max. Natural wrap-up — recommendation, return visit, or sign-off. Dental context.",
+    "rules": [
+      "Recommendation should sound like telling a friend at chai, not writing an ad",
+      "Mix short sign-offs with fuller recommendations",
+      "Include 'zaroor aao', 'try karo' — Indian recommendation style",
+      "Some outros mention bringing family — very natural for this clinic (multi-dentist setup)",
+      "3-star outros are non-committal"
+    ]
+  },
+  "5star": [
+    "Bina soche samjhe recommend karunga kisi ko bhi.",
+    "Apne dosto aur family ko bhi bol diya hai yahan aane ke liye.",
+    "Wapas aaunga — next cleaning bhi yahan se.",
+    "Jo bhi dentist dhundh raha hai Kanpur mein, seedha yahan aao.",
+    "Ek baar aao bas, khud fark mahsoos karoge.",
+    "Already next appointment le li hai.",
+    "Poori family ka dental work ab yahan hi hoga.",
+    "Trust karo is jagah pe — dard nahi hoga, promise.",
+    "10/10 — aur kuch nahi kehna.",
+    "Bahut khush hoon is decision se.",
+    "Dentist se darne wale logon ko especially suggest karunga yahan.",
+    "Shukriya doctor sahab, bahut relief mila.",
+    "Agar Kanpur mein ho aur dentist dhundh rahe ho — yahi aao, time waste mat karo.",
+    "Highly recommend — bina hesitation ke.",
+    "Pehle darr tha, ab confidence hai — yahan ki wajah se.",
+    "Mere baad mere bhai ka aur papa ka appointment bhi yahan hi book karaya hai.",
+    "Itna satisfied hoon ki kisi ko bhi suggest karunga bina hesitation ke.",
+    "Bas ek baar aao, aage khud samajh jaoge.",
+    "Jab bhi koi dost dental problem mein ho, pehla naam Saluja Dento Max hi aata hai mujhe.",
+    "Is clinic ne prove kar diya ki dentist ke paas jaana aur dard — dono ek saath nahi hote."
+  ],
+  "4star": [
+    "Recommend karunga jo log accha dental clinic dhundh rahe hain.",
+    "Treatment continue karunga yahan se.",
+    "Wapas aaunga future visits ke liye.",
+    "Overall suggest karunga is clinic ko.",
+    "Acchi jagah hai, visit karke dekho.",
+    "Friends ko bhi bata dunga yahan ke baare mein.",
+    "Theek jagah hai, try karo."
+  ],
+  "3star": [
+    "Dekhte hain aage kya hota hai.",
+    "Update karunga baad mein.",
+    "Treatment chal rahi hai abhi.",
+    "Umeed hai result aayenge."
+  ]
+}
