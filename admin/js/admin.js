@@ -362,7 +362,7 @@ if (getRes.ok) {
   const fileData = await getRes.json();
   sha = fileData.sha;
   // Use GitHub version as base, apply our slider changes on top
-const githubProfile = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+const githubProfile = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/[\r\n]/g, '')))));
 githubProfile.language.probabilities = sliders;
 const updated = JSON.stringify(githubProfile, null, 2);
 const encoded = btoa(unescape(encodeURIComponent(updated)));
