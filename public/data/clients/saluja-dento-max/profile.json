@@ -1,0 +1,196 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-05-30",
+    "notes": "Saluja Dento Max Fac Centre, Coca-Cola Chauraha, Ashok Nagar, Harsh Nagar, Kanpur. Multi-dentist clinic under Dr. Jagveer Singh Saluja. Full dental + maxillofacial services. Target: top 3 in Kanpur GBP. Nearby areas: Kakadeo, Swaroop Nagar, Kamla Nagar, Arya Nagar."
+  },
+
+  "business": {
+    "name": "Saluja Dento Max Fac Centre",
+    "slug": "saluja-dento-max",
+    "logoUrl": "../public/data/clients/saluja-dento-max/logo.png",
+    "tagline": "Complete Dental & Maxillofacial Care — All Under One Roof",
+    "city": "Kanpur",
+    "area": "Ashok Nagar",
+    "locality": "Harsh Nagar",
+    "landmark": "Coca-Cola Chauraha",
+    "state": "Uttar Pradesh",
+    "googleReviewUrl": "https://g.page/r/CdpWv0eYAsxQEBM/review",
+    "phone": "",
+    "doctor": "Dr. Jagveer Singh Saluja",
+    "teamSize": "multiple dentists",
+    "speciality": "Dental & Maxillofacial Surgery"
+  },
+
+  "services": [
+    {
+      "id": "root_canal",
+      "label": "Root Canal Treatment",
+      "keywords": ["root canal Kanpur", "RCT Kanpur", "painless root canal Ashok Nagar", "root canal specialist Kanpur"]
+    },
+    {
+      "id": "dental_implants",
+      "label": "Dental Implants",
+      "keywords": ["dental implants Kanpur", "tooth implant Kanpur", "implant dentist Ashok Nagar", "best implant clinic Kanpur"]
+    },
+    {
+      "id": "braces",
+      "label": "Braces / Orthodontic Treatment",
+      "keywords": ["braces in Kanpur", "orthodontist Kanpur", "teeth alignment Kanpur", "Invisalign Kanpur"]
+    },
+    {
+      "id": "teeth_whitening",
+      "label": "Teeth Whitening",
+      "keywords": ["teeth whitening Kanpur", "tooth bleaching Kanpur", "smile makeover Kanpur"]
+    },
+    {
+      "id": "scaling_cleaning",
+      "label": "Scaling & Cleaning",
+      "keywords": ["teeth cleaning Kanpur", "scaling Kanpur", "dental cleaning Ashok Nagar"]
+    },
+    {
+      "id": "tooth_extraction",
+      "label": "Tooth Extraction",
+      "keywords": ["tooth extraction Kanpur", "wisdom tooth removal Kanpur", "painless extraction Kanpur"]
+    },
+    {
+      "id": "crowns_bridges",
+      "label": "Crowns & Bridges",
+      "keywords": ["dental crown Kanpur", "tooth cap Kanpur", "dental bridge Kanpur"]
+    },
+    {
+      "id": "dentures",
+      "label": "Dentures",
+      "keywords": ["dentures Kanpur", "full denture Kanpur", "teeth replacement Kanpur"]
+    },
+    {
+      "id": "smile_makeover",
+      "label": "Smile Makeover",
+      "keywords": ["smile makeover Kanpur", "cosmetic dentistry Kanpur", "smile design Kanpur"]
+    },
+    {
+      "id": "pediatric",
+      "label": "Children's Dentistry",
+      "keywords": ["kids dentist Kanpur", "child dental Kanpur", "pediatric dentist Ashok Nagar"]
+    },
+    {
+      "id": "gum_treatment",
+      "label": "Gum Treatment",
+      "keywords": ["gum treatment Kanpur", "pyorrhea treatment Kanpur", "periodontist Kanpur"]
+    },
+    {
+      "id": "jaw_surgery",
+      "label": "Jaw / Maxillofacial Surgery",
+      "keywords": ["jaw surgery Kanpur", "maxillofacial surgeon Kanpur", "oral surgery Kanpur"]
+    },
+    {
+      "id": "veneer",
+      "label": "Veneers",
+      "keywords": ["dental veneers Kanpur", "porcelain veneers Kanpur", "tooth veneer Kanpur"]
+    },
+    {
+      "id": "general_checkup",
+      "label": "Dental Checkup",
+      "keywords": ["dental checkup Kanpur", "dentist consultation Kanpur", "dental clinic near me Kanpur"]
+    }
+  ],
+
+  "seo": {
+    "localKeywords": [
+      "best dental clinic in Kanpur",
+      "best dentist in Kanpur",
+      "dental clinic Ashok Nagar Kanpur",
+      "Dr Jagveer Singh Saluja Kanpur",
+      "Saluja Dento Max Kanpur",
+      "dental clinic near Coca-Cola Chauraha",
+      "dentist Harsh Nagar Kanpur",
+      "multispeciality dental clinic Kanpur"
+    ],
+    "nearbyAreas": ["Kakadeo", "Swaroop Nagar", "Kamla Nagar", "Arya Nagar", "Harsh Nagar", "Ashok Nagar"],
+    "trustKeywords": [
+      "multiple specialist dentists",
+      "all dental treatments under one roof",
+      "advanced equipment",
+      "painless treatment",
+      "experienced team",
+      "affordable dental care",
+      "modern dental clinic"
+    ],
+    "maxKeywordsPerReview": 2
+  },
+
+  "language": {
+    "probabilities": {
+      "english": 20,
+      "hinglish": 45,
+      "hindi": 25,
+      "mixed": 10
+    },
+    "_note": "Kanpur patient base similar to Lucknow — Hinglish dominant. Hindi second for older patients."
+  },
+
+  "tone": {
+    "formality": "casual",
+    "warmth": "high",
+    "doctorReferenceStyle": "respectful",
+    "emotionalIntensity": "medium-high",
+    "_note": "Dental patients feel anxiety/fear before treatment and relief after. Reviews should reflect that transformation — dread going in, happy coming out."
+  },
+
+  "emoji": {
+    "enabled": true,
+    "probability": 60
+  },
+
+  "reviewStyle": {
+    "minSentences": 2,
+    "maxSentences": 5,
+    "allowImperfectGrammar": true,
+    "allowLowercase": true,
+    "allowShortReviews": true,
+    "_note": "Dental reviews are naturally shorter than medical journeys. 2-5 sentences is authentic. Short allowed unlike Dr Verma profile."
+  },
+
+  "rating": {
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
+      "allowNegative": false
+    },
+    "4": {
+      "tone": "positive",
+      "emojiBoost": false,
+      "sentenceLengthBias": "medium",
+      "allowNegative": false
+    },
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
+      "allowNegative": false
+    }
+  },
+
+  "reviewNarrative": {
+    "_note": "Guides phrase bank tone. Not used by engine directly.",
+    "corePainPoints": [
+      "Fear of dentist / dental anxiety",
+      "Tooth pain for days/weeks before visiting",
+      "Worried about pain during procedure",
+      "Had bad experience at another clinic before",
+      "Avoided dentist for years due to fear",
+      "Child was scared of dentist"
+    ],
+    "coreUSPs": [
+      "Completely painless treatment",
+      "Multiple specialists under one roof",
+      "Modern equipment and technology",
+      "Doctor explains everything clearly",
+      "Staff is gentle and calming",
+      "Affordable pricing with quality",
+      "Quick appointments, no long wait",
+      "Children handled very patiently"
+    ]
+  }
+}
