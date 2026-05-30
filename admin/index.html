@@ -522,14 +522,14 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .preview-meta {
       font-size: 12px;
       color: var(--text-muted);
-      background: #f4fbf7;
+      background: #1a1e5b;
       padding: 6px 12px;
       border-radius: 6px;
       margin-bottom: 12px;
     }
 
     .preview-card {
-  background: rgba(26,122,80,0.08);
+  background: rgba(53, 72, 220, 0.08);
   border: 1px solid rgba(26,122,80,0.2);
   border-radius: 14px;
   padding: 16px 18px;
@@ -700,6 +700,12 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 
   #logged-in-user { display: none; }
 
+.service-row-top {
+  flex-wrap: wrap;
+}
+.svc-id-input {
+  width: 100% !important;
+}
 
 .top-bar { padding: 0 8px; gap: 4px; flex-wrap: nowrap; }
 .top-bar-badge { display: none; }
@@ -804,6 +810,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 </head>
 
 <body>
+
   <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
   <!-- ── TOP BAR ── -->
@@ -826,7 +833,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       >Logout</button>
     </div>
   </div>
-
+  
 <nav class="sidebar">
     <div class="nav-section-title">Overview</div>
     <a class="nav-item active" onclick="showSection('overview')">
@@ -865,7 +872,26 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     <a class="nav-item" onclick="showSection('guide')">
       <span class="nav-icon">📖</span> How to Use
     </a>
+
+<div class="admin-card" style="max-width: 380px;">
+  <div class="card-title">🏥 Clinic Identity</div>
+  <div style="display:flex; align-items:center; gap:16px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--glass-border);">
+    <img id="account-logo" src="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--glass-border);background:#1e293b;" />
+    <div>
+      <div id="account-clinic-name" style="font-size:13px;font-weight:700;color:var(--text-primary);"></div>
+      <button onclick="Admin.openAccountSettings()" style="
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 20px;
+    transition: background 0.2s;
+  " title="Account Settings">⚙️</button>
+    </div>
+  </div>
   </nav>
+
 
   <!-- ── MAIN CONTENT ── -->
   <main class="main-content">
@@ -874,7 +900,9 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
          SECTION: Client Profile Overview
     ══════════════════════════════════════ -->
     <section class="admin-section active" id="section-overview">
-      <h1 class="section-heading">Client Profile</h1>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+  <h1 class="section-heading" style="margin:0;">Client Profile</h1>
+</div>
       <p class="section-desc">Core settings for the currently loaded client.</p>
       <div class="admin-card">
         <div class="card-title">📋 Business Information</div>
@@ -1275,6 +1303,33 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     </div>
 
   </section>
+
+<section class="admin-section" id="section-account">
+  <h1 class="section-heading">My Account</h1>
+  <p class="section-desc">Change your login credentials.</p>
+
+  <div class="admin-card" style="max-width: 480px;">
+    <div class="card-title">🔐 Change Password</div>
+    <div style="margin-bottom: 12px;">
+  <label style="font-size:12px; font-weight:700; color:var(--text-muted); display:block; margin-bottom:5px;">Username</label>
+  <input type="text" id="new-username" class="admin-input" style="width:100%; opacity:0.6; cursor:not-allowed;" readonly placeholder="Username" />
+</div>
+    <div style="margin-bottom: 12px;">
+      <label style="font-size:12px; font-weight:700; color:var(--text-muted); display:block; margin-bottom:5px;">Current Password</label>
+      <input type="password" id="current-password" class="admin-input" style="width:100%;" placeholder="Enter current password" />
+    </div>
+    <div style="margin-bottom: 16px;">
+      <label style="font-size:12px; font-weight:700; color:var(--text-muted); display:block; margin-bottom:5px;">New Password</label>
+      <input type="password" id="new-password" class="admin-input" style="width:100%;" placeholder="Enter new password" />
+    </div>
+    <div style="margin-bottom: 16px;">
+  <label style="font-size:12px; font-weight:700; color:var(--text-muted); display:block; margin-bottom:5px;">Confirm New Password</label>
+  <input type="password" id="confirm-password" class="admin-input" style="width:100%;" placeholder="Confirm new password" />
+</div>
+<button class="admin-btn" onclick="Admin.changeCredentials()" style="width:100%;">Update Password</button>
+    <p id="account-msg" style="display:none; margin-top:12px; font-size:13px; font-weight:700; text-align:center;"></p>
+  </div>
+</section>
 
   </main><!-- /.main-content -->
 
