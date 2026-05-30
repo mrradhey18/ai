@@ -70,8 +70,8 @@
       ]
     },
     {
-      "id": "ABC",
-      "label": "ABC services",
+      "id": "new-service",
+      "label": "New Service",
       "keywords": []
     }
   ],
