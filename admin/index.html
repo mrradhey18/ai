@@ -9,31 +9,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-   :root {
-  --green-deep:  #0a2318;
-  --green-mid:   #1a7a50;
-  --green-light: rgba(26,122,80,0.15);
-  --green-pale:  rgba(26,122,80,0.08);
-  --gold:        #f0b429;
-  --sidebar-w:   270px;
-  --header-h:    64px;
-  --glass:       rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.08);
-  --text-primary: #f0f7f3;
-  --text-muted: rgba(255,255,255,0.65);
+ :root {
+  --green-deep:   #0a0e1a;
+  --green-mid:    #6366f1;
+  --green-light:  rgba(99,102,241,0.15);
+  --green-pale:   rgba(99,102,241,0.08);
+  --gold:         #f59e0b;
+  --sidebar-w:    270px;
+  --header-h:     64px;
+  --glass:        rgba(255,255,255,0.04);
+  --glass-border: rgba(99,102,241,0.20);
+  --text-primary: #f1f5f9;
+  --text-muted:   rgba(255,255,255,0.55);
 }
 
     * { box-sizing: border-box; }
 
-  body {
+body {
   font-family: 'Sora', sans-serif;
-  background: #060f0a;
+  background: #0a0e1a;
   color: var(--text-primary);
   margin: 0;
   min-height: 100vh;
   background-image:
-    radial-gradient(ellipse at 20% 20%, rgba(26,122,80,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(10,35,24,0.8) 0%, transparent 60%);
+    radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.08) 0%, transparent 60%);
 }
 
   h1,h2,h3,h4 { font-family: 'Sora', sans-serif; font-weight: 700; }
@@ -44,7 +44,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header-h);
-  background: rgba(6,15,10,0.85);
+  background: rgba(10,14,26,0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
@@ -105,7 +105,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   min-width: 220px;
   backdrop-filter: blur(10px);
 }
-#client-select option { background: #0a2318; color: #fff; }
+#client-select option { background: #0a0e1a; color: #fff; }
 
 
     /* ── STATUS BAR ──────────────────────────── */
@@ -114,7 +114,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   top: var(--header-h);
   left: 0; right: 0;
   background: rgba(26,122,80,0.12);
-  color: #6ee7a0;
+  
   border-bottom: 1px solid rgba(26,122,80,0.2);
   font-size: 13px;
   font-weight: 700;
@@ -131,7 +131,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   left: 0;
   width: var(--sidebar-w);
   bottom: 0;
-  background: rgba(6,15,10,0.7);
+  background: rgba(10,14,26,0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-right: 1px solid var(--glass-border);
@@ -165,7 +165,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 }
 .nav-item:hover, .nav-item.active {
   background: var(--green-light);
-  color: #6ee7a0;
+  color: #818cf8;
   border-left-color: var(--green-mid);
 }
 
@@ -192,7 +192,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   font-family: 'Sora', sans-serif;
   font-size: 28px;
   font-weight: 800;
-  color: #6ee7a0;
+  color: #818cf8;
   margin: 0 0 6px;
   letter-spacing: -0.03em;
   text-shadow: 0 0 40px rgba(110,231,160,0.3);
@@ -200,7 +200,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 
     .section-desc {
       font-size: 14px;
-      color: #7a9a87;
+      color: #ced2f9;
       margin: 0 0 24px;
     }
 
@@ -228,7 +228,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   font-family: 'Sora', sans-serif;
   font-size: 15px;
   font-weight: 800;
-  color: #6ee7a0;
+  color: #818cf8;
   margin: 0 0 18px;
   display: flex;
   align-items: center;
@@ -249,17 +249,17 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .info-row:last-child { border-bottom: none; }
 
     .info-label {
-      color: #7a9a87;
+      color: var(--text-muted);
       font-weight: 600;
       min-width: 130px;
       flex-shrink: 0;
     }
 
-    .info-val { color: #ffffff; font-weight: 700; font-size: 14px; }
+    .info-val { color:#f6db9e; font-weight: 700; font-size: 14px; }
 
     .code-tag {
   background: rgba(26,122,80,0.2);
-  color: #6ee7a0;
+  color: #818cf8;
   padding: 3px 8px;
   border-radius: 6px;
   font-size: 12px;
@@ -290,7 +290,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     }
 
     .service-id-tag {
-      background: var(--green-light);
+      background: #57abeb;
       color: var(--green-deep);
       font-size: 11px;
       font-weight: 700;
@@ -322,14 +322,14 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   color: rgba(255,255,255,0.9);
   border: 1px solid var(--glass-border);
 }
-.kw-local { background: rgba(26,122,80,0.2); color: #6ee7a0; border-color: rgba(26,122,80,0.3); }
+.kw-local { background: rgba(26,122,80,0.2); color: #f0b429; border-color: rgba(26,122,80,0.3); }
 .kw-trust { background: rgba(240,180,41,0.15); color: #f0b429; border-color: rgba(240,180,41,0.3); }
 
     .kw-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
 
     .seo-group { margin-bottom: 14px; }
-    .seo-group-title { font-size: 12px; font-weight: 700; color: #7a9a87; margin-bottom: 4px; }
-    .seo-note { font-size: 12px; color: #7a9a87; margin-top: 8px; }
+    .seo-group-title { font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; }
+    .seo-note { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
 
     /* ── LANGUAGE SLIDERS ────────────────────── */
     .slider-row { margin-bottom: 14px; }
@@ -341,7 +341,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     }
 
   .slider-label { font-size: 14px; font-weight: 800; color: #e0f2e9; }
-.slider-val   { font-size: 14px; font-weight: 800; color: #6ee7a0; }
+.slider-val   { font-size: 14px; font-weight: 800; color: #818cf8; }
 
     .lang-slider {
       width: 100%;
@@ -359,7 +359,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       border-top: 1px solid #f0f4f2;
       font-size: 13px;
       font-weight: 600;
-      color: #3d5a4a;
+      color: #818cf8;
     }
 
     .total-val { font-size: 16px; font-weight: 700; }
@@ -377,8 +377,8 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 
     .rating-row:last-child { border-bottom: none; }
     .star-badge { font-size: 16px; min-width: 90px; }
-    .rating-tone { font-size: 13px; font-weight: 700; color: var(--green-deep); }
-    .rating-meta { font-size: 12px; color: #7a9a87; display: block; margin-top: 2px; }
+    .rating-tone { font-size: 13px; font-weight: 700; color: #818cf8; }
+    .rating-meta { font-size: 12px; color: var(--text-muted); display: block; margin-top: 2px; }
 
     /* ── PHRASE BROWSER ──────────────────────── */
     .phrase-controls {
@@ -422,7 +422,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .admin-btn-outline {
   padding: 10px 22px;
   background: transparent;
-  color: #6ee7a0;
+  color: #818cf8;
   border: 1.5px solid rgba(26,122,80,0.4);
   border-radius: 10px;
   font-size: 14px;
@@ -455,7 +455,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .pool-header {
   font-size: 13px;
   font-weight: 800;
-  color: #6ee7a0;
+  color: #818cf8;
   background: rgba(26,122,80,0.15);
   padding: 8px 14px;
   border-radius: 8px;
@@ -469,7 +469,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .pool-count {
       font-size: 11px;
       font-weight: 600;
-      color: #7a9a87;
+      color: var(--text-muted);
     }
 
     .phrase-item {
@@ -488,7 +488,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       padding-top: 1px;
     }
 
-    .phrase-text { color: #1a2e24; line-height: 1.5; }
+    .phrase-text { color: #E8DCC2; line-height: 1.5; }
 
     .phrase-meta {
       background: #fff8ee;
@@ -503,7 +503,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .loading-phrase, .error-phrase, .empty-phrase {
       text-align: center;
       padding: 32px;
-      color: #7a9a87;
+      color: var(--text-muted);
       font-size: 14px;
     }
 
@@ -520,7 +520,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 
     .preview-meta {
       font-size: 12px;
-      color: #7a9a87;
+      color: var(--text-muted);
       background: #f4fbf7;
       padding: 6px 12px;
       border-radius: 6px;
@@ -552,7 +552,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .preview-text {
       font-size: 14px;
       line-height: 1.65;
-      color: #1a2e24;
+      color: #ccdbe8;
       margin: 0 0 10px;
     }
 
@@ -571,7 +571,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .preview-loading {
       text-align: center;
       padding: 32px;
-      color: #7a9a87;
+      color: var(--text-muted);
     }
 
     .loading-dots {
@@ -664,8 +664,8 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       margin-top: 1px;
     }
 
-    .step-text { color: #3d5a4a; line-height: 1.5; }
-    .step-text strong { color: #1a2e24; }
+    .step-text { color: #f0b638; line-height: 1.5; }
+    .step-text strong { color: #f0b638; }
 /* ── MOBILE NAV TOGGLE ───────────────────── */
 .mobile-menu-btn {
   display: none;
@@ -728,7 +728,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   font-family: 'Sora', sans-serif;
   font-size: 28px;
   font-weight: 800;
-  color: #6ee7a0;
+  color: #818cf8;
   margin: 0 0 6px;
   letter-spacing: -0.03em;
   text-shadow: 0 0 40px rgba(110,231,160,0.3);
@@ -737,7 +737,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 .section-desc {
   font-size: 14px;
   font-weight: 600;
-  color: #6ee7a0;
+  color: #818cf8;
   margin: 0 0 28px;
 }
 
@@ -808,7 +808,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   <div class="top-bar">
   <div class="top-bar-left">
   <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Menu">☰</button>
-  <span style="font-size:20px;">🌿</span>
+  <img src="logo_main.png" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
   <span class="top-bar-title">Review System</span>
   <span class="top-bar-badge">ADMIN</span>
 </div>
@@ -913,9 +913,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       <div class="admin-card" style="background:#fff8ee; border-color:#f0d090;">
         <div class="card-title" style="color:#c07020;">📌 How to edit keywords</div>
         <p style="font-size:13px; color:#7a6020; margin:0;">
-          Edit <code>profile.json → seo.localKeywords</code> and <code>seo.trustKeywords</code>.
-          Also edit <code>data/phrases/[language]/seo.json</code> to add new SEO sentences.
-          The engine picks full sentences — not raw keywords — so phrasing matters.
+          Connect to <a href="https://nexaflow.bar" target="_blank" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; text-decoration: none;">Nexaflow</a>
         </p>
       </div>
     </section>
@@ -961,7 +959,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       </div>
       <div class="admin-card">
         <div class="card-title">📊 Humanizer Profiles</div>
-        <div style="font-size:13px; color:#3d5a4a; line-height:1.8;">
+        <div style="font-size:13px; color:#818cf8; line-height:1.8;">
           <div style="margin-bottom:8px;"><strong>5⭐ Profile:</strong> 20% lowercase start · 25% exclamation · 15% double !! · 10% elongation · 8% typo</div>
           <div style="margin-bottom:8px;"><strong>4⭐ Profile:</strong> 15% lowercase · 10% exclamation · 5% elongation · 5% typo</div>
           <div><strong>3⭐ Profile:</strong> 10% lowercase · 0% exclamation · 0% elongation · 3% typo</div>
@@ -1083,7 +1081,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
         <div class="card-title" style="color:#c07020;">📌 QR Deployment Notes</div>
         <div class="instruction-step">
           <div class="step-num">1</div>
-          <div class="step-text">Deploy the <strong>full review-system folder</strong> to Vercel, Netlify, or GitHub Pages.</div>
+          <div class="step-text">Each clinic gets its own QR code. The <code>?clinic=</code> param identifies which profile to load.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">2</div>
@@ -1091,11 +1089,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
         </div>
         <div class="instruction-step">
           <div class="step-num">3</div>
-          <div class="step-text">Click Generate — QR code is created via free QR API. Download and print.</div>
-        </div>
-        <div class="instruction-step">
-          <div class="step-num">4</div>
-          <div class="step-text">Each clinic gets its own QR code. The <code>?clinic=</code> param identifies which profile to load.</div>
+          <div class="step-text">Click Generate — QR code is created via <strong>NEXAFLOW</strong> QR API. Download and print.</div>
         </div>
       </div>
     </section>
