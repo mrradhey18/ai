@@ -149,16 +149,6 @@
         "dentist consultation Kanpur",
         "dental clinic near me Kanpur"
       ]
-    },
-    {
-      "id": "new-service",
-      "label": "New Service",
-      "keywords": []
-    },
-    {
-      "id": "222",
-      "label": "2222",
-      "keywords": []
     }
   ],
   "seo": {
@@ -193,10 +183,10 @@
   },
   "language": {
     "probabilities": {
-      "english": 65,
-      "hinglish": 25,
-      "hindi": 5,
-      "mixed": 5
+      "english": 75,
+      "hinglish": 19,
+      "hindi": 4,
+      "mixed": 2
     },
     "_note": "Kanpur patient base similar to Lucknow — Hinglish dominant. Hindi second for older patients."
   },
