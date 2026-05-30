@@ -336,68 +336,66 @@ function _renderPreviewServiceDropdown(profile) {
     return;
   }
 
-  // Update in-memory profile
-  // Update in-memory profile
-if (!state.currentProfile.language) state.currentProfile.language = {};
-state.currentProfile.language.probabilities = sliders;
-
-  const slug        = state.currentSlug;
-  const repo        = 'mrradhey18/Smart-Review-System';
-  const filePath    = `public/data/clients/${slug}/profile.json`;
-  const apiUrl      = `https://api.github.com/repos/${repo}/contents/${filePath}`;
-  const token       = session.githubToken;
+  const slug   = state.currentSlug;
+  const repo   = 'mrradhey18/Smart-Review-System';
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/public/data/clients/${slug}/profile.json`;
 
   const btn = document.querySelector('[onclick="Admin.saveLanguageProbabilities()"]');
-const originalText = btn ? btn.innerHTML : '';
-if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Saving...'; }
+  const originalText = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Saving...'; }
 
   try {
-    // Step 1: Get current file SHA (required by GitHub API to update a file)
- const getRes = await fetch(apiUrl, {
-  headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
-});
+    const getRes = await fetch(apiUrl, {
+      headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
+    });
 
-let sha = null;
-if (getRes.ok) {
-  const fileData = await getRes.json();
-  sha = fileData.sha;
-  // Use GitHub version as base, apply our slider changes on top
-const githubProfile = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/[\r\n]/g, '')))));
-githubProfile.language.probabilities = sliders;
-const updated = JSON.stringify(githubProfile, null, 2);
-const encoded = btoa(unescape(encodeURIComponent(updated)));
-} else if (getRes.status !== 404) {
-  throw new Error(`Fetch failed: ${getRes.status}`);
-}
+    let sha = null;
+    let profileToSave = state.currentProfile;
 
-const body = {
-  message: `Update services for ${slug}`,
-  content: encoded,
-};
-if (sha) body.sha = sha;
+    if (getRes.ok) {
+      const fileData = await getRes.json();
+      sha = fileData.sha;
+      profileToSave = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/[\r\n]/g, '')))));
+    } else if (getRes.status !== 404) {
+      throw new Error(`Fetch failed: ${getRes.status}`);
+    }
 
-const putRes = await fetch(apiUrl, {
-  method: 'PUT',
-  headers: {
-    'Authorization': `Bearer ${session.githubToken}`,
-    'Accept': 'application/vnd.github+json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(body)
-});
+    // Apply slider changes
+    if (!profileToSave.language) profileToSave.language = {};
+    profileToSave.language.probabilities = sliders;
+
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(profileToSave, null, 2))));
+
+    const body = { message: `Update language for ${slug}`, content: encoded };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${session.githubToken}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body)
+    });
 
     if (!putRes.ok) {
       const err = await putRes.json();
       throw new Error(err.message || putRes.status);
     }
 
-   if (btn) btn.innerHTML = '✅ Saved!';
-   LanguageEngine.clearCache();
-setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
+    // Update in-memory profile too
+    if (!state.currentProfile.language) state.currentProfile.language = {};
+    state.currentProfile.language.probabilities = sliders;
+    LanguageEngine.clearCache();
+
+    if (btn) btn.innerHTML = '✅ Saved!';
+    setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
 
   } catch (err) {
     console.error('[Admin] Save failed:', err);
-    _setStatus(`❌ Save failed: ${err.message}`, true);
+    if (btn) btn.innerHTML = '❌ Failed';
+    setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
   }
 }
   // ─────────────────────────────────────────────
