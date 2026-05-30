@@ -41,25 +41,46 @@ const Admin = (() => {
   // 1. BOOTSTRAP
   // ─────────────────────────────────────────────
 
-  async function init() {
+async function init() {
   if (!Auth.guard()) return;
 
   console.log('[Admin] Initialising...');
 
-  // Restrict clinic users to their own clinic only
   const session = Auth.getSession();
+
+  // Restrict clinic users to their own clinic only
   if (session && session.role === 'clinic') {
     state.knownClients = state.knownClients.filter(c => c.slug === session.slug);
   }
 
   _renderClientSwitcher();
-    _bindGlobalEvents();
 
-    // Auto-load first client
-    if (state.knownClients.length > 0) {
-      await loadClient(state.knownClients[0].slug);
-    }
+  // Show/hide nav items based on role
+  if (session?.role === 'superadmin') {
+    document.querySelectorAll('.superadmin-only').forEach(el => {
+      el.style.display = '';
+    });
   }
+
+  // Show correct guide based on role
+  const guideDesc = document.getElementById('guide-desc');
+  const guideClinic = document.getElementById('guide-clinic');
+  const guideSuperadmin = document.getElementById('guide-superadmin');
+  if (session?.role === 'superadmin') {
+    if (guideDesc) guideDesc.textContent = 'Full agency operator reference.';
+    if (guideSuperadmin) guideSuperadmin.style.display = 'block';
+  } else {
+    if (guideDesc) guideDesc.textContent = 'Everything you need to manage your clinic reviews.';
+    if (guideClinic) guideClinic.style.display = 'block';
+  }
+
+  _bindGlobalEvents();
+
+  // Auto-load first client
+  if (state.knownClients.length > 0) {
+    await loadClient(state.knownClients[0].slug);
+  }
+}
 
   // ─────────────────────────────────────────────
   // 2. CLIENT SWITCHER
