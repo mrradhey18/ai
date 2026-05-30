@@ -349,35 +349,36 @@ function _renderPreviewServiceDropdown(profile) {
 
   try {
     // Step 1: Get current file SHA (required by GitHub API to update a file)
-    const getRes  = await fetch(apiUrl, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github+json',
-      }
-    });
+   const getRes = await fetch(apiUrl, {
+  headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
+});
 
-    if (!getRes.ok) throw new Error(`Could not fetch file: ${getRes.status}`);
-    const fileData = await getRes.json();
-    const sha      = fileData.sha;
+let sha = null;
+if (getRes.ok) {
+  const fileData = await getRes.json();
+  sha = fileData.sha;
+} else if (getRes.status !== 404) {
+  throw new Error(`Fetch failed: ${getRes.status}`);
+}
 
-    // Step 2: Encode updated profile as base64
-    const updated     = JSON.stringify(state.currentProfile, null, 2);
-    const encoded     = btoa(unescape(encodeURIComponent(updated)));
+const updated = JSON.stringify(state.currentProfile, null, 2);
+const encoded = btoa(unescape(encodeURIComponent(updated)));
 
-    // Step 3: Commit the update
-    const putRes = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: `Update language probabilities for ${slug}`,
-        content:  encoded,
-        sha:      sha,
-      })
-    });
+const body = {
+  message: `Update services for ${slug}`,
+  content: encoded,
+};
+if (sha) body.sha = sha;
+
+const putRes = await fetch(apiUrl, {
+  method: 'PUT',
+  headers: {
+    'Authorization': `Bearer ${session.githubToken}`,
+    'Accept': 'application/vnd.github+json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(body)
+});
 
     if (!putRes.ok) {
       const err = await putRes.json();
