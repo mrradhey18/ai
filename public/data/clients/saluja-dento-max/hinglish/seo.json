@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "purpose": "Local SEO sentences for Saluja Dento Max in Hinglish. Engine picks MAX 1 per review. Full natural sentences that carry searchable terms — NOT keyword stuffing.",
+    "rules": [
+      "Must read like something a real patient would write",
+      "{{city}} = Kanpur, {{area}} = Ashok Nagar — replaced by engine",
+      "Nearby areas can be mentioned naturally: Kakadeo, Swaroop Nagar, Kamla Nagar, Arya Nagar, Harsh Nagar",
+      "Never two location mentions in one sentence",
+      "Conversational — 'Kanpur mein best hai' not 'best dental clinic in Kanpur city'"
+    ]
+  },
+  "location": [
+    "{{city}} mein itna accha dental clinic dhundh raha tha — yahan mil gaya.",
+    "{{area}} mein rehte ho toh yeh jagah bilkul paas hai aur best bhi.",
+    "Honestly {{city}} mein yahan se better dental care nahi mili mujhe.",
+    "Kakadeo se aata hoon — thodi door hai par worth it hai bilkul.",
+    "Swaroop Nagar walon ko bata dunga — yeh clinic unke liye bhi accessible hai.",
+    "{{city}} mein itni modern dental clinic expect nahi ki thi honestly.",
+    "Harsh Nagar ke bilkul paas hai — convenient location hai.",
+    "Kamla Nagar se aaya tha, distance sahi tha aur experience aur bhi better.",
+    "Puri {{city}} mein is level ka dental care dhundha — yahan mila.",
+    "Arya Nagar waale bhi yahan aate hain — suna tha, ab khud bhi aa gaya.",
+    "{{area}} mein is clinic ki reputation hai — woh deserve karta hai.",
+    "{{city}} ke logon ke liye ek genuine recommendation — Saluja Dento Max.",
+    "Jo bhi {{city}} mein dentist dhundh raha hai seriously, yahan ek baar zaroor aao.",
+    "Coca-Cola Chauraha ke paas hai — {{area}} mein easy to find.",
+    "{{city}} mein itne sare dentists hain par yahan wali quality alag hai."
+  ],
+  "credibility": [
+    "Doctors yahan clearly bahut experienced hain — ek visit mein samajh aa jaata hai.",
+    "Kaafi saalon se yeh clinic chal rahi hai — reputation bani hui hai acchi.",
+    "Multiple specialists ek jagah — yeh cheez baaki clinics mein nahi milti.",
+    "Itne sare patients aate hain yahan — reason pata chala visit karke.",
+    "Latest equipment hai aur technique bhi modern — difference feel hoti hai.",
+    "Yahan ka reputation word-of-mouth pe chalta hai — aur sahi chalta hai.",
+    "Bahut saare logo ne suggest kiya tha — woh sab sahi the."
+  ]
+}
