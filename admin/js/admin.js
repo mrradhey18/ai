@@ -345,11 +345,13 @@ function _renderPreviewServiceDropdown(profile) {
   const apiUrl      = `https://api.github.com/repos/${repo}/contents/${filePath}`;
   const token       = session.githubToken;
 
-  _setStatus('Saving...');
+  const btn = document.querySelector('[onclick="Admin.saveLanguageProbabilities()"]');
+const originalText = btn ? btn.innerHTML : '';
+if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Saving...'; }
 
   try {
     // Step 1: Get current file SHA (required by GitHub API to update a file)
-   const getRes = await fetch(apiUrl, {
+ const getRes = await fetch(apiUrl, {
   headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
 });
 
@@ -385,7 +387,8 @@ const putRes = await fetch(apiUrl, {
       throw new Error(err.message || putRes.status);
     }
 
-    _setStatus('✅ Saved! Language probabilities updated permanently.');
+   if (btn) btn.innerHTML = '✅ Saved!';
+setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
 
   } catch (err) {
     console.error('[Admin] Save failed:', err);
@@ -753,9 +756,13 @@ function deleteKeyword(serviceIndex, kwIndex) {
 }
 
 async function saveServices() {
+  const btn = document.querySelector('[onclick="Admin.saveServices()"]');
+  const originalText = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Saving...'; }
+
   const session = Auth.getSession();
   if (!session?.githubToken) {
-    _setStatus('❌ No GitHub token. Contact admin.', true);
+    if (btn) { btn.innerHTML = '❌ No Token'; btn.disabled = false; }
     return;
   }
 
@@ -764,10 +771,8 @@ async function saveServices() {
   const filePath = `public/data/clients/${slug}/profile.json`;
   const apiUrl   = `https://api.github.com/repos/${repo}/contents/${filePath}`;
 
-  _setStatus('Saving services...');
-
   try {
-    const getRes  = await fetch(apiUrl, {
+    const getRes = await fetch(apiUrl, {
       headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
     });
     if (!getRes.ok) throw new Error(`Fetch failed: ${getRes.status}`);
@@ -786,7 +791,7 @@ async function saveServices() {
       body: JSON.stringify({
         message: `Update services for ${slug}`,
         content: encoded,
-        sha:     fileData.sha,
+        sha: fileData.sha,
       })
     });
 
@@ -795,10 +800,13 @@ async function saveServices() {
       throw new Error(err.message || putRes.status);
     }
 
-    _setStatus('✅ Services saved permanently.');
+    if (btn) btn.innerHTML = '✅ Saved!';
+    setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
+
   } catch (err) {
     console.error('[Admin] Save services failed:', err);
-    _setStatus(`❌ Save failed: ${err.message}`, true);
+    if (btn) btn.innerHTML = `❌ Failed`;
+    setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
   }
 }
 
@@ -887,6 +895,7 @@ function openAccountSettings() {
 return {
   init,
   loadClient,
+  state,
   generatePreview,
   copyPreview,
   cycleReview,
