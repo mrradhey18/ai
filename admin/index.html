@@ -112,6 +112,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
    #status-bar {
   position: fixed;
   top: var(--header-h);
+  left: var(--sidebar-w);
   left: 0; right: 0;
   background: rgba(26,122,80,0.12);
   
@@ -125,9 +126,9 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 }
 
     /* ── SIDEBAR ─────────────────────────────── */
-  .sidebar {
+.sidebar {
   position: fixed;
-  top: calc(var(--header-h) + 37px);
+  top: var(--header-h);
   left: 0;
   width: var(--sidebar-w);
   bottom: 0;
@@ -135,7 +136,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-right: 1px solid var(--glass-border);
-  padding: 24px 0;
+  padding: 2px 0;
   overflow-y: auto;
 }
 
@@ -145,7 +146,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   letter-spacing: 0.2em;
   color: rgba(255,255,255,0.25);
   text-transform: uppercase;
-  padding: 18px 22px 7px;
+  padding: 10px 20px 7px;
 }
 
    .nav-item {
@@ -175,7 +176,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     .main-content {
       margin-left: var(--sidebar-w);
       margin-top: calc(var(--header-h) + 34px);
-      padding: 28px 32px;
+      padding: 2px 32px;
       min-height: 100vh;
     }
 
@@ -695,13 +696,14 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   .mobile-menu-btn { display: flex; }
 
   .client-select-wrap label { display: none; }
-  #client-select { min-width: 130px; font-size: 12px; padding: 4px 8px; }
+  #client-select { min-width: 100px; max-width: 140px; font-size: 11px; padding: 4px 6px; }
 
   #logged-in-user { display: none; }
 
-  .top-bar { padding: 0 12px; gap: 8px; }
-  .top-bar-badge { display: none; }
 
+.top-bar { padding: 0 8px; gap: 4px; flex-wrap: nowrap; }
+.top-bar-badge { display: none; }
+.top-bar-title { font-size: 14px; }
   #status-bar { font-size: 12px; padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .sidebar {
@@ -711,15 +713,15 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     z-index: 150;
     transform: translateX(-100%);
     transition: transform 0.25s ease;
-    padding-top: 70px;
+    padding-top: var(--header-h);
   }
 
   .sidebar.open { transform: translateX(0); }
   .sidebar-overlay.open { display: block; }
 
 .main-content {
-  margin-left: var(--sidebar-w);
-  margin-top: calc(var(--header-h) + 37px);
+  margin-left: 0;
+  margin-top: calc(var(--header-h) + 34px);
   padding: 32px 36px;
   min-height: 100vh;
 }
@@ -797,7 +799,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 
   .login-box { width: calc(100% - 32px) !important; padding: 28px 20px !important; }
 }
-
+.superadmin-only { display: none; }
   </style>
 </head>
 
@@ -825,11 +827,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     </div>
   </div>
 
-  <!-- ── STATUS BAR ── -->
-  <div id="status-bar">Loading...</div>
-
-  <!-- ── SIDEBAR NAV ── -->
-  <nav class="sidebar">
+<nav class="sidebar">
     <div class="nav-section-title">Overview</div>
     <a class="nav-item active" onclick="showSection('overview')">
       <span class="nav-icon">📋</span> Client Profile
@@ -837,31 +835,31 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     <a class="nav-item" onclick="showSection('services')">
       <span class="nav-icon">🏥</span> Services
     </a>
-    <a class="nav-item" onclick="showSection('seo')">
+    <a class="nav-item" data-role-hide onclick="showSection('seo')">
       <span class="nav-icon">🔍</span> SEO Keywords
     </a>
 
-    <div class="nav-section-title">Configuration</div>
-    <a class="nav-item" onclick="showSection('language')">
+    <div class="nav-section-title" data-role-hide>Configuration</div>
+    <a class="nav-item" data-role-hide onclick="showSection('language')">
       <span class="nav-icon">🌐</span> Language Settings
     </a>
-    <a class="nav-item" onclick="showSection('rating')">
+    <a class="nav-item" data-role-hide onclick="showSection('rating')">
       <span class="nav-icon">⭐</span> Rating Behavior
     </a>
 
-    <div class="nav-section-title">Tools</div>
-    <a class="nav-item" onclick="showSection('preview')">
+    <div class="nav-section-title" data-role-hide>Tools</div>
+    <a class="nav-item" data-role-hide onclick="showSection('preview')">
       <span class="nav-icon">👁️</span> Live Preview
     </a>
-    <a class="nav-item" onclick="showSection('phrases')">
+    <a class="nav-item" data-role-hide onclick="showSection('phrases')">
       <span class="nav-icon">📝</span> Phrase Browser
     </a>
     <a class="nav-item" onclick="showSection('qr')">
       <span class="nav-icon">📱</span> QR Generator
     </a>
 
-    <div class="nav-section-title">System</div>
-    <a class="nav-item" onclick="showSection('stats')">
+    <div class="nav-section-title" data-role-hide>System</div>
+    <a class="nav-item" data-role-hide onclick="showSection('stats')">
       <span class="nav-icon">📊</span> Session Stats
     </a>
     <a class="nav-item" onclick="showSection('guide')">
@@ -1119,30 +1117,122 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════
-         SECTION: How to Use Guide
-    ══════════════════════════════════════ -->
-    <section class="admin-section" id="section-guide">
-      <h1 class="section-heading">How to Use</h1>
-      <p class="section-desc">Step-by-step guide for agency operators.</p>
+ <!-- ══════════════════════════════════════
+       SECTION: How to Use Guide
+  ══════════════════════════════════════ -->
+  <section class="admin-section" id="section-guide">
+    <h1 class="section-heading">How to Use</h1>
+    <p class="section-desc" id="guide-desc">Loading guide...</p>
+
+    <!-- CLINIC USER GUIDE -->
+    <div id="guide-clinic" style="display:none;">
+
+      <div class="admin-card">
+        <div class="card-title">📱 How Patients Use This Tool</div>
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Patient scans the QR code at your clinic reception.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <div class="step-text">They select the service they visited for.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <div class="step-text">They rate their experience (1–5 stars).</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">4</div>
+          <div class="step-text">They pick a review, copy it, and post it on Google. Done!</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">🏥 Adding a New Service</div>
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Click <strong>Services</strong> in the left menu.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Click <strong>+ Add Service</strong> button — a new empty row appears.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Fill in the service name (e.g. "Kidney Stone Treatment").</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Click <strong>💾 Save Services</strong> — changes go live in 5–10 minutes.</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">📱 Getting Your QR Code</div>
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Click <strong>QR Generator</strong> in the left menu.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Enter your clinic's website URL and click Generate.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Download and print the QR code — place it at reception desk.</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">⏱️ How Long Do Changes Take?</div>
+        <div class="instruction-step">
+          <div class="step-num">~</div>
+          <div class="step-text"><strong>Adding a service:</strong> 5–10 minutes to go live after saving.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">~</div>
+          <div class="step-text"><strong>QR code:</strong> Works immediately after generating.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">~</div>
+          <div class="step-text">If changes don't show, do a hard refresh: <strong>Ctrl+Shift+R</strong> (Windows) or <strong>Cmd+Shift+R</strong> (Mac).</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-title">📞 Need Help?</div>
+        <div class="instruction-step">
+          <div class="step-num">✓</div>
+          <div class="step-text">Contact NexaFlow support at <a href="https://nexaflow.bar" target="_blank" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; text-decoration: none;">nexaflow.bar</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SUPERADMIN GUIDE -->
+    <div id="guide-superadmin" style="display:none;">
 
       <div class="admin-card">
         <div class="card-title">🚀 Adding a New Client</div>
         <div class="instruction-step">
           <div class="step-num">1</div>
-          <div class="step-text">Duplicate the folder <code>data/clients/dr-sharma-homeo/</code> → rename to the new client's slug (e.g. <code>city-homeo-clinic</code>).</div>
+          <div class="step-text">Duplicate folder <code>data/clients/dr-sharma-homeo/</code> → rename to new slug (e.g. <code>city-homeo-clinic</code>).</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">2</div>
-          <div class="step-text">Open <code>profile.json</code> → change <strong>name, slug, googleReviewUrl, city, area, services, keywords</strong>.</div>
+          <div class="step-text">Edit <code>profile.json</code> → update name, slug, googleReviewUrl, city, area, services.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">3</div>
-          <div class="step-text">Add the new slug + name to the <code>knownClients</code> array inside <code>admin/js/admin.js</code>.</div>
+          <div class="step-text">Add slug + name to <code>knownClients</code> array in <code>admin/js/admin.js</code>.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">4</div>
-          <div class="step-text">Use QR Generator tab to create the patient URL and print the QR code.</div>
+          <div class="step-text">Add clinic login to <code>auth.js</code> USERS object with role: 'clinic'.</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">5</div>
+          <div class="step-text">Use QR Generator to create patient URL and print QR code.</div>
         </div>
       </div>
 
@@ -1150,19 +1240,19 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
         <div class="card-title">✏️ Editing Phrases</div>
         <div class="instruction-step">
           <div class="step-num">1</div>
-          <div class="step-text">Open <code>data/phrases/[language]/[type].json</code> in any text editor.</div>
+          <div class="step-text">Open <code>data/phrases/[language]/[type].json</code> in text editor.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">2</div>
-          <div class="step-text">Add new phrases to the correct star pool (<code>5star</code>, <code>4star</code>, <code>3star</code>). Keep the JSON format valid.</div>
+          <div class="step-text">Add to correct star pool (<code>5star</code>, <code>4star</code>, <code>3star</code>). Keep JSON valid.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">3</div>
-          <div class="step-text">Use <code>{{service}}</code>, <code>{{city}}</code>, <code>{{area}}</code> as placeholders — the engine replaces these automatically.</div>
+          <div class="step-text">Use <code>{{service}}</code>, <code>{{city}}</code>, <code>{{area}}</code> as placeholders.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">4</div>
-          <div class="step-text">Use Phrase Browser tab to verify changes after saving.</div>
+          <div class="step-text">For client-specific phrases: add to <code>data/clients/[slug]/phrases/[language]/[type].json</code>.</div>
         </div>
       </div>
 
@@ -1170,22 +1260,21 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
         <div class="card-title">🌐 Deployment Checklist</div>
         <div class="instruction-step">
           <div class="step-num">✓</div>
-          <div class="step-text">Deploy via <strong>Vercel</strong> (drag and drop the folder) or <strong>GitHub Pages</strong> (push to repo).</div>
+          <div class="step-text">Deploy via GitHub Pages — push to repo, changes live in 5–10 min.</div>
         </div>
         <div class="instruction-step">
           <div class="step-num">✓</div>
-          <div class="step-text">Patient URL format: <code>https://yourdomain.com/public/index.html?clinic=SLUG</code></div>
+          <div class="step-text">Patient URL: <code>https://yourdomain.com/public/index.html?clinic=SLUG</code></div>
         </div>
         <div class="instruction-step">
           <div class="step-num">✓</div>
-          <div class="step-text">Admin URL: <code>https://yourdomain.com/admin/index.html</code> — not linked anywhere public.</div>
-        </div>
-        <div class="instruction-step">
-          <div class="step-num">✓</div>
-          <div class="step-text">Replace all <code>REPLACE_WITH_REAL_PLACE_ID</code> values in profile JSONs with actual Google Place IDs.</div>
+          <div class="step-text">Admin URL: <code>https://yourdomain.com/admin/index.html</code> — keep private.</div>
         </div>
       </div>
-    </section>
+
+    </div>
+
+  </section>
 
   </main><!-- /.main-content -->
 
