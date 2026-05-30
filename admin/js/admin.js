@@ -131,22 +131,76 @@ const Admin = (() => {
   // 4. SERVICE PANEL
   // ─────────────────────────────────────────────
 
-  function _renderServices(profile) {
-    const el = document.getElementById('services-list');
-    if (!el) return;
+function _renderServices(profile) {
+  const el = document.getElementById('services-list');
+  if (!el) return;
 
-    el.innerHTML = (profile.services || []).map(s => `
-      <div class="service-row">
+  function render() {
+    const services = state.currentProfile.services || [];
+    el.innerHTML = services.map((s, i) => `
+      <div class="service-row" id="svc-row-${i}">
         <div class="service-row-top">
-          <span class="service-id-tag">${s.id}</span>
-          <span class="service-name">${s.label}</span>
+          <input
+            class="admin-input svc-id-input"
+            value="${_escHtml(s.id)}"
+            placeholder="service-id"
+            data-index="${i}"
+            data-field="id"
+            style="width:120px; font-family:'JetBrains Mono',monospace; font-size:12px;"
+          />
+          <input
+            class="admin-input svc-label-input"
+            value="${_escHtml(s.label)}"
+            placeholder="Service Name"
+            data-index="${i}"
+            data-field="label"
+            style="flex:1;"
+          />
+          <button class="admin-btn-red" onclick="Admin.deleteService(${i})" style="padding:5px 10px; font-size:12px;">✕</button>
         </div>
-        <div class="service-keywords">
-          ${(s.keywords || []).map(k => `<span class="kw-tag">${k}</span>`).join('')}
+        <div style="margin-top:8px;">
+          <div style="font-size:11px; font-weight:700; color:#7a9a87; margin-bottom:5px; text-transform:uppercase; letter-spacing:0.05em;">Keywords</div>
+          <div class="kw-edit-list" id="kw-list-${i}">
+            ${(s.keywords || []).map((k, ki) => `
+              <div class="kw-edit-row" style="display:flex; gap:6px; margin-bottom:6px;">
+                <input
+                  class="admin-input kw-input"
+                  value="${_escHtml(k)}"
+                  data-svc="${i}"
+                  data-kw="${ki}"
+                  style="flex:1; font-size:12px;"
+                />
+                <button class="admin-btn-red" onclick="Admin.deleteKeyword(${i},${ki})" style="padding:4px 8px; font-size:11px;">✕</button>
+              </div>
+            `).join('')}
+          </div>
+          <button class="admin-btn-outline" onclick="Admin.addKeyword(${i})" style="font-size:11px; padding:4px 12px; margin-top:4px;">+ Add Keyword</button>
         </div>
       </div>
     `).join('');
+
+    // Bind input changes live into state
+    el.querySelectorAll('.svc-id-input, .svc-label-input').forEach(input => {
+      input.addEventListener('input', () => {
+        const idx   = parseInt(input.dataset.index);
+        const field = input.dataset.field;
+        state.currentProfile.services[idx][field] = input.value;
+      });
+    });
+
+    el.querySelectorAll('.kw-input').forEach(input => {
+      input.addEventListener('input', () => {
+        const si = parseInt(input.dataset.svc);
+        const ki = parseInt(input.dataset.kw);
+        state.currentProfile.services[si].keywords[ki] = input.value;
+      });
+    });
   }
+
+  render();
+  // Store render fn so add/delete can call it
+  el._rerender = render;
+}
 
 function _renderPreviewServiceDropdown(profile) {
   const sel = document.getElementById('preview-service');
@@ -641,6 +695,80 @@ function _showReviewAtIndex(i) {
       .replace(/"/g, '&quot;');
   }
 
+  function addService() {
+  state.currentProfile.services.push({
+    id: 'new-service',
+    label: 'New Service',
+    keywords: []
+  });
+  document.getElementById('services-list')._rerender();
+}
+
+function deleteService(index) {
+  state.currentProfile.services.splice(index, 1);
+  document.getElementById('services-list')._rerender();
+}
+
+function addKeyword(serviceIndex) {
+  state.currentProfile.services[serviceIndex].keywords.push('');
+  document.getElementById('services-list')._rerender();
+}
+
+function deleteKeyword(serviceIndex, kwIndex) {
+  state.currentProfile.services[serviceIndex].keywords.splice(kwIndex, 1);
+  document.getElementById('services-list')._rerender();
+}
+
+async function saveServices() {
+  const session = Auth.getSession();
+  if (!session?.githubToken) {
+    _setStatus('❌ No GitHub token. Contact admin.', true);
+    return;
+  }
+
+  const slug     = state.currentSlug;
+  const repo     = 'mrradhey18/Smart-Review-System';
+  const filePath = `public/data/clients/${slug}/profile.json`;
+  const apiUrl   = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
+  _setStatus('Saving services...');
+
+  try {
+    const getRes  = await fetch(apiUrl, {
+      headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
+    });
+    if (!getRes.ok) throw new Error(`Fetch failed: ${getRes.status}`);
+    const fileData = await getRes.json();
+
+    const updated = JSON.stringify(state.currentProfile, null, 2);
+    const encoded = btoa(unescape(encodeURIComponent(updated)));
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${session.githubToken}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: `Update services for ${slug}`,
+        content: encoded,
+        sha:     fileData.sha,
+      })
+    });
+
+    if (!putRes.ok) {
+      const err = await putRes.json();
+      throw new Error(err.message || putRes.status);
+    }
+
+    _setStatus('✅ Services saved permanently.');
+  } catch (err) {
+    console.error('[Admin] Save services failed:', err);
+    _setStatus(`❌ Save failed: ${err.message}`, true);
+  }
+}
+
   // ─────────────────────────────────────────────
   // PUBLIC API
   // ─────────────────────────────────────────────
@@ -650,10 +778,15 @@ return {
   loadClient,
   generatePreview,
   copyPreview,
-  cycleReview,   
+  cycleReview,
   generateQrUrl,
   loadPhraseBank,
   saveLanguageProbabilities,
+  saveServices,        // ← add
+  addService,          // ← add
+  deleteService,       // ← add
+  addKeyword,          // ← add
+  deleteKeyword,       // ← add
 };
 
 })();
