@@ -32,7 +32,8 @@ const Admin = (() => {
     currentSlug:     null,
     previewReviews:  [],
     knownClients: [
-      { slug: 'dr-sharma-homeo',       name: 'Dr. Sharma Homeopathic Clinic' },
+      { slug: 'saluja-dento-max', name: 'Saluja Dento Max Fac Centre' },
+      { slug: 'dr-sharma-homeo', name: 'Dr. Sharma Homeopathic Clinic' },
       { slug: 'green-wellness-clinic', name: 'Green Wellness Clinic' },
       { slug: 'dr-verma-homeo', name: 'Dr. Verma Multispeciality Homeopathy' }
       // Add new clients here when you create their profile.json
