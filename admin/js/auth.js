@@ -43,6 +43,11 @@ const Auth = (() => {
       slug:      'dr-verma-homeo',
     },
 
+    'saluja': {
+      name:      "Saluja Dento Max Fac Centre",
+      slug:      'saluja-dento-max',
+    },
+
     'drsharma': {
       name:      'Dr. Sharma Homeopathic Clinic',
       slug:      'dr-sharma-homeo',
