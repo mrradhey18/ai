@@ -39,22 +39,16 @@ const Auth = (() => {
     // slug must match the folder name in data/clients/
 
     'drverma': {
-      password:  'verma@clinic',
-      role:      'clinic',
       name:      "Dr. Verma's Multispeciality Homeopathy",
       slug:      'dr-verma-homeo',
     },
 
     'drsharma': {
-      password:  'sharma@clinic',
-      role:      'clinic',
       name:      'Dr. Sharma Homeopathic Clinic',
       slug:      'dr-sharma-homeo',
     },
 
     'greenwellness': {
-      password:  'green@clinic',
-      role:      'clinic',
       name:      'Green Wellness Clinic',
       slug:      'green-wellness-clinic',
     },
@@ -117,25 +111,31 @@ async function attemptLogin() {
     return;
   }
 
-  const user = USERS[username];
+  const btnEl = document.querySelector('#login-overlay button');
+  if (btnEl) btnEl.textContent = 'Signing in...';
 
-  if (!user || user.password !== password) {
+  // Fetch user from Supabase
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/clinic_users?username=eq.${username}&password=eq.${encodeURIComponent(password)}&select=*`,
+    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+  );
+  const data = await res.json();
+  const user = data?.[0];
+
+  if (!user) {
     _showLoginError('Incorrect username or password.');
     const passEl = document.getElementById('login-pass');
     if (passEl) passEl.value = '';
+    if (btnEl) btnEl.textContent = 'Sign In →';
     return;
   }
-
-  // Show loading state
-  const btnEl = document.querySelector('#login-overlay button');
-  if (btnEl) btnEl.textContent = 'Signing in...';
 
   // Fetch token from Supabase
   const githubToken = await _fetchGithubToken();
 
   // Save session
   const session = {
-    username:    username,
+    username:    user.username,
     role:        user.role,
     name:        user.name,
     slug:        user.slug,
