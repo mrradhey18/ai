@@ -769,20 +769,32 @@ async function saveServices() {
     return;
   }
 
-  const slug     = state.currentSlug;
-  const repo     = 'mrradhey18/Smart-Review-System';
-  const filePath = `public/data/clients/${slug}/profile.json`;
-  const apiUrl   = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+  const slug   = state.currentSlug;
+  const repo   = 'mrradhey18/Smart-Review-System';
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/public/data/clients/${slug}/profile.json`;
 
   try {
     const getRes = await fetch(apiUrl, {
       headers: { 'Authorization': `Bearer ${session.githubToken}`, 'Accept': 'application/vnd.github+json' }
     });
-    if (!getRes.ok) throw new Error(`Fetch failed: ${getRes.status}`);
-    const fileData = await getRes.json();
 
-    const updated = JSON.stringify(state.currentProfile, null, 2);
-    const encoded = btoa(unescape(encodeURIComponent(updated)));
+    let sha = null;
+    let profileToSave = JSON.parse(JSON.stringify(state.currentProfile));
+
+    if (getRes.ok) {
+      const fileData = await getRes.json();
+      sha = fileData.sha;
+      const githubProfile = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/[\r\n]/g, '')))));
+      // Apply local services on top of GitHub version
+      githubProfile.services = state.currentProfile.services;
+      profileToSave = githubProfile;
+    } else if (getRes.status !== 404) {
+      throw new Error(`Fetch failed: ${getRes.status}`);
+    }
+
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(profileToSave, null, 2))));
+    const body = { message: `Update services for ${slug}`, content: encoded };
+    if (sha) body.sha = sha;
 
     const putRes = await fetch(apiUrl, {
       method: 'PUT',
@@ -791,11 +803,7 @@ async function saveServices() {
         'Accept': 'application/vnd.github+json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        message: `Update services for ${slug}`,
-        content: encoded,
-        sha: fileData.sha,
-      })
+      body: JSON.stringify(body)
     });
 
     if (!putRes.ok) {
@@ -808,7 +816,7 @@ async function saveServices() {
 
   } catch (err) {
     console.error('[Admin] Save services failed:', err);
-    if (btn) btn.innerHTML = `❌ Failed`;
+    if (btn) btn.innerHTML = '❌ Failed';
     setTimeout(() => { if (btn) { btn.innerHTML = originalText; btn.disabled = false; } }, 2000);
   }
 }
