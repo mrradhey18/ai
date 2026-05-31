@@ -58,8 +58,7 @@ const App = (() => {
       return;
     }
 
-    // Load client profile
-    const profile = await Utils.loadJSON(`data/clients/${slug}/profile.json?v=${Date.now()}`);
+ const profile = await Utils.loadJSON(`data/clients/${slug}/profile.json?v=${Date.now()}`);
 
     if (!profile) {
       Utils.warn(`App: profile not found for slug "${slug}"`);
