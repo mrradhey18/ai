@@ -125,6 +125,7 @@ async function init() {
     _renderRatingConfig(profile);
     _updateStats();
     _setStatus(`✅ Loaded: ${profile.business.name}`);
+    checkFeedbackBadge();
 
     // Update account section
     const logoEl = document.getElementById('account-logo');
@@ -902,6 +903,87 @@ function openAccountSettings() {
   showSection('account');
 }
 
+async function loadFeedback() {
+  const session = Auth.getSession();
+  const slug = state.currentSlug;
+  const el = document.getElementById('feedback-list');
+  if (!el) return;
+
+  el.innerHTML = '<p style="color:#7a9a87;">Loading...</p>';
+
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/feedback?clinic_slug=eq.${slug}&order=created_at.desc`,
+      {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`
+        }
+      }
+    );
+
+    const data = await res.json();
+
+    if (!data.length) {
+      el.innerHTML = '<p style="color:#7a9a87; text-align:center; padding:24px;">No feedback yet.</p>';
+      return;
+    }
+
+    el.innerHTML = data.map(f => `
+      <div style="
+        padding: 16px;
+        margin-bottom: 12px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+      ">
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span style="font-size:12px; font-weight:800; color:#6ee7a0;">📍 ${f.clinic_slug}</span>
+          <span style="font-size:11px; color:rgba(255,255,255,0.4);">${new Date(f.created_at).toLocaleString()}</span>
+        </div>
+        <p style="font-size:14px; color:#fff; margin:0; line-height:1.6;">${f.feedback}</p>
+      </div>
+    `).join('');
+
+    // Clear badge after viewing
+    const badge = document.getElementById('feedback-badge');
+    if (badge) badge.style.display = 'none';
+
+    // Mark as seen in localStorage
+    localStorage.setItem(`feedback_seen_${slug}`, new Date().toISOString());
+
+  } catch (err) {
+    el.innerHTML = '<p style="color:#ef4444;">Failed to load feedback.</p>';
+  }
+}
+
+async function checkFeedbackBadge() {
+  const slug = state.currentSlug;
+  if (!slug) return;
+
+  try {
+    const lastSeen = localStorage.getItem(`feedback_seen_${slug}`) || '2000-01-01';
+
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/feedback?clinic_slug=eq.${slug}&created_at=gt.${lastSeen}&select=id`,
+      {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`
+        }
+      }
+    );
+
+    const data = await res.json();
+    const badge = document.getElementById('feedback-badge');
+    if (badge && data.length > 0) {
+      badge.style.display = 'inline-block';
+      badge.textContent = data.length > 9 ? '9+' : data.length;
+    }
+  } catch (err) {
+    console.warn('Badge check failed:', err);
+  }
+}
 
 return {
   init,
@@ -919,7 +1001,9 @@ return {
   addKeyword,          // ← add
   deleteKeyword,       // ← add
   changeCredentials,
-  openAccountSettings
+  openAccountSettings,
+  loadFeedback,
+  checkFeedbackBadge,
 };
 
 })();
