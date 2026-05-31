@@ -904,7 +904,6 @@ function openAccountSettings() {
 }
 
 async function loadFeedback() {
-  const session = Auth.getSession();
   const slug = state.currentSlug;
   const el = document.getElementById('feedback-list');
   if (!el) return;
@@ -914,12 +913,7 @@ async function loadFeedback() {
   try {
     const res = await fetch(
       `${SUPABASE_URL}/rest/v1/feedback?clinic_slug=eq.${slug}&order=created_at.desc`,
-      {
-        headers: {
-          'apikey': SUPABASE_KEY,
-          'Authorization': `Bearer ${SUPABASE_KEY}`
-        }
-      }
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
     );
 
     const data = await res.json();
@@ -930,26 +924,43 @@ async function loadFeedback() {
     }
 
     el.innerHTML = data.map(f => `
-      <div style="
+      <div id="fb-${f.id}" style="
         padding: 16px;
         margin-bottom: 12px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: ${f.is_read ? 'rgba(255,255,255,0.03)' : 'rgba(99,102,241,0.08)'};
+        border: 1px solid ${f.is_read ? 'rgba(255,255,255,0.08)' : 'rgba(99,102,241,0.3)'};
         border-radius: 12px;
+        transition: all 0.3s;
       ">
-        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-          <span style="font-size:12px; font-weight:800; color:#6ee7a0;">📍 ${f.clinic_slug}</span>
-          <span style="font-size:11px; color:rgba(255,255,255,0.4);">${new Date(f.created_at).toLocaleString()}</span>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            ${!f.is_read ? '<span style="width:8px;height:8px;border-radius:50%;background:#6366f1;display:inline-block;flex-shrink:0;"></span>' : ''}
+            <span style="font-size:11px; color:rgba(255,255,255,0.4);">${new Date(f.created_at).toLocaleString()}</span>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            ${!f.is_read ? `
+              <button onclick="Admin.markFeedbackRead('${f.id}')" style="
+                background:rgba(99,102,241,0.15); color:#818cf8;
+                border:1px solid rgba(99,102,241,0.3); border-radius:8px;
+                padding:4px 10px; font-size:11px; font-weight:700;
+                cursor:pointer; font-family:'Sora',sans-serif;
+              ">Mark Read</button>
+            ` : '<span style="font-size:11px;color:rgba(255,255,255,0.25);font-weight:600;">Read</span>'}
+            <button onclick="Admin.deleteFeedback('${f.id}')" style="
+              background:rgba(239,68,68,0.1); color:#ef4444;
+              border:1px solid rgba(239,68,68,0.2); border-radius:8px;
+              padding:4px 10px; font-size:11px; font-weight:700;
+              cursor:pointer; font-family:'Sora',sans-serif;
+            ">Delete</button>
+          </div>
         </div>
-        <p style="font-size:14px; color:#fff; margin:0; line-height:1.6;">${f.feedback}</p>
+        <p style="font-size:14px; color:${f.is_read ? 'rgba(255,255,255,0.6)' : '#fff'}; margin:0; line-height:1.6;">${f.feedback}</p>
       </div>
     `).join('');
 
-    // Clear badge after viewing
+    // Clear badge
     const badge = document.getElementById('feedback-badge');
     if (badge) badge.style.display = 'none';
-
-    // Mark as seen in localStorage
     localStorage.setItem(`feedback_seen_${slug}`, new Date().toISOString());
 
   } catch (err) {
@@ -957,28 +968,51 @@ async function loadFeedback() {
   }
 }
 
+async function markFeedbackRead(id) {
+  await fetch(`${SUPABASE_URL}/rest/v1/feedback?id=eq.${id}`, {
+    method: 'PATCH',
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ is_read: true })
+  });
+  loadFeedback();
+}
+
+async function deleteFeedback(id) {
+  if (!confirm('Delete this feedback?')) return;
+  await fetch(`${SUPABASE_URL}/rest/v1/feedback?id=eq.${id}`, {
+    method: 'DELETE',
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`
+    }
+  });
+  const el = document.getElementById(`fb-${id}`);
+  if (el) el.remove();
+}
+
 async function checkFeedbackBadge() {
   const slug = state.currentSlug;
   if (!slug) return;
 
   try {
-    const lastSeen = localStorage.getItem(`feedback_seen_${slug}`) || '2000-01-01';
-
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/feedback?clinic_slug=eq.${slug}&created_at=gt.${lastSeen}&select=id`,
-      {
-        headers: {
-          'apikey': SUPABASE_KEY,
-          'Authorization': `Bearer ${SUPABASE_KEY}`
-        }
-      }
+      `${SUPABASE_URL}/rest/v1/feedback?clinic_slug=eq.${slug}&is_read=eq.false&select=id`,
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
     );
-
     const data = await res.json();
     const badge = document.getElementById('feedback-badge');
-    if (badge && data.length > 0) {
-      badge.style.display = 'inline-block';
-      badge.textContent = data.length > 9 ? '9+' : data.length;
+    if (badge) {
+      if (data.length > 0) {
+        badge.style.display = 'inline-block';
+        badge.textContent = data.length > 9 ? '9+' : data.length;
+      } else {
+        badge.style.display = 'none';
+      }
     }
   } catch (err) {
     console.warn('Badge check failed:', err);
@@ -1004,6 +1038,8 @@ return {
   openAccountSettings,
   loadFeedback,
   checkFeedbackBadge,
+  markFeedbackRead,
+deleteFeedback
 };
 
 })();
