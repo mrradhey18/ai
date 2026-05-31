@@ -905,9 +905,42 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
 </div>
       <p class="section-desc">Core settings for the currently loaded client.</p>
       <div class="admin-card">
-        <div class="card-title">📋 Business Information</div>
-        <div id="profile-overview">Loading...</div>
-      </div>
+  <div class="card-title" style="justify-content:space-between;">
+    <span>📋 Business Information</span>
+    <button onclick="showSection('feedback'); Admin.loadFeedback();" style="
+      position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Sora', sans-serif;
+      transition: background 0.2s;
+    ">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6ee7a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      Feedback
+      <span id="feedback-badge" style="
+        display:none;
+        background:#ef4444;
+        color:#fff;
+        font-size:10px;
+        font-weight:800;
+        padding:2px 7px;
+        border-radius:20px;
+        margin-left:2px;
+      ">0</span>
+    </button>
+  </div>
+  <div id="profile-overview">Loading...</div>
+</div>
     </section>
 
     <!-- ══════════════════════════════════════
@@ -1331,6 +1364,15 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
   </div>
 </section>
 
+<section class="admin-section" id="section-feedback">
+  <h1 class="section-heading">Patient Feedback</h1>
+  <p class="section-desc">Private feedback from patients who rated 1-2 stars.</p>
+  <div class="admin-card">
+    <div class="card-title">💬 Feedback Messages</div>
+    <div id="feedback-list">Loading...</div>
+  </div>
+</section>
+
   </main><!-- /.main-content -->
 
   <!-- ── LOGIN OVERLAY ── -->
@@ -1390,6 +1432,9 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
       });
 
       // Populate preview service dropdown when preview opens
+      if (id === 'feedback') {
+  Admin.loadFeedback();
+}
       if (id === 'preview' && Admin?.state?.currentProfile) {
         const sel = document.getElementById('preview-service');
         if (sel && Admin.state.currentProfile.services) {
