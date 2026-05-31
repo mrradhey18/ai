@@ -171,6 +171,12 @@ function renderServiceScreen(services, onSelect) {
    * @param {Function} onRate       callback(stars: number)
    */
   function renderStarScreen(serviceName, onRate) {
+    // Re-trigger star drop animation
+document.querySelectorAll('.star-btn').forEach(star => {
+  star.style.animation = 'none';
+  void star.offsetWidth; // force reflow
+  star.style.animation = '';
+});
     // Update service label in subtitle
     const sub = $('star-service-label');
     if (sub) sub.textContent = serviceName;
@@ -185,10 +191,21 @@ function renderServiceScreen(services, onSelect) {
 
     // Re-query after clone
     const freshStars = document.querySelectorAll('.star-btn');
-    freshStars.forEach(star => {
-      star.addEventListener('mouseenter', () => _highlightStars(star.dataset.value));
-      star.addEventListener('mouseleave', () => _clearStarHighlight());
-      star.addEventListener('click', () => {
+   freshStars.forEach(star => {
+  star.addEventListener('mouseenter', () => {
+    _highlightStars(star.dataset.value);
+    if (typeof syncEmojis === 'function') syncEmojis(star.dataset.value);
+    const labelEl = document.getElementById('star-label-text');
+    if (labelEl) labelEl.textContent = (window.starLabels || {})[star.dataset.value] || '';
+  });
+  star.addEventListener('mouseleave', () => {
+    const selected = document.querySelector('.star-btn.selected');
+    _clearStarHighlight();
+    if (typeof syncEmojis === 'function') syncEmojis(selected ? selected.dataset.value : 0);
+    const labelEl = document.getElementById('star-label-text');
+    if (labelEl) labelEl.textContent = selected ? ((window.starLabels || {})[selected.dataset.value] || '') : '';
+  });
+  star.addEventListener('click', () => {
       const value = parseInt(star.dataset.value);
         _highlightStars(value, true);
   const toast = document.getElementById('sorry-toast');
@@ -485,12 +502,29 @@ function _showPrivateFeedback() {
     `;
     document.querySelector('.app-shell').appendChild(feedbackScreen);
 
-    document.getElementById('send-feedback-btn').addEventListener('click', () => {
-      const txt = document.getElementById('private-feedback-text').value.trim();
-      if (!txt) return;
-      document.getElementById('send-feedback-btn').style.display = 'none';
-      document.getElementById('feedback-sent-msg').style.display = 'block';
-    });
+    document.getElementById('send-feedback-btn').addEventListener('click', async () => {
+  const txt = document.getElementById('private-feedback-text').value.trim();
+  if (!txt) return;
+
+  document.getElementById('send-feedback-btn').disabled = true;
+  document.getElementById('send-feedback-btn').textContent = 'Sending...';
+
+  const slug = new URLSearchParams(window.location.search).get('clinic') || 'unknown';
+
+  await fetch('https://xpebzkecofenaygukhsh.supabase.co/rest/v1/feedback', {
+    method: 'POST',
+    headers: {
+      'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwZWJ6a2Vjb2ZlbmF5Z3VraHNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyOTE2MDMsImV4cCI6MjA5NDg2NzYwM30.r-GSpPhRrIUTosBRZ0gQF0TtYPl5Uu93A7QPogiQbEA',
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwZWJ6a2Vjb2ZlbmF5Z3VraHNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyOTE2MDMsImV4cCI6MjA5NDg2NzYwM30.r-GSpPhRrIUTosBRZ0gQF0TtYPl5Uu93A7QPogiQbEA',
+      'Content-Type': 'application/json',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ clinic_slug: slug, feedback: txt })
+  });
+
+  document.getElementById('send-feedback-btn').style.display = 'none';
+  document.getElementById('feedback-sent-msg').style.display = 'block';
+});
   }
 
   feedbackScreen.classList.remove('hidden');
