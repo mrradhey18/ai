@@ -4,7 +4,6 @@
     "created": "2026-05-09",
     "notes": "Dr. Jay Verma - Dr. Verma's Multispeciality Homeopathy Clinic, Aliganj, Lucknow. USP: Fast Homeopathy, Stones (kidney/gallbladder/ovarian), 16+ years experience. Push: best homeopathic doctor in Lucknow/India, fast results, pain relief from day 1."
   },
-
   "business": {
     "name": "Dr. Verma's Multispeciality Homeopathy Clinic",
     "slug": "dr-jay-verma-homeo",
@@ -19,100 +18,170 @@
     "experience": "16+ years",
     "qualifications": "BHMS, PG Hom (London), F.H.C.H.-UK, MD"
   },
-
-"services": [
+  "services": [
     {
       "id": "upper_ureteric_stone",
       "label": "Upper Ureteric Stone",
-      "keywords": ["upper ureteric stone homeopathy Lucknow", "stone treatment without surgery Lucknow", "kidney stone specialist Lucknow"]
+      "keywords": [
+        "upper ureteric stone homeopathy Lucknow",
+        "stone treatment without surgery Lucknow",
+        "kidney stone specialist Lucknow"
+      ]
     },
     {
       "id": "middle_ureteric_stone",
       "label": "Middle Ureteric Stone",
-      "keywords": ["middle ureteric stone homeopathy Lucknow", "ureteric stone treatment Lucknow", "stone pain relief homeopathy"]
+      "keywords": [
+        "middle ureteric stone homeopathy Lucknow",
+        "ureteric stone treatment Lucknow",
+        "stone pain relief homeopathy"
+      ]
     },
     {
       "id": "lower_ureteric_stone",
       "label": "Lower Ureteric Stone",
-      "keywords": ["lower ureteric stone treatment Lucknow", "homeopathy for ureteric stone", "fast stone treatment Lucknow"]
+      "keywords": [
+        "lower ureteric stone treatment Lucknow",
+        "homeopathy for ureteric stone",
+        "fast stone treatment Lucknow"
+      ]
     },
     {
       "id": "vuj_stone",
       "label": "VUJ Stone (Vesicoureteric Junction)",
-      "keywords": ["VUJ stone homeopathy Lucknow", "vesicoureteric junction stone treatment", "stone at bladder junction homeopathy"]
+      "keywords": [
+        "VUJ stone homeopathy Lucknow",
+        "vesicoureteric junction stone treatment",
+        "stone at bladder junction homeopathy"
+      ]
     },
     {
       "id": "urinary_bladder_stone",
       "label": "Urinary Bladder Stone",
-      "keywords": ["urinary bladder stone homeopathy Lucknow", "bladder stone treatment without surgery", "best doctor bladder stone Lucknow"]
+      "keywords": [
+        "urinary bladder stone homeopathy Lucknow",
+        "bladder stone treatment without surgery",
+        "best doctor bladder stone Lucknow"
+      ]
     },
     {
       "id": "prostatic_stone",
       "label": "Prostatic Part Stone",
-      "keywords": ["prostatic stone homeopathy Lucknow", "prostate stone treatment Lucknow", "stone in prostatic urethra homeopathy"]
+      "keywords": [
+        "prostatic stone homeopathy Lucknow",
+        "prostate stone treatment Lucknow",
+        "stone in prostatic urethra homeopathy"
+      ]
     },
     {
       "id": "urethral_stone",
       "label": "Urethral Stone",
-      "keywords": ["urethral stone homeopathy Lucknow", "stone in urethra treatment", "urethral stone specialist Lucknow"]
+      "keywords": [
+        "urethral stone homeopathy Lucknow",
+        "stone in urethra treatment",
+        "urethral stone specialist Lucknow"
+      ]
     },
     {
       "id": "cbd_stone",
       "label": "CBD Stone (Gallbladder)",
-      "keywords": ["CBD stone homeopathy Lucknow", "common bile duct stone treatment", "gallbladder stone without surgery Lucknow"]
+      "keywords": [
+        "CBD stone homeopathy Lucknow",
+        "common bile duct stone treatment",
+        "gallbladder stone without surgery Lucknow"
+      ]
     },
     {
       "id": "akd_aki",
       "label": "AKD / AKI (Acute Kidney Disease)",
-      "keywords": ["acute kidney disease homeopathy Lucknow", "AKI treatment homeopathy", "kidney injury treatment Lucknow"]
+      "keywords": [
+        "acute kidney disease homeopathy Lucknow",
+        "AKI treatment homeopathy",
+        "kidney injury treatment Lucknow"
+      ]
     },
     {
       "id": "ckd",
       "label": "CKD (Chronic Kidney Disease)",
-      "keywords": ["chronic kidney disease homeopathy Lucknow", "CKD treatment without dialysis", "kidney disease specialist Lucknow"]
+      "keywords": [
+        "chronic kidney disease homeopathy Lucknow",
+        "CKD treatment without dialysis",
+        "kidney disease specialist Lucknow"
+      ]
     },
     {
       "id": "pkd",
       "label": "PKD (Polycystic Kidney Disease)",
-      "keywords": ["polycystic kidney disease homeopathy Lucknow", "PKD treatment Lucknow", "kidney cyst homeopathy Aliganj"]
+      "keywords": [
+        "polycystic kidney disease homeopathy Lucknow",
+        "PKD treatment Lucknow",
+        "kidney cyst homeopathy Aliganj"
+      ]
     },
     {
       "id": "ovarian_cyst",
       "label": "Ovarian Cyst",
-      "keywords": ["ovarian cyst treatment without surgery Lucknow", "homeopathy for ovarian cyst Lucknow", "best homeopathic doctor for ovarian cyst"]
+      "keywords": [
+        "ovarian cyst treatment without surgery Lucknow",
+        "homeopathy for ovarian cyst Lucknow",
+        "best homeopathic doctor for ovarian cyst"
+      ]
     },
     {
       "id": "pcos",
       "label": "PCOS / PCOD",
-      "keywords": ["PCOS treatment homeopathy Lucknow", "PCOD homeopathic doctor Lucknow", "best doctor for PCOS in Lucknow"]
+      "keywords": [
+        "PCOS treatment homeopathy Lucknow",
+        "PCOD homeopathic doctor Lucknow",
+        "best doctor for PCOS in Lucknow"
+      ]
     },
     {
       "id": "thyroid",
       "label": "Thyroid Disorder",
-      "keywords": ["thyroid treatment homeopathy Lucknow", "homeopathy for hypothyroid Lucknow", "thyroid cure without lifelong medicine Lucknow"]
+      "keywords": [
+        "thyroid treatment homeopathy Lucknow",
+        "homeopathy for hypothyroid Lucknow",
+        "thyroid cure without lifelong medicine Lucknow"
+      ]
     },
     {
       "id": "skin",
       "label": "Skin Diseases",
-      "keywords": ["skin disease homeopathy Lucknow", "psoriasis homeopathic treatment Lucknow", "homeopathy for skin Aliganj Lucknow"]
+      "keywords": [
+        "skin disease homeopathy Lucknow",
+        "psoriasis homeopathic treatment Lucknow",
+        "homeopathy for skin Aliganj Lucknow"
+      ]
     },
     {
       "id": "uterine",
       "label": "Uterine Fibroid",
-      "keywords": ["uterine fibroid treatment without surgery Lucknow", "homeopathy for uterine fibroid Lucknow", "fibroid cure homeopathy Aliganj"]
+      "keywords": [
+        "uterine fibroid treatment without surgery Lucknow",
+        "homeopathy for uterine fibroid Lucknow",
+        "fibroid cure homeopathy Aliganj"
+      ]
     },
     {
       "id": "gastro",
       "label": "Gastro / Digestive Issues",
-      "keywords": ["gastro treatment homeopathy Lucknow", "acidity piles fissure homeopathy Lucknow", "digestive problem homeopathic doctor Lucknow"]
+      "keywords": [
+        "gastro treatment homeopathy Lucknow",
+        "acidity piles fissure homeopathy Lucknow",
+        "digestive problem homeopathic doctor Lucknow"
+      ]
     },
     {
       "id": "cancer",
       "label": "Cancer Palliative Care",
-      "keywords": ["cancer palliative homeopathy Lucknow", "homeopathy for cancer management Lucknow", "advanced cancer pain relief homeopathy"]
+      "keywords": [
+        "cancer palliative homeopathy Lucknow",
+        "homeopathy for cancer management Lucknow",
+        "advanced cancer pain relief homeopathy"
+      ]
     }
   ],
-
   "seo": {
     "localKeywords": [
       "best homeopathic doctor in Lucknow",
@@ -136,17 +205,15 @@
     ],
     "maxKeywordsPerReview": 2
   },
-
   "language": {
     "probabilities": {
-      "english": 20,
-      "hinglish": 45,
-      "hindi": 25,
-      "mixed": 10
+      "english": 54,
+      "hinglish": 30,
+      "hindi": 11,
+      "mixed": 5
     },
     "_note": "Hinglish highest — Lucknow patients write this naturally. Hindi second for traditional patient base."
   },
-
   "tone": {
     "formality": "casual",
     "warmth": "high",
@@ -154,12 +221,10 @@
     "emotionalIntensity": "high",
     "_note": "High emotional intensity — patients suffered a lot before finding Dr Verma. Reviews should reflect that relief."
   },
-
   "emoji": {
     "enabled": true,
     "probability": 65
   },
-
   "reviewStyle": {
     "minSentences": 3,
     "maxSentences": 6,
@@ -168,12 +233,11 @@
     "allowShortReviews": false,
     "_note": "Short reviews OFF — Dr Verma's patients have a story to tell. Min 3 sentences forces the pain journey narrative."
   },
-
   "rating": {
-    "5": {
-      "tone": "emotional",
-      "emojiBoost": true,
-      "sentenceLengthBias": "longer",
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
       "allowNegative": false
     },
     "4": {
@@ -182,14 +246,13 @@
       "sentenceLengthBias": "medium",
       "allowNegative": false
     },
-    "3": {
-      "tone": "neutral",
-      "emojiBoost": false,
-      "sentenceLengthBias": "shorter",
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
       "allowNegative": false
     }
   },
-
   "reviewNarrative": {
     "_note": "These guide the phrase bank tone. Not used by engine directly — for reference when writing/editing phrases.",
     "corePainPoints": [
