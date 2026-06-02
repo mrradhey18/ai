@@ -35,7 +35,8 @@ const Admin = (() => {
       { slug: 'saluja-dento-max', name: 'Saluja Dento Max Fac Centre' },
       { slug: 'dr-sharma-homeo', name: 'Dr. Sharma Homeopathic Clinic' },
       { slug: 'green-wellness-clinic', name: 'Green Wellness Clinic' },
-      { slug: 'dr-verma-homeo', name: 'Dr. Verma Multispeciality Homeopathy' }
+      { slug: 'dr-verma-homeo', name: 'Dr. Verma Multispeciality Homeopathy' },
+      { slug: '32-pearls-dental-world', name: '32 Pearls Dental World Clinic and Facial Aesthetic Center' },
       // Add new clients here when you create their profile.json
     ],
   };
