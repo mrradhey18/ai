@@ -4,7 +4,6 @@
     "created": "2026-05-28",
     "notes": "32 Pearls Dental World - Sharda Nagar, Kanpur. Dental clinic + facial aesthetics. Push: painless treatment, best dentist Kanpur, modern equipment, facial treatments."
   },
-
   "business": {
     "name": "32 Pearls Dental World",
     "slug": "32-pearls-dental-world",
@@ -18,7 +17,6 @@
     "experience": "",
     "qualifications": ""
   },
-
   "services": [
     {
       "id": "root_canal",
@@ -121,7 +119,6 @@
       ]
     }
   ],
-
   "seo": {
     "localKeywords": [
       "best dentist in Kanpur",
@@ -145,17 +142,15 @@
     ],
     "maxKeywordsPerReview": 2
   },
-
   "language": {
     "probabilities": {
-      "english": 30,
-      "hinglish": 45,
-      "hindi": 20,
-      "mixed": 5
+      "english": 60,
+      "hinglish": 25,
+      "hindi": 5,
+      "mixed": 10
     },
     "_note": "Kanpur patients — Hinglish dominant, slightly more English than Lucknow."
   },
-
   "tone": {
     "formality": "casual",
     "warmth": "high",
@@ -163,12 +158,10 @@
     "emotionalIntensity": "medium",
     "_note": "Medium emotional intensity — dental patients focus on painless experience and cleanliness."
   },
-
   "emoji": {
     "enabled": true,
     "probability": 60
   },
-
   "reviewStyle": {
     "minSentences": 2,
     "maxSentences": 5,
@@ -177,12 +170,11 @@
     "allowShortReviews": true,
     "_note": "Short reviews ON — dental patients write shorter reviews than medical patients."
   },
-
   "rating": {
-    "5": {
-      "tone": "emotional",
-      "emojiBoost": true,
-      "sentenceLengthBias": "longer",
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
       "allowNegative": false
     },
     "4": {
@@ -191,14 +183,13 @@
       "sentenceLengthBias": "medium",
       "allowNegative": false
     },
-    "3": {
-      "tone": "neutral",
-      "emojiBoost": false,
-      "sentenceLengthBias": "shorter",
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
       "allowNegative": false
     }
   },
-
   "reviewNarrative": {
     "_note": "Reference for phrase writing only.",
     "corePainPoints": [
