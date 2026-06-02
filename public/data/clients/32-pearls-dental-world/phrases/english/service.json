@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "purpose": "Service-specific sentences in English for 32 pearls dental world. {{service}} replaced by engine with actual treatment name.",
+    "rules": [
+      "{{service}} is the only placeholder",
+      "Focus on painless experience, outcome, how smooth it was",
+      "Dental anxiety before + relief after is the core",
+      "Mix 'I came for' and 'my treatment was' styles",
+      "Keep it conversational not clinical"
+    ]
+  },
+  "5star": [
+    "Came here for {{service}} and honestly it was completely painless.",
+    "My {{service}} was done so smoothly I barely felt anything.",
+    "Had been avoiding {{service}} for months out of fear — completely unnecessary.",
+    "The {{service}} here is done with modern technique and it shows.",
+    "After a bad {{service}} experience elsewhere, this was a completely different story.",
+    "Got {{service}} done here and the recovery was much faster than expected.",
+    "The doctor explained every step of {{service}} before starting — that really helped.",
+    "Was dreading {{service}} but the team made it so easy.",
+    "Specifically came for {{service}} and I'm very happy with how it went.",
+    "{{service}} was handled professionally and without any unnecessary pain.",
+    "Had {{service}} done here — results are exactly what I was hoping for.",
+    "The approach to {{service}} here is different — more careful, more thorough."
+  ],
+  "4star": [
+    "Came for {{service}} and the treatment went well.",
+    "My {{service}} is progressing nicely.",
+    "The {{service}} procedure was explained properly beforehand.",
+    "Getting {{service}} done here — results are gradual but visible.",
+    "{{service}} consultation was informative and helpful."
+  ],
+  "3star": [
+    "Visited for {{service}}.",
+    "Got a {{service}} consultation here.",
+    "Started treatment for {{service}}.",
+    "{{service}} treatment is ongoing."
+  ]
+}

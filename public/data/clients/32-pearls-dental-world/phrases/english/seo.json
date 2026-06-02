@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "purpose": "Local SEO sentences in English for 32 pearls dental world. Engine picks MAX 1 per review. Full natural sentences that carry searchable terms — not keyword stuffing.",
+    "rules": [
+      "Must read like something a real patient would actually write",
+      "{{city}} = Kanpur, {{area}} = Ashok Nagar — replaced by engine",
+      "Nearby areas can appear naturally: Kakadeo, Swaroop Nagar, Kamla Nagar, Arya Nagar, Harsh Nagar",
+      "Never two location mentions in one sentence",
+      "Conversational tone always"
+    ]
+  },
+  "location": [
+    "If you're in {{city}} and looking for a good dentist, this is genuinely the place.",
+    "Best dental option I've found in {{city}} so far.",
+    "People in {{area}} are lucky to have a clinic like this so close.",
+    "Haven't found a better dental clinic in {{city}} honestly.",
+    "Worth visiting even if you're not from {{area}} — that's how good it is.",
+    "This clinic has a solid reputation in {{city}} and it's well deserved.",
+    "If you're searching for a dentist in {{city}}, you can stop now.",
+    "My whole family in {{city}} comes here now.",
+    "Coming from Kakadeo — the distance is worth it every single time.",
+    "Swaroop Nagar to {{area}} is not far and absolutely worth the trip.",
+    "One of the better clinics in {{city}} — and I've tried a few.",
+    "Kamla Nagar friends — this clinic is closer than you think and much better.",
+    "Hands down the best dental clinic in {{city}} that I've come across.",
+    "Near Coca-Cola Chauraha in {{area}} — easy to find, easier to recommend.",
+    "People come from across {{city}} for this clinic — now I know why."
+  ],
+  "credibility": [
+    "The experience level here is obvious from the first interaction.",
+    "Years of practice show in how smoothly everything is handled.",
+    "The clinic has a strong reputation and it's clearly earned.",
+    "You can see why so many patients keep returning here.",
+    "The consistency in quality shows real expertise.",
+    "Multiple specialists, modern equipment — this is a properly run clinic.",
+    "Trusted by a lot of families in the area for good reason."
+  ]
+}

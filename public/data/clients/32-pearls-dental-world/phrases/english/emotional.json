@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "purpose": "Emotional sentences in English for 32 pearls dental world. Adds warmth and human feel. Used selectively. Dental anxiety → relief is the core emotion.",
+    "rules": [
+      "Dental-specific emotions: fear before, relief after, smile confidence",
+      "Family angle works — brought kids, came with parent, referred relatives",
+      "Short punchy sentences work better than long emotional speeches",
+      "Must feel genuine, not dramatic",
+      "3-star gets almost none"
+    ]
+  },
+  "5star": [
+    "Haven't been able to eat properly in weeks — after this visit, sorted.",
+    "My kid actually said she wasn't scared — that alone is a win.",
+    "The confidence in my smile has genuinely changed since coming here.",
+    "Avoided dentists for years because of anxiety. This place changed that.",
+    "Slept properly for the first time in days after the treatment.",
+    "My mother was very nervous about her procedure — she left smiling.",
+    "Something as simple as eating without pain — you don't realise how much you miss it.",
+    "The relief after weeks of toothache is honestly indescribable.",
+    "So glad I didn't keep postponing this.",
+    "Small procedure, massive difference in quality of life.",
+    "Used to hide my smile in photos. Not anymore.",
+    "The fear I had built up in my head was completely unnecessary.",
+    "My whole family noticed the difference in me after just one visit.",
+    "Wish I had come here years ago instead of avoiding the dentist.",
+    "That one appointment fixed something I had been living with for months."
+  ],
+  "4star": [
+    "Feeling better than when I started, which is what matters.",
+    "Glad I decided to come here.",
+    "The improvement is real even if gradual.",
+    "Feeling more at ease about dental visits now.",
+    "Overall feeling positive about the treatment."
+  ],
+  "3star": [
+    "Hoping for good results going forward.",
+    "Let's see how the treatment progresses."
+  ]
+}

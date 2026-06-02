@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "purpose": "Emoji pools for English reviews of 32 pearls dental world. Same structure as hinglish/emojis.json. English reviewers use slightly fewer emojis — profile probability handles that.",
+    "rules": [
+      "Dental-appropriate emojis",
+      "Never more than 3 in one review",
+      "5-star expressive, 3-star minimal"
+    ]
+  },
+  "5star": [
+    "😁", "😊", "🙏", "💯", "👍", "⭐", "✨", "😄", "🌟",
+    "👏", "💪", "🙌", "❤️", "✅", "🔥", "😍", "🤩", "😀"
+  ],
+  "4star": [
+    "😊", "👍", "🙏", "✅", "⭐", "👌", "😌", "💙", "😃"
+  ],
+  "3star": [
+    "🙏", "👍", "😐", "✅", "⭐"
+  ],
+  "health_specific": [
+    "🦷", "😁", "🩺", "❤️‍🩹", "✅"
+  ],
+  "combinations": {
+    "5star": [
+      ["🙏", "✨"],
+      ["💯", "😊"],
+      ["😁", "👍"],
+      ["🌟", "❤️"],
+      ["✅", "😄"],
+      ["🦷", "😁"],
+      ["👏", "🙌"],
+      ["😍", "💯"]
+    ],
+    "4star": [
+      ["👍", "😊"],
+      ["🙏", "✅"],
+      ["😌", "👌"],
+      ["⭐", "😃"]
+    ],
+    "3star": [
+      ["🙏"],
+      ["👍"],
+      ["✅"]
+    ]
+  }
+}
