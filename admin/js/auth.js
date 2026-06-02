@@ -28,8 +28,6 @@ const Auth = (() => {
     // ── SUPER ADMIN ──────────────────────────────
     // Can see all clinics. Can switch between them.
     'nexaflow': {
-      password:  'nexaflow@2026',
-      role:      'superadmin',
       name:      'NexaFlow Admin',
       slug:      null,
     },
@@ -56,6 +54,11 @@ const Auth = (() => {
     'greenwellness': {
       name:      'Green Wellness Clinic',
       slug:      'green-wellness-clinic',
+    },
+
+    '32-pearls': {
+      name:      '32 Pearls Dental World Clinic and Facial Aesthetic Center',
+      slug:      '32-pearls-dental-world',
     },
 
     // ── ADD MORE CLINICS BELOW ───────────────────
