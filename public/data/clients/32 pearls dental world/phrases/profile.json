@@ -1,0 +1,222 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-05-28",
+    "notes": "32 Pearls Dental World - Sharda Nagar, Kanpur. Dental clinic + facial aesthetics. Push: painless treatment, best dentist Kanpur, modern equipment, facial treatments."
+  },
+
+  "business": {
+    "name": "32 Pearls Dental World",
+    "slug": "32-pearls-dental-world",
+    "tagline": "Your Smile, Our Priority",
+    "logoUrl": "../public/data/clients/32-pearls-dental-world/logo.png",
+    "city": "Kanpur",
+    "area": "Sharda Nagar",
+    "state": "Uttar Pradesh",
+    "googleReviewUrl": "https://g.page/r/Cf24qIGTxyVZEBM/review",
+    "phone": "+918604437743",
+    "doctor": "Dr Sushant",
+    "experience": "12+ years",
+    "qualifications": "BDS"
+  },
+
+  "services": [
+    {
+      "id": "root_canal",
+      "label": "Root Canal Treatment",
+      "keywords": [
+        "root canal treatment Kanpur",
+        "painless root canal Kanpur",
+        "best dentist for root canal Sharda Nagar Kanpur",
+        "RCT treatment Kanpur"
+      ]
+    },
+    {
+      "id": "teeth_whitening",
+      "label": "Teeth Whitening",
+      "keywords": [
+        "teeth whitening Kanpur",
+        "laser teeth whitening Kanpur",
+        "smile makeover Kanpur",
+        "teeth cleaning Sharda Nagar Kanpur"
+      ]
+    },
+    {
+      "id": "dental_implants",
+      "label": "Dental Implants",
+      "keywords": [
+        "dental implants Kanpur",
+        "tooth implant Kanpur",
+        "best dental implant clinic Kanpur",
+        "permanent tooth replacement Kanpur"
+      ]
+    },
+    {
+      "id": "braces",
+      "label": "Braces / Orthodontics",
+      "keywords": [
+        "dental braces Kanpur",
+        "orthodontic treatment Kanpur",
+        "teeth alignment Kanpur",
+        "invisible braces Kanpur"
+      ]
+    },
+    {
+      "id": "extraction",
+      "label": "Tooth Extraction",
+      "keywords": [
+        "painless tooth extraction Kanpur",
+        "wisdom tooth removal Kanpur",
+        "dental extraction Sharda Nagar",
+        "tooth removal Kanpur"
+      ]
+    },
+    {
+      "id": "crown_bridge",
+      "label": "Crown & Bridge",
+      "keywords": [
+        "dental crown Kanpur",
+        "tooth cap Kanpur",
+        "dental bridge Kanpur",
+        "best crown bridge dentist Kanpur"
+      ]
+    },
+    {
+      "id": "kids_dentistry",
+      "label": "Kids Dentistry",
+      "keywords": [
+        "kids dentist Kanpur",
+        "children dental treatment Kanpur",
+        "pediatric dentistry Kanpur",
+        "child tooth care Sharda Nagar"
+      ]
+    },
+    {
+      "id": "facial_aesthetics",
+      "label": "Facial Aesthetic Treatment",
+      "keywords": [
+        "facial aesthetic treatment Kanpur",
+        "botox fillers Kanpur",
+        "face aesthetic clinic Kanpur",
+        "anti aging treatment Kanpur"
+      ]
+    },
+    {
+      "id": "scaling_cleaning",
+      "label": "Scaling & Cleaning",
+      "keywords": [
+        "teeth scaling Kanpur",
+        "dental cleaning Kanpur",
+        "tartar removal Kanpur",
+        "gum treatment Kanpur"
+      ]
+    },
+    {
+      "id": "smile_design",
+      "label": "Smile Design / Makeover",
+      "keywords": [
+        "smile design Kanpur",
+        "smile makeover Kanpur",
+        "cosmetic dentistry Kanpur",
+        "best smile clinic Kanpur"
+      ]
+    }
+  ],
+
+  "seo": {
+    "localKeywords": [
+      "best dentist in Kanpur",
+      "best dental clinic in Kanpur",
+      "32 Pearls Dental Kanpur",
+      "dental clinic Sharda Nagar Kanpur",
+      "painless dental treatment Kanpur",
+      "cosmetic dentist Kanpur",
+      "dental world Kanpur",
+      "facial aesthetic center Kanpur"
+    ],
+    "trustKeywords": [
+      "painless treatment",
+      "modern equipment",
+      "experienced dentist",
+      "hygienic clinic",
+      "affordable dental care",
+      "same day treatment",
+      "friendly staff",
+      "no waiting time"
+    ],
+    "maxKeywordsPerReview": 2
+  },
+
+  "language": {
+    "probabilities": {
+      "english": 60,
+      "hinglish": 25,
+      "hindi": 10,
+      "mixed": 5
+    },
+    "_note": "Kanpur patients — Hinglish dominant, slightly more English than Lucknow."
+  },
+
+  "tone": {
+    "formality": "casual",
+    "warmth": "high",
+    "doctorReferenceStyle": "respectful",
+    "emotionalIntensity": "medium",
+    "_note": "Medium emotional intensity — dental patients focus on painless experience and cleanliness."
+  },
+
+  "emoji": {
+    "enabled": true,
+    "probability": 60
+  },
+
+  "reviewStyle": {
+    "minSentences": 2,
+    "maxSentences": 5,
+    "allowImperfectGrammar": true,
+    "allowLowercase": true,
+    "allowShortReviews": true,
+    "_note": "Short reviews ON — dental patients write shorter reviews than medical patients."
+  },
+
+  "rating": {
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
+      "allowNegative": false
+    },
+    "4": {
+      "tone": "positive",
+      "emojiBoost": false,
+      "sentenceLengthBias": "medium",
+      "allowNegative": false
+    },
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
+      "allowNegative": false
+    }
+  },
+
+  "reviewNarrative": {
+    "_note": "Reference for phrase writing only.",
+    "corePainPoints": [
+      "Scared of dentists before visiting",
+      "Was in severe tooth pain",
+      "Had bad experience at other clinics",
+      "Worried about cost",
+      "Afraid of injections/pain"
+    ],
+    "coreUSPs": [
+      "Completely painless treatment",
+      "Clean and hygienic environment",
+      "Doctor explains everything clearly",
+      "Modern equipment",
+      "Affordable pricing",
+      "Quick and efficient treatment",
+      "Friendly and calm staff"
+    ]
+  }
+}
