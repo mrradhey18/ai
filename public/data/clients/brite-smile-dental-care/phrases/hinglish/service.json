@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "purpose": "Service-specific sentences in Hinglish for Brite Smile Dental Care. {{service}} placeholder replaced by engine with actual treatment name.",
+    "rules": [
+      "{{service}} is the only placeholder",
+      "Mention outcomes, pain levels, improvement naturally",
+      "Dental anxiety before + relief after is the core emotion",
+      "Mix 'meri problem thi' style with 'treatment hua' style",
+      "Keep it like telling a friend, not a clinical report"
+    ]
+  },
+  "5star": [
+    "{{service}} ke liye aaya tha aur honestly bilkul dard nahi hua.",
+    "Meri {{service}} ki problem kaafi purani thi, yahan se finally kuch fark pada.",
+    "{{service}} yahan bahut carefully kiya jaata hai — pata hi nahi chala kab ho gaya.",
+    "Pehle {{service}} ke naam se hi ghabra jaata tha, yahan itna smooth hua.",
+    "{{service}} ke liye Lucknow mein itna accha option nahi tha, yahan mil gaya.",
+    "Sirf ek hi session mein {{service}} complete ho gaya, unexpected tha.",
+    "{{service}} ka treatment plan yahan jo bataya gaya wo actually logical tha.",
+    "{{service}} ki wajah se bahut pareshan tha, ab kaafi better feel ho raha hai.",
+    "Specifically {{service}} ke liye aaya tha aur bahut khush hoon result se.",
+    "{{service}} yahan modern technique se kiya — bilkul alag experience tha.",
+    "{{service}} ke baare mein itna dara hua tha — unnecessary nikla woh darr.",
+    "{{service}} ke liye teen jagah gaya pehle — yahan aake finally sahi jagah mili.",
+    "{{service}} ka price bhi pehle hi clearly bata diya gaya tha, koi hidden charge nahi."
+  ],
+  "4star": [
+    "{{service}} ke liye aaya tha, treatment theek chal raha hai.",
+    "Meri {{service}} ki problem dheere dheere improve ho rahi hai.",
+    "{{service}} treatment explain kiya gaya properly.",
+    "{{service}} ke results aa rahe hain, satisfied hoon abhi tak.",
+    "{{service}} consultation acchi rahi aur informative bhi."
+  ],
+  "3star": [
+    "{{service}} ke liye visit kiya tha.",
+    "{{service}} ki consultation li yahan se.",
+    "{{service}} ka treatment shuru kiya hai.",
+    "{{service}} treatment chal raha hai abhi."
+  ]
+}

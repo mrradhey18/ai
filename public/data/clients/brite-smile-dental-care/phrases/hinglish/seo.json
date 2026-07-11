@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "purpose": "Local SEO sentences for Brite Smile Dental Care in Hinglish. Engine picks MAX 1 per review. Full natural sentences that carry searchable terms — NOT keyword stuffing.",
+    "rules": [
+      "Must read like something a real patient would write",
+      "{{city}} = Lucknow, {{area}} = Aryanagar — replaced by engine",
+      "Nearby areas can be mentioned naturally: Aishbagh, Naka Hindola, Alambagh, Hazratganj, Chowk, Rajajipuram, Charbagh",
+      "Never two location mentions in one sentence",
+      "Conversational — 'Lucknow mein best hai' not 'best dental clinic in Lucknow city'"
+    ]
+  },
+  "location": [
+    "{{city}} mein itna accha dental clinic dhundh raha tha — yahan mil gaya.",
+    "{{area}} mein rehte ho toh yeh jagah bilkul paas hai aur best bhi.",
+    "Honestly {{city}} mein yahan se better dental care nahi mili mujhe.",
+    "Aishbagh se aata hoon — thodi door hai par worth it hai bilkul.",
+    "Alambagh walon ko bata dunga — yeh clinic unke liye bhi accessible hai.",
+    "{{city}} mein itni modern dental clinic expect nahi ki thi honestly.",
+    "Naka Hindola ke bilkul paas hai — convenient location hai.",
+    "Hazratganj se aaya tha, distance sahi tha aur experience aur bhi better.",
+    "Puri {{city}} mein is level ka dental care dhundha — yahan mila.",
+    "Rajajipuram waale bhi yahan aate hain — suna tha, ab khud bhi aa gaya.",
+    "{{area}} mein is clinic ki reputation hai — woh deserve karta hai.",
+    "{{city}} ke logon ke liye ek genuine recommendation — Brite Smile Dental Care.",
+    "Jo bhi {{city}} mein dentist dhundh raha hai seriously, yahan ek baar zaroor aao.",
+    "Charbagh railway station ke bilkul paas hai — {{area}} mein easy to find.",
+    "{{city}} mein itne sare dentists hain par yahan wali quality alag hai.",
+    "Chowk se aane wale bhi yahan treat ho rahe hain, distance koi issue nahi."
+  ],
+  "credibility": [
+    "Doctor yahan clearly bahut experienced hain — ek visit mein samajh aa jaata hai.",
+    "Kaafi saalon se yeh clinic chal rahi hai — reputation bani hui hai acchi.",
+    "Ek hi doctor sab kuch khud dekhte hain — yeh cheez baaki clinics mein nahi milti.",
+    "Itne sare patients aate hain yahan — reason pata chala visit karke.",
+    "Latest equipment hai aur technique bhi modern — difference feel hoti hai.",
+    "Yahan ka reputation word-of-mouth pe chalta hai — aur sahi chalta hai.",
+    "Bahut saare logo ne suggest kiya tha — woh sab sahi the."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "purpose": "Emoji pools for Brite Smile Dental Care reviews. Dental-appropriate emojis. Placement controlled by humanizer.js. Probability controlled by profile.json (60%).",
+    "rules": [
+      "Dental context — tooth, smile emojis appropriate here",
+      "Never more than 3 emojis in one review",
+      "5-star gets expressive emojis, 3-star gets calm ones",
+      "health_specific has dental-relevant emojis"
+    ]
+  },
+
+  "5star": [
+    "😁", "😊", "🙏", "💯", "👍", "⭐", "✨", "😄", "🌟",
+    "👏", "💪", "🙌", "❤️", "✅", "🔥", "😍", "🤩", "😀"
+  ],
+
+  "4star": [
+    "😊", "👍", "🙏", "✅", "⭐", "👌", "😌", "💙", "😃"
+  ],
+
+  "3star": [
+    "🙏", "👍", "😐", "✅", "⭐"
+  ],
+
+  "health_specific": [
+    "🦷", "😁", "🩺", "❤️‍🩹", "✅", "💊", "🏥"
+  ],
+
+  "combinations": {
+    "_note": "Pre-set combinations feel more natural than random picks. Dental-appropriate.",
+    "5star": [
+      ["🙏", "✨"],
+      ["💯", "😊"],
+      ["😁", "👍"],
+      ["🌟", "❤️"],
+      ["✅", "😄"],
+      ["🦷", "😁"],
+      ["👏", "🙌"],
+      ["😍", "💯"],
+      ["✨", "🙏", "💯"],
+      ["😊", "👍", "🙏"]
+    ],
+    "4star": [
+      ["👍", "😊"],
+      ["🙏", "✅"],
+      ["😌", "👌"],
+      ["⭐", "😃"]
+    ],
+    "3star": [
+      ["🙏"],
+      ["👍"],
+      ["✅"]
+    ]
+  }
+}
