@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "purpose": "Trust-building sentences in English for Brite Smile Dental Care. Used mid-review. Makes the reader believe the experience was real.",
+    "rules": [
+      "Reference Dr. Priyank Prakash or 'the doctor' naturally — not every sentence needs a name",
+      "Mention: listening, patience, painless technique, clear explanation, equipment, personal attention",
+      "Single-doctor personal attention is a USP — mention occasionally, never say 'multiple dentists'",
+      "No exaggeration — must sound like a real patient",
+      "Vary between doctor praise, staff praise, clinic environment"
+    ]
+  },
+  "5star": [
+    "Dr. Priyank actually listened instead of rushing through the consultation.",
+    "Everything was explained clearly before they started — what, why, and how long.",
+    "The staff is genuinely gentle — made a big difference for someone with dental anxiety.",
+    "Dr. Priyank took his time with my case and didn't make me feel like just another patient.",
+    "Since it's a single-doctor clinic, you're not passed around — he handles your case start to finish.",
+    "The clinic is very well equipped — you can see they've invested in proper technology.",
+    "Pain management was excellent — they meant it when they said painless.",
+    "My child was handled so patiently — no rushing, no scaring, just calm and careful.",
+    "Even my follow-up questions were answered properly without being dismissed.",
+    "The cleanliness of the clinic itself was reassuring before the treatment even started.",
+    "Unlike other places, he explained what had gone wrong previously at another clinic.",
+    "Reception staff was helpful and the wait time was minimal.",
+    "Dr. Priyank remembered details from my previous visit without me having to repeat everything.",
+    "He didn't push unnecessary treatments — only what was actually needed.",
+    "The whole setup runs efficiently — you can tell this is a properly run clinic.",
+    "Anaesthesia was administered so carefully I didn't feel the needle at all.",
+    "Dr. Priyank was confident and clear — no vague answers, no unnecessary fear.",
+    "Felt like a person being treated, not a number being processed.",
+    "The equipment here is noticeably more modern than other clinics I've visited.",
+    "Staff kept checking if I was okay throughout the procedure — that kind of care matters.",
+    "Pricing was discussed upfront, no surprises at the end."
+  ],
+  "4star": [
+    "Dr. Priyank was knowledgeable and the consultation was good.",
+    "Staff is cooperative and the clinic is clean.",
+    "The treatment plan was explained properly.",
+    "Good listening from the doctor's side.",
+    "Clinic environment is comfortable and hygienic.",
+    "Reasonable explanation given for the procedure.",
+    "Staff was polite throughout my visit.",
+    "Dr. Priyank gave proper time during the consultation.",
+    "The treatment approach seems systematic and careful.",
+    "Comprehensive treatment options available under one doctor."
+  ],
+  "3star": [
+    "The doctor listened to my problem.",
+    "Treatment was given after consultation.",
+    "The clinic was reasonably clean.",
+    "Staff was decent.",
+    "Appointment happened on time."
+  ]
+}
