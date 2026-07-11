@@ -1046,5 +1046,31 @@ deleteFeedback
 
 })();
 
+Admin.downloadQR = async function () {
+  const img = document.getElementById('qr-preview-img');
+  if (!img || !img.src || img.classList.contains('hidden')) {
+    alert('Generate a QR code first.');
+    return;
+  }
+
+  try {
+    const response = await fetch(img.src, { mode: 'cors' });
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = 'clinic-qr-code.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(blobUrl);
+  } catch (err) {
+    console.error('QR download failed, falling back:', err);
+    // Fallback: open image in new tab so user can save manually
+    window.open(img.src, '_blank');
+  }
+};
+
 // Boot
 document.addEventListener('DOMContentLoaded', () => Admin.init());
