@@ -60,6 +60,10 @@ const Auth = (() => {
       name:      '32 Pearls Dental World Clinic and Facial Aesthetic Center',
       slug:      '32-pearls-dental-world',
     },
+    'britesmile': {
+      name:      'Brite Smile Dental Care',
+      slug:      'brite-smile-dental-care',
+    },
 
     // ── ADD MORE CLINICS BELOW ───────────────────
     // Copy this block and fill in the details:
