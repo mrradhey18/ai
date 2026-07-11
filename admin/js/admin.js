@@ -37,6 +37,7 @@ const Admin = (() => {
       { slug: 'green-wellness-clinic', name: 'Green Wellness Clinic' },
       { slug: 'dr-verma-homeo', name: 'Dr. Verma Multispeciality Homeopathy' },
       { slug: '32-pearls-dental-world', name: '32 Pearls Dental World Clinic and Facial Aesthetic Center' },
+      { slug: 'brite-smile-dental-care', name: 'Brite Smile Dental Care' },
       // Add new clients here when you create their profile.json
     ],
   };
