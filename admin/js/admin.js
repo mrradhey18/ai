@@ -670,6 +670,9 @@ function _showReviewAtIndex(i) {
       qrImg.classList.remove('hidden');
     }
 
+    const downloadBtn = document.getElementById('download-qr-btn');
+    if (downloadBtn) downloadBtn.classList.remove('hidden');
+
     _setStatus(`✅ QR URL generated for ${slug}`);
   }
 
