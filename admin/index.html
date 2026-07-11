@@ -1127,13 +1127,19 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
             <input type="text" id="qr-url-output" class="hidden" readonly />
           </div>
         </div>
-        <div class="admin-card" style="text-align:center;">
-          <div class="card-title" style="justify-content:center;">📱 QR Preview</div>
-          <img id="qr-preview-img" class="hidden" width="200" height="200" alt="QR Code" style="margin:0 auto;" />
-          <p style="font-size:12px; color:#7a9a87; margin-top:12px;">
-            Download and print this QR code to place in the clinic.
-          </p>
-        </div>
+       <div class="admin-card" style="text-align:center;">
+  <div class="card-title" style="justify-content:center;">📱 QR Preview</div>
+  <img id="qr-preview-img" class="hidden" width="200" height="200" alt="QR Code" style="margin:0 auto;" />
+  <button
+    id="download-qr-btn"
+    class="admin-btn hidden"
+    style="margin-top:14px;"
+    onclick="Admin.downloadQR()"
+  >⬇ Download QR</button>
+  <p style="font-size:12px; color:#7a9a87; margin-top:12px;">
+    Download and print this QR code to place in the clinic.
+  </p>
+</div>
       </div>
 
       <div class="admin-card" style="background:#fff8ee; border-color:#f0d090;">
