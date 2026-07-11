@@ -1104,7 +1104,7 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
     <!-- ══════════════════════════════════════
          SECTION: QR Generator
     ══════════════════════════════════════ -->
-    <section class="admin-section" id="section-qr">
+   <section class="admin-section" id="section-qr">
       <h1 class="section-heading">QR Generator</h1>
       <p class="section-desc">Generate the patient QR code URL for the currently loaded client.</p>
 
@@ -1127,12 +1127,12 @@ code, .code-tag { font-family: 'JetBrains Mono', monospace; }
             <input type="text" id="qr-url-output" class="hidden" readonly />
           </div>
         </div>
-       <div class="admin-card" style="text-align:center;">
+     <div class="admin-card" style="text-align:center;">
   <div class="card-title" style="justify-content:center;">📱 QR Preview</div>
   <img id="qr-preview-img" class="hidden" width="200" height="200" alt="QR Code" style="margin:0 auto;" />
   <button
     id="download-qr-btn"
-    class="admin-btn hidden"
+    class="admin-btn"
     style="margin-top:14px;"
     onclick="Admin.downloadQR()"
   >⬇ Download QR</button>
