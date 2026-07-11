@@ -1,0 +1,203 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-07-11",
+    "notes": "Brite Smile Dental Care, 288/222 Aryanagar, Aishbagh Road, near Naka Hindola Chouraha, near Radical Palace, Charbagh, Lucknow 226004. Single lead dentist clinic under Dr. Priyank Prakash. Full general + cosmetic + implant dentistry (RCT, Implants, Fixed Teeth, Dentures, Invisalign). Target: top 3 in Lucknow GBP for dental searches. Nearby areas: Aishbagh, Naka Hindola, Alambagh, Hazratganj, Chowk, Rajajipuram. TODO: paste real Google review short-link into business.googleReviewUrl before going live."
+  },
+
+  "business": {
+    "name": "Brite Smile Dental Care",
+    "slug": "brite-smile-dental-care",
+    "logoUrl": "../public/data/clients/brite-smile-dental-care/logo.png",
+    "tagline": "Best Dental Care in Charbagh, Lucknow — RCT, Implants, Dentures & Invisalign",
+    "city": "Lucknow",
+    "area": "Aryanagar",
+    "locality": "Charbagh",
+    "landmark": "Naka Hindola Chouraha, near Radical Palace",
+    "state": "Uttar Pradesh",
+    "address": "288/222 Aryanagar, Aishbagh Road, Naka Hindola Chouraha, near Radical Palace, Charbagh, Lucknow, Uttar Pradesh 226004",
+    "googleReviewUrl": "",
+    "phone": "+91 94150 04719",
+    "doctor": "Dr. Priyank Prakash",
+    "teamSize": "single lead dentist",
+    "speciality": "General, Cosmetic & Implant Dentistry"
+  },
+
+  "services": [
+    {
+      "id": "root_canal",
+      "label": "Root Canal Treatment (RCT)",
+      "keywords": ["root canal Lucknow", "RCT Lucknow", "painless root canal Charbagh", "root canal specialist Lucknow", "RCT near Naka Hindola"]
+    },
+    {
+      "id": "dental_implants",
+      "label": "Dental Implants",
+      "keywords": ["dental implants Lucknow", "tooth implant Lucknow", "implant dentist Charbagh", "best implant clinic Lucknow", "implant dentist Aryanagar"]
+    },
+    {
+      "id": "fixed_teeth",
+      "label": "Fixed Teeth / Crowns & Bridges",
+      "keywords": ["fixed teeth Lucknow", "dental crown Lucknow", "tooth cap Lucknow", "dental bridge Charbagh", "permanent teeth solution Lucknow"]
+    },
+    {
+      "id": "dentures",
+      "label": "Dentures",
+      "keywords": ["dentures Lucknow", "full denture Lucknow", "teeth replacement Charbagh", "denture clinic near Aishbagh"]
+    },
+    {
+      "id": "invisalign",
+      "label": "Invisalign / Clear Aligners",
+      "keywords": ["Invisalign Lucknow", "clear aligners Lucknow", "invisible braces Charbagh", "teeth straightening Lucknow"]
+    },
+    {
+      "id": "braces",
+      "label": "Braces / Orthodontic Treatment",
+      "keywords": ["braces in Lucknow", "orthodontist Lucknow", "teeth alignment Charbagh", "metal braces Lucknow"]
+    },
+    {
+      "id": "teeth_whitening",
+      "label": "Teeth Whitening",
+      "keywords": ["teeth whitening Lucknow", "tooth bleaching Lucknow", "smile makeover Charbagh"]
+    },
+    {
+      "id": "scaling_cleaning",
+      "label": "Scaling & Cleaning",
+      "keywords": ["teeth cleaning Lucknow", "scaling Lucknow", "dental cleaning Aryanagar"]
+    },
+    {
+      "id": "tooth_extraction",
+      "label": "Tooth Extraction",
+      "keywords": ["tooth extraction Lucknow", "wisdom tooth removal Lucknow", "painless extraction Charbagh"]
+    },
+    {
+      "id": "smile_makeover",
+      "label": "Smile Makeover",
+      "keywords": ["smile makeover Lucknow", "cosmetic dentistry Lucknow", "smile design Charbagh"]
+    },
+    {
+      "id": "pediatric",
+      "label": "Children's Dentistry",
+      "keywords": ["kids dentist Lucknow", "child dental Lucknow", "pediatric dentist Aryanagar"]
+    },
+    {
+      "id": "gum_treatment",
+      "label": "Gum Treatment",
+      "keywords": ["gum treatment Lucknow", "pyorrhea treatment Lucknow", "periodontist Charbagh"]
+    },
+    {
+      "id": "veneer",
+      "label": "Veneers",
+      "keywords": ["dental veneers Lucknow", "porcelain veneers Lucknow", "tooth veneer Charbagh"]
+    },
+    {
+      "id": "general_checkup",
+      "label": "Dental Checkup",
+      "keywords": ["dental checkup Lucknow", "dentist consultation Lucknow", "best dental clinic near me Charbagh"]
+    }
+  ],
+
+  "seo": {
+    "localKeywords": [
+      "best dental clinic in Lucknow",
+      "best dentist in Lucknow",
+      "dental clinic Charbagh Lucknow",
+      "Dr Priyank Prakash Lucknow",
+      "Brite Smile Dental Care Lucknow",
+      "dental clinic near Naka Hindola",
+      "dentist Aryanagar Lucknow",
+      "RCT implant Invisalign clinic Lucknow",
+      "dental clinic near Charbagh railway station"
+    ],
+    "nearbyAreas": ["Aishbagh", "Naka Hindola", "Alambagh", "Hazratganj", "Chowk", "Rajajipuram", "Aryanagar", "Charbagh"],
+    "trustKeywords": [
+      "single doctor personal attention",
+      "all dental treatments under one roof",
+      "advanced equipment",
+      "painless treatment",
+      "experienced dentist",
+      "affordable dental care",
+      "modern dental clinic",
+      "hygienic and sterile setup"
+    ],
+    "maxKeywordsPerReview": 2
+  },
+
+  "language": {
+    "probabilities": {
+      "english": 20,
+      "hinglish": 45,
+      "hindi": 25,
+      "mixed": 10
+    },
+    "_note": "Lucknow patient base — Hinglish dominant, similar to other UP-tier-2 cities. Hindi second for older patients, especially near Charbagh/old-city areas."
+  },
+
+  "tone": {
+    "formality": "casual",
+    "warmth": "high",
+    "doctorReferenceStyle": "respectful",
+    "emotionalIntensity": "medium-high",
+    "_note": "Dental patients feel anxiety/fear before treatment and relief after. Reviews should reflect that transformation — dread going in, happy coming out. Single-doctor clinic — personal touch from Dr. Priyank Prakash himself is a strong theme, not 'multiple specialists'."
+  },
+
+  "emoji": {
+    "enabled": true,
+    "probability": 60
+  },
+
+  "reviewStyle": {
+    "minSentences": 2,
+    "maxSentences": 5,
+    "allowImperfectGrammar": true,
+    "allowLowercase": true,
+    "allowShortReviews": true,
+    "_note": "Dental reviews are naturally shorter than medical journeys. 2-5 sentences is authentic. Short reviews allowed."
+  },
+
+  "rating": {
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
+      "allowNegative": false
+    },
+    "4": {
+      "tone": "positive",
+      "emojiBoost": false,
+      "sentenceLengthBias": "medium",
+      "allowNegative": false
+    },
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
+      "allowNegative": false
+    }
+  },
+
+  "reviewNarrative": {
+    "_note": "Guides phrase bank tone. Not used by engine directly.",
+    "corePainPoints": [
+      "Fear of dentist / dental anxiety",
+      "Tooth pain for days/weeks before visiting",
+      "Worried about pain during procedure",
+      "Had bad experience at another clinic before",
+      "Avoided dentist for years due to fear",
+      "Child was scared of dentist",
+      "Missing teeth affecting confidence / eating",
+      "Crooked teeth affecting smile confidence"
+    ],
+    "coreUSPs": [
+      "Completely painless treatment",
+      "Dr. Priyank Prakash personally attends to every patient",
+      "Modern equipment and technology",
+      "Doctor explains everything clearly before starting",
+      "Staff is gentle and calming",
+      "Affordable, transparent pricing with quality",
+      "Quick appointments, no long wait",
+      "Children handled very patiently",
+      "Comprehensive care — RCT to implants to Invisalign under one doctor",
+      "Convenient Charbagh location, easy to reach near the railway station"
+    ]
+  }
+}
