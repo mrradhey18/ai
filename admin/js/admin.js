@@ -38,6 +38,7 @@ const Admin = (() => {
       { slug: 'dr-verma-homeo', name: 'Dr. Verma Multispeciality Homeopathy' },
       { slug: '32-pearls-dental-world', name: '32 Pearls Dental World Clinic and Facial Aesthetic Center' },
       { slug: 'brite-smile-dental-care', name: 'Brite Smile Dental Care' },
+      { slug: 'healthy-32-dental-implant-centre', name: 'Healthy 32 Dental and Implant Centre | Smiles & Skin' },
       // Add new clients here when you create their profile.json
     ],
   };
