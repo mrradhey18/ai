@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "purpose": "Emoji pools for English reviews of Healthy 32 Dental and Implant Centre | Smiles & Skin. Same structure as hinglish/emojis.json. English reviewers use slightly fewer emojis — profile probability handles that.",
+    "rules": [
+      "Dental-appropriate emojis",
+      "Never more than 3 in one review",
+      "5-star expressive, 3-star minimal",
+      "Clinic offers dental + implants + skin care (Smiles & Skin). Do not name a specific doctor unless the profile has one."
+    ]
+  },
+  "5star": [
+    "😁",
+    "😊",
+    "🙏",
+    "💯",
+    "👍",
+    "⭐",
+    "✨",
+    "😄",
+    "🌟",
+    "👏",
+    "💪",
+    "🙌",
+    "❤️",
+    "✅",
+    "🔥",
+    "😍",
+    "🤩",
+    "😀"
+  ],
+  "4star": [
+    "😊",
+    "👍",
+    "🙏",
+    "✅",
+    "⭐",
+    "👌",
+    "😌",
+    "💙",
+    "😃"
+  ],
+  "3star": [
+    "🙏",
+    "👍",
+    "😐",
+    "✅",
+    "⭐"
+  ],
+  "health_specific": [
+    "🦷",
+    "😁",
+    "🩺",
+    "❤️‍🩹",
+    "✅"
+  ],
+  "combinations": {
+    "5star": [
+      [
+        "🙏",
+        "✨"
+      ],
+      [
+        "💯",
+        "😊"
+      ],
+      [
+        "😁",
+        "👍"
+      ],
+      [
+        "🌟",
+        "❤️"
+      ],
+      [
+        "✅",
+        "😄"
+      ],
+      [
+        "🦷",
+        "😁"
+      ],
+      [
+        "👏",
+        "🙌"
+      ],
+      [
+        "😍",
+        "💯"
+      ]
+    ],
+    "4star": [
+      [
+        "👍",
+        "😊"
+      ],
+      [
+        "🙏",
+        "✅"
+      ],
+      [
+        "😌",
+        "👌"
+      ],
+      [
+        "⭐",
+        "😃"
+      ]
+    ],
+    "3star": [
+      [
+        "🙏"
+      ],
+      [
+        "👍"
+      ],
+      [
+        "✅"
+      ]
+    ]
+  }
+}

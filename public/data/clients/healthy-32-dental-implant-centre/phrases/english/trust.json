@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "purpose": "Trust-building sentences in English for Healthy 32 Dental and Implant Centre | Smiles & Skin. Used mid-review. Makes the reader believe the experience was real.",
+    "rules": [
+      "Mention: listening, patience, painless technique, clear explanation, equipment, personal attention",
+      "No exaggeration — must sound like a real patient",
+      "Vary between doctor praise, staff praise, clinic environment",
+      "Clinic offers dental + implants + skin care (Smiles & Skin). Do not name a specific doctor unless the profile has one."
+    ]
+  },
+  "5star": [
+    "Everything was explained clearly before they started — what, why, and how long.",
+    "The staff is genuinely gentle — made a big difference for someone with dental anxiety.",
+    "The clinic is very well equipped — you can see they've invested in proper technology.",
+    "Pain management was excellent — they meant it when they said painless.",
+    "My child was handled so patiently — no rushing, no scaring, just calm and careful.",
+    "Even my follow-up questions were answered properly without being dismissed.",
+    "The cleanliness of the clinic itself was reassuring before the treatment even started.",
+    "Unlike other places, he explained what had gone wrong previously at another clinic.",
+    "Reception staff was helpful and the wait time was minimal.",
+    "He didn't push unnecessary treatments — only what was actually needed.",
+    "The whole setup runs efficiently — you can tell this is a properly run clinic.",
+    "Anaesthesia was administered so carefully I didn't feel the needle at all.",
+    "Felt like a person being treated, not a number being processed.",
+    "The equipment here is noticeably more modern than other clinics I've visited.",
+    "Staff kept checking if I was okay throughout the procedure — that kind of care matters.",
+    "Pricing was discussed upfront, no surprises at the end.",
+    "The doctor listened properly and explained the full treatment plan before starting.",
+    "Implant procedure was explained step by step — no pressure, no confusion.",
+    "Loved that I could get my dental work and skin consultation at the same clinic.",
+    "The clinic is spotless and the equipment looks genuinely modern.",
+    "Pricing was explained upfront — no surprises at the end."
+  ],
+  "4star": [
+    "Staff is cooperative and the clinic is clean.",
+    "The treatment plan was explained properly.",
+    "Good listening from the doctor's side.",
+    "Clinic environment is comfortable and hygienic.",
+    "Reasonable explanation given for the procedure.",
+    "Staff was polite throughout my visit.",
+    "The treatment approach seems systematic and careful.",
+    "Comprehensive treatment options available under one doctor."
+  ],
+  "3star": [
+    "The doctor listened to my problem.",
+    "Treatment was given after consultation.",
+    "The clinic was reasonably clean.",
+    "Staff was decent.",
+    "Appointment happened on time."
+  ],
+  "skin": {
+    "5star": [
+      "The doctor examined my skin properly and explained the cause, not just the cure.",
+      "No pressure to buy unnecessary products — only what was needed.",
+      "Treatment plan was clear, with realistic expectations and honest timelines.",
+      "The clinic is spotless and the equipment is modern.",
+      "Staff was polite and the consultation wasn't rushed.",
+      "Pricing was explained upfront — no hidden charges.",
+      "Loved that dental and skin care are available under one roof."
+    ],
+    "4star": [
+      "Doctor listened carefully and explained the plan.",
+      "Clean clinic and friendly staff.",
+      "Pricing was fair and explained clearly."
+    ],
+    "3star": [
+      "Staff was polite.",
+      "Consultation was fine."
+    ]
+  }
+}

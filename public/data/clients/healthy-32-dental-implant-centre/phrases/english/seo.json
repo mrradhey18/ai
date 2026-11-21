@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "purpose": "Local SEO sentences in English for Healthy 32 Dental and Implant Centre | Smiles & Skin. Engine picks MAX 1 per review. Full natural sentences that carry searchable terms — not keyword stuffing.",
+    "rules": [
+      "Must read like something a real patient would actually write",
+      "Never two location mentions in one sentence",
+      "Conversational tone always",
+      "Clinic offers dental + implants + skin care (Smiles & Skin). Do not name a specific doctor unless the profile has one."
+    ]
+  },
+  "location": [
+    "If you're in {{city}} and looking for a good dentist, this is genuinely the place.",
+    "Best dental option I've found in {{city}} so far.",
+    "People in {{area}} are lucky to have a clinic like this so close.",
+    "Haven't found a better dental clinic in {{city}} honestly.",
+    "Worth visiting even if you're not from {{area}} — that's how good it is.",
+    "This clinic has a solid reputation in {{city}} and it's well deserved.",
+    "If you're searching for a dentist in {{city}}, you can stop now.",
+    "My whole family in {{city}} comes here now.",
+    "One of the better clinics in {{city}} — and I've tried a few.",
+    "Hands down the best dental clinic in {{city}} that I've come across.",
+    "People come from across {{city}} for this clinic — now I know why.",
+    "Best dental clinic I've found in Jankipuram Extension, Lucknow.",
+    "If you're in Jankipuram looking for a dentist, this is the place.",
+    "Very easy to find near Bhitauli, Sector 8 — worth the visit.",
+    "Coming from Indira Nagar side, the distance was no issue at all.",
+    "Dental implant and skin care under one roof in Jankipuram — rare to find.",
+    "Near the railway crossing in Sector 8 — easy to reach and easy to recommend.",
+    "People in {{area}} are lucky to have a clinic like this nearby."
+  ],
+  "credibility": [
+    "The experience level here is obvious from the first interaction.",
+    "Years of practice show in how smoothly everything is handled.",
+    "The clinic has a strong reputation and it's clearly earned.",
+    "You can see why so many patients keep returning here.",
+    "The consistency in quality shows real expertise.",
+    "Trusted by a lot of families in the area for good reason.",
+    "Dental and skin treatments both handled professionally — you can see the expertise.",
+    "Proper implant setup and modern equipment — not what you expect in a neighbourhood clinic.",
+    "Very hygienic, sterilised setup — felt safe from the first minute."
+  ],
+  "skin": {
+    "location": [
+      "Best skin clinic I've found in Jankipuram Extension, Lucknow.",
+      "If you're in Jankipuram looking for skin treatment, this is the place.",
+      "Easy to find near Bhitauli, Sector 8 — worth the visit.",
+      "Skin and dental care under one roof in Jankipuram — rare to find in Lucknow.",
+      "Near the railway crossing in Sector 8 — convenient and worth recommending.",
+      "People in {{area}} are lucky to have a skin clinic like this nearby."
+    ],
+    "credibility": [
+      "Proper skin assessment before any treatment — you can tell they know what they're doing.",
+      "Hygienic setup and modern equipment — felt safe from the first minute.",
+      "Both skin and dental treatments handled professionally in one clinic."
+    ]
+  }
+}
