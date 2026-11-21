@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "purpose": "Local SEO sentences for Healthy 32 Dental and Implant Centre | Smiles & Skin in Hinglish. Engine picks MAX 1 per review. Full natural sentences that carry searchable terms — NOT keyword stuffing.",
+    "rules": [
+      "Must read like something a real patient would write",
+      "Never two location mentions in one sentence",
+      "Conversational — 'Lucknow mein best hai' not 'best dental clinic in Lucknow city'",
+      "Clinic offers dental + implants + skin care (Smiles & Skin). Do not name a specific doctor unless the profile has one."
+    ]
+  },
+  "location": [
+    "{{city}} mein itna accha dental clinic dhundh raha tha — yahan mil gaya.",
+    "{{area}} mein rehte ho toh yeh jagah bilkul paas hai aur best bhi.",
+    "Honestly {{city}} mein yahan se better dental care nahi mili mujhe.",
+    "{{city}} mein itni modern dental clinic expect nahi ki thi honestly.",
+    "Puri {{city}} mein is level ka dental care dhundha — yahan mila.",
+    "{{area}} mein is clinic ki reputation hai — woh deserve karta hai.",
+    "Jo bhi {{city}} mein dentist dhundh raha hai seriously, yahan ek baar zaroor aao.",
+    "{{city}} mein itne sare dentists hain par yahan wali quality alag hai.",
+    "Jankipuram Extension mein itna accha dental clinic dhundh raha tha — yahan mil gaya.",
+    "Bhitauli ke paas Sector 8 mein hai — easily mil jaata hai aur worth it hai.",
+    "Jankipuram mein dental aur skin dono ek hi jagah — yeh combination kam milta hai.",
+    "Railway crossing ke paas Sector 8 mein hai — aana-jaana easy hai.",
+    "Indira Nagar side se aaya tha — distance koi issue nahi tha.",
+    "{{area}} mein rehte ho toh yeh clinic bilkul paas hai aur best bhi."
+  ],
+  "credibility": [
+    "Doctor yahan clearly bahut experienced hain — ek visit mein samajh aa jaata hai.",
+    "Kaafi saalon se yeh clinic chal rahi hai — reputation bani hui hai acchi.",
+    "Itne sare patients aate hain yahan — reason pata chala visit karke.",
+    "Latest equipment hai aur technique bhi modern — difference feel hoti hai.",
+    "Yahan ka reputation word-of-mouth pe chalta hai — aur sahi chalta hai.",
+    "Bahut saare logo ne suggest kiya tha — woh sab sahi the.",
+    "Dental implant ka proper setup hai yahan — neighbourhood clinic mein aisa kam milta hai.",
+    "Dental aur skin dono treatments professionally handle hote hain — expertise dikhti hai.",
+    "Bahut hygienic setup hai — pehle minute se hi safe feel hua."
+  ],
+  "skin": {
+    "location": [
+      "Jankipuram Extension, Lucknow mein itna accha skin clinic dhundh raha tha — yahan mil gaya.",
+      "Jankipuram mein skin treatment dhundh rahe ho toh yahi jagah hai.",
+      "Bhitauli ke paas Sector 8 mein hai — easily mil jaata hai, worth it hai.",
+      "Jankipuram mein skin aur dental dono ek hi jagah — Lucknow mein yeh kam milta hai.",
+      "Railway crossing ke paas Sector 8 mein hai — aana-jaana easy hai.",
+      "{{area}} mein rehte ho toh yeh skin clinic bilkul paas hai aur best bhi."
+    ],
+    "credibility": [
+      "Treatment se pehle skin ka proper assessment hota hai — pata chalta hai experience hai.",
+      "Hygienic setup aur modern equipment — pehle minute se safe feel hua.",
+      "Skin aur dental dono treatments ek hi clinic mein professionally handle hote hain."
+    ]
+  }
+}
