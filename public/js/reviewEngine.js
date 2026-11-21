@@ -150,7 +150,7 @@ const ReviewEngine = (() => {
    * @param {Object} templateValues  { service, city, area }
    * @returns {string|null}        humanized, filled sentence or null
    */
-  function _buildPhrase(type, phrases, stars, language, templateValues) {
+  function _buildPhrase(type, phrases, stars, language, templateValues, category) {
     const phraseCategory = phrases[type];
     if (!phraseCategory) {
       Utils.warn(`ReviewEngine: phrase type "${type}" not found in bank`);
@@ -158,7 +158,11 @@ const ReviewEngine = (() => {
     }
 
     // Get the right star pool
-    const pool = LanguageEngine.getPool(phraseCategory, stars);
+    // Optional per-category sub-pool (e.g. "skin") inside a phrase file.
+    // Falls back to the normal pool when the category has no pool.
+    const catPool = category && phraseCategory[category]
+      ? LanguageEngine.getPool(phraseCategory[category], stars) : null;
+    const pool = (catPool && catPool.length) ? catPool : LanguageEngine.getPool(phraseCategory, stars);
     if (!pool || pool.length === 0) {
       Utils.warn(`ReviewEngine: empty pool for type "${type}", stars ${stars}`);
       return null;
@@ -237,7 +241,8 @@ const ReviewEngine = (() => {
         phrases,
         stars,
         language,
-        templateValues
+        templateValues,
+        serviceData?.category
       );
 
       if (sentence) sentences.push(sentence);
@@ -245,7 +250,7 @@ const ReviewEngine = (() => {
 
     // Ensure minimum length — add outro if too short
     if (sentences.length < 2) {
-      const outro = _buildPhrase('outros', phrases, stars, language, templateValues);
+      const outro = _buildPhrase('outros', phrases, stars, language, templateValues, serviceData?.category);
       if (outro && !sentences.includes(outro)) sentences.push(outro);
     }
 
@@ -257,7 +262,7 @@ const ReviewEngine = (() => {
     // so humanizer can naturally clean up spacing
     reviewText = SeoInjector.inject(
       reviewText,
-      phrases.seo,
+      (serviceData?.category && phrases.seo?.[serviceData.category]) || phrases.seo,
       clientProfile,
       stars,
       serviceData
