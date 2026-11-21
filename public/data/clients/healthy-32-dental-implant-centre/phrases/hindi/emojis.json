@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "purpose": "Emojis for Hindi reviews - Healthy 32 Dental and Implant Centre | Smiles & Skin. Hindi reviewers use fewer emojis — lower probability in profile handles this."
+  },
+  "5star": [
+    "😊",
+    "🙏",
+    "💯",
+    "👍",
+    "⭐",
+    "✨",
+    "🌟",
+    "❤️",
+    "✅",
+    "👏",
+    "😁"
+  ],
+  "4star": [
+    "😊",
+    "👍",
+    "🙏",
+    "✅",
+    "⭐",
+    "👌",
+    "😌"
+  ],
+  "3star": [
+    "🙏",
+    "👍",
+    "✅"
+  ],
+  "health_specific": [
+    "🦷",
+    "😁",
+    "🩺",
+    "❤️‍🩹",
+    "✅"
+  ],
+  "combinations": {
+    "5star": [
+      [
+        "🙏",
+        "✨"
+      ],
+      [
+        "💯",
+        "😊"
+      ],
+      [
+        "😁",
+        "👍"
+      ],
+      [
+        "🌟",
+        "❤️"
+      ],
+      [
+        "✅",
+        "🙏"
+      ],
+      [
+        "👏",
+        "😊"
+      ]
+    ],
+    "4star": [
+      [
+        "👍",
+        "😊"
+      ],
+      [
+        "🙏",
+        "✅"
+      ],
+      [
+        "⭐",
+        "😊"
+      ]
+    ],
+    "3star": [
+      [
+        "🙏"
+      ],
+      [
+        "👍"
+      ],
+      [
+        "✅"
+      ]
+    ]
+  }
+}
