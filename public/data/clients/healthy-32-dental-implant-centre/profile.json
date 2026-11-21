@@ -1,0 +1,276 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-11-21",
+    "notes": "Healthy 32 Dental and Implant Centre | Smiles & Skin, railway crossing, 8/64 Near Bhitauli, Sector 8, Jankipuram Extension, Lucknow. Dental + implants + skin care clinic. Doctor name not provided yet. TODO: replace googleReviewUrl with the real g.page/r/.../review short link and add logo.png."
+  },
+  "business": {
+    "name": "Healthy 32 Dental and Implant Centre | Smiles & Skin",
+    "slug": "healthy-32-dental-implant-centre",
+    "logoUrl": "../public/data/clients/healthy-32-dental-implant-centre/logo.png",
+    "tagline": "Dental Implants, Smile Care & Skin Care — Jankipuram Extension, Lucknow",
+    "city": "Lucknow",
+    "area": "Jankipuram Extension",
+    "locality": "Sector 8",
+    "landmark": "Railway Crossing, near Bhitauli",
+    "state": "Uttar Pradesh",
+    "address": "Railway crossing, 8/64 Near Bhitauli, Sector 8, Jankipuram Extension, Lucknow",
+    "googleReviewUrl": "https://maps.app.goo.gl/gdhHgaw96nNQL3g16",
+    "googleMapsUrl": "https://maps.app.goo.gl/gdhHgaw96nNQL3g16",
+    "phone": "",
+    "doctor": "",
+    "teamSize": "",
+    "speciality": "Dental, Implant & Skin Care"
+  },
+  "services": [
+    {
+      "id": "dental_implants",
+      "label": "Dental Implants",
+      "keywords": [
+        "dental implants Lucknow",
+        "dental implant Jankipuram",
+        "best implant dentist Lucknow",
+        "tooth implant Jankipuram Extension",
+        "implant centre near Bhitauli"
+      ]
+    },
+    {
+      "id": "root_canal",
+      "label": "Root Canal Treatment (RCT)",
+      "keywords": [
+        "root canal Lucknow",
+        "painless root canal Jankipuram",
+        "RCT treatment Lucknow",
+        "root canal specialist Jankipuram Extension"
+      ]
+    },
+    {
+      "id": "crown_bridge",
+      "label": "Crowns & Bridges",
+      "keywords": [
+        "dental crown Lucknow",
+        "tooth cap Jankipuram",
+        "dental bridge Lucknow",
+        "fixed teeth Lucknow"
+      ]
+    },
+    {
+      "id": "dentures",
+      "label": "Dentures",
+      "keywords": [
+        "dentures Lucknow",
+        "full denture Jankipuram",
+        "teeth replacement Lucknow"
+      ]
+    },
+    {
+      "id": "braces",
+      "label": "Braces / Orthodontics",
+      "keywords": [
+        "braces in Lucknow",
+        "orthodontist Jankipuram",
+        "teeth alignment Lucknow",
+        "clear aligners Lucknow"
+      ]
+    },
+    {
+      "id": "teeth_whitening",
+      "label": "Teeth Whitening",
+      "keywords": [
+        "teeth whitening Lucknow",
+        "teeth whitening Jankipuram",
+        "smile makeover Lucknow"
+      ]
+    },
+    {
+      "id": "scaling_cleaning",
+      "label": "Scaling & Cleaning",
+      "keywords": [
+        "teeth cleaning Lucknow",
+        "dental scaling Jankipuram",
+        "dental cleaning Sector 8 Lucknow"
+      ]
+    },
+    {
+      "id": "tooth_extraction",
+      "label": "Tooth Extraction",
+      "keywords": [
+        "tooth extraction Lucknow",
+        "wisdom tooth removal Lucknow",
+        "painless extraction Jankipuram"
+      ]
+    },
+    {
+      "id": "smile_makeover",
+      "label": "Smile Makeover",
+      "keywords": [
+        "smile makeover Lucknow",
+        "cosmetic dentistry Lucknow",
+        "smile design Jankipuram"
+      ]
+    },
+    {
+      "id": "pediatric",
+      "label": "Children's Dentistry",
+      "keywords": [
+        "kids dentist Lucknow",
+        "child dental Jankipuram",
+        "pediatric dentist Lucknow"
+      ]
+    },
+    {
+      "id": "gum_treatment",
+      "label": "Gum Treatment",
+      "keywords": [
+        "gum treatment Lucknow",
+        "pyorrhea treatment Lucknow",
+        "gum specialist Jankipuram"
+      ]
+    },
+    {
+      "id": "skin_care",
+      "label": "Skin Care & Dermatology",
+      "keywords": [
+        "skin clinic Jankipuram Lucknow",
+        "skin specialist Lucknow",
+        "skin treatment Jankipuram Extension",
+        "skin care clinic near Bhitauli"
+      ],
+      "category": "skin"
+    },
+    {
+      "id": "facial_treatment",
+      "label": "Facial & Skin Glow Treatment",
+      "keywords": [
+        "facial treatment Lucknow",
+        "skin glow treatment Lucknow",
+        "dental and skin clinic Lucknow"
+      ],
+      "category": "skin"
+    },
+    {
+      "id": "acne_pigmentation",
+      "label": "Acne & Pigmentation Treatment",
+      "keywords": [
+        "acne treatment Lucknow",
+        "pigmentation treatment Lucknow",
+        "acne scar treatment Jankipuram"
+      ],
+      "category": "skin"
+    },
+    {
+      "id": "hair_treatment",
+      "label": "Hair Treatment",
+      "keywords": [
+        "hair fall treatment Lucknow",
+        "hair treatment Jankipuram",
+        "hair loss clinic Lucknow"
+      ],
+      "category": "skin"
+    }
+  ],
+  "seo": {
+    "localKeywords": [
+      "best dentist in Lucknow",
+      "best dental clinic in Jankipuram Extension",
+      "dental implant centre Lucknow",
+      "Healthy 32 Dental Lucknow",
+      "dental clinic near Bhitauli Jankipuram",
+      "dentist Sector 8 Jankipuram",
+      "dental and skin clinic Lucknow",
+      "best implant dentist Jankipuram Lucknow"
+    ],
+    "nearbyAreas": [
+      "Jankipuram",
+      "Jankipuram Extension",
+      "Bhitauli",
+      "Sector 8",
+      "Indira Nagar",
+      "Kursi Road",
+      "Sector 6",
+      "Sector 7"
+    ],
+    "trustKeywords": [
+      "dental and skin care under one roof",
+      "advanced equipment",
+      "painless treatment",
+      "experienced doctor",
+      "affordable dental care",
+      "modern dental clinic",
+      "hygienic and sterile setup",
+      "transparent pricing"
+    ],
+    "maxKeywordsPerReview": 2
+  },
+  "language": {
+    "probabilities": {
+      "english": 25,
+      "hinglish": 45,
+      "hindi": 20,
+      "mixed": 10
+    },
+    "_note": "Lucknow residential/suburban patient base (Jankipuram) — Hinglish dominant."
+  },
+  "tone": {
+    "formality": "casual",
+    "warmth": "high",
+    "doctorReferenceStyle": "respectful",
+    "emotionalIntensity": "medium-high",
+    "_note": "Dental anxiety -> relief, plus skin-care confidence angle. Doctor name not provided, so phrases use 'the doctor' generically."
+  },
+  "emoji": {
+    "enabled": true,
+    "probability": 60
+  },
+  "reviewStyle": {
+    "minSentences": 2,
+    "maxSentences": 5,
+    "allowImperfectGrammar": true,
+    "allowLowercase": true,
+    "allowShortReviews": true,
+    "_note": "Dental reviews are naturally shorter than medical journeys. 2-5 sentences is authentic. Short reviews allowed."
+  },
+  "rating": {
+    "5": {
+      "tone": "emotional",
+      "emojiBoost": true,
+      "sentenceLengthBias": "longer",
+      "allowNegative": false
+    },
+    "4": {
+      "tone": "positive",
+      "emojiBoost": false,
+      "sentenceLengthBias": "medium",
+      "allowNegative": false
+    },
+    "3": {
+      "tone": "neutral",
+      "emojiBoost": false,
+      "sentenceLengthBias": "shorter",
+      "allowNegative": false
+    }
+  },
+  "reviewNarrative": {
+    "_note": "Guides phrase bank tone. Not used by engine directly.",
+    "corePainPoints": [
+      "Fear of dentist / dental anxiety",
+      "Tooth pain for days/weeks before visiting",
+      "Worried about pain during procedure",
+      "Had bad experience at another clinic before",
+      "Avoided dentist for years due to fear",
+      "Child was scared of dentist",
+      "Missing teeth affecting confidence / eating",
+      "Crooked teeth affecting smile confidence",
+      "Skin concerns (acne, pigmentation, dullness) affecting confidence"
+    ],
+    "coreUSPs": [
+      "Completely painless treatment",
+      "Dental implants and skin care under one roof",
+      "Doctor explains everything before starting",
+      "Modern equipment and clean, sterile setup",
+      "Gentle, calming staff",
+      "Transparent pricing, no hidden charges",
+      "Convenient Jankipuram Extension location near Bhitauli / railway crossing"
+    ]
+  }
+}
